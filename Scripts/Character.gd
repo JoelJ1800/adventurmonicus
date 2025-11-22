@@ -22,10 +22,10 @@ func _physics_process(delta):
 
 func _move(delta: float):
 	external_force = external_force.lerp(Vector2.ZERO, force_drag * delta)
-	
+
 	velocity = move_input * move_speed
 	velocity += external_force
-	
+
 	move_and_slide()
 
 
