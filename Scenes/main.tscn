@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=9 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://btqlatabplef0" path="res://Characters/Character_Man.tres" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://csmuu6wqk0iow" path="res://Scripts/Character/enemy.gd" id="5_21xkr"]
+[ext_resource type="Texture2D" uid="uid://dagt18rdsjnc2" path="res://Characters/Character_EvilWizard.tres" id="5_kry3j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
+radius = 7.0
 height = 16.0
 
 [node name="Main" type="Node2D"]
@@ -29,3 +35,13 @@ charater = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_bo1nx")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(26, -8)
+script = ExtResource("5_21xkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("5_kry3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("CapsuleShape2D_21xkr")
