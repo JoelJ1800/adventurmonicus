@@ -22,6 +22,7 @@ tile_map_data = PackedByteArray("AADz//n/AAACAAAAAADz//r/AAABAAAAAADz//v/AAABAAE
 tile_set = ExtResource("1_jjgbg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("2_8gbba")
@@ -36,12 +37,15 @@ charater = NodePath("..")
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_bo1nx")
 
-[node name="Enemy" type="CharacterBody2D" parent="."]
+[node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(26, -8)
 script = ExtResource("5_21xkr")
+target = NodePath("../Player")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" node_paths=PackedStringArray("charater")]
 texture = ExtResource("5_kry3j")
+script = ExtResource("4_jjvhh")
+charater = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("CapsuleShape2D_21xkr")
