@@ -54,7 +54,13 @@ func unequip_shield():
 	current_shield.queue_free()
 
 func toggle_shield(toggle:bool):
-	current_shield.visible = toggle
+	has_shield_out = toggle
+	
+	if current_weapon:
+		current_weapon.visible = !toggle
+		current_weapon.can_use = !toggle
+	if current_shield:
+		current_shield.visible = toggle
 
 func try_block_direction(direction: Vector2) -> bool:
 	return false
