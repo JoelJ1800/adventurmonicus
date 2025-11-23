@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://btqlatabplef0" path="res://Characters/Character_Man.tres" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://csmuu6wqk0iow" path="res://Scripts/Character/enemy.gd" id="5_21xkr"]
-[ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_344ge"]
+[ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://dagt18rdsjnc2" path="res://Characters/Character_EvilWizard.tres" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dlo7lyoxeeqcs" path="res://Scenes/Weapons/weapon_axe.tscn" id="6_hptm8"]
+[ext_resource type="PackedScene" uid="uid://dlo7lyoxeeqcs" path="res://Scenes/Weapons/weapon_axe.tscn" id="6_6iyac"]
 [ext_resource type="PackedScene" uid="uid://dxfhdatxaunir" path="res://Scenes/Weapons/weapon_sword.tscn" id="6_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://br87wm46qa1ou" path="res://Scenes/Weapons/shield.tscn" id="7_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://br87wm46qa1ou" path="res://Scenes/Weapons/shield.tscn" id="7_fdnlq"]
 [ext_resource type="Script" uid="uid://dhj4abphxljfw" path="res://Scripts/Weapons/enemy_weapons.gd" id="9_ynf5e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
@@ -46,9 +46,9 @@ shape = SubResource("CapsuleShape2D_bo1nx")
 
 [node name="PlayerWeapons" type="Node2D" parent="Player"]
 position = Vector2(0, -4)
-script = ExtResource("5_344ge")
-weapon_to_equip = ExtResource("6_hptm8")
-shield_to_equip = ExtResource("7_d1ilt")
+script = ExtResource("5_d1ilt")
+weapon_to_equip = ExtResource("6_6iyac")
+shield_to_equip = ExtResource("7_fdnlq")
 
 [node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("target", "weapons")]
 position = Vector2(193, 69)
