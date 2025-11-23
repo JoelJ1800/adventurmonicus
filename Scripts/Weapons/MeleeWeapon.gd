@@ -7,6 +7,7 @@ extends Weapon
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var hit_box : Area2D = $Hitbox
 
+
 func _use():
 	anim.play("attack")
 

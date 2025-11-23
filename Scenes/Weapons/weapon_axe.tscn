@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlo7lyoxeeqcs"]
+
+[ext_resource type="Script" uid="uid://bndu7gu6bfll6" path="res://Scripts/Weapons/MeleeWeapon.gd" id="1_5vdaq"]
+[ext_resource type="Texture2D" uid="uid://nnn5juuro7la" path="res://Items/Item_Axe.tres" id="1_65o25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vdaq"]
+size = Vector2(15, 6)
+
+[sub_resource type="Animation" id="Animation_33coa"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6.46, 0), Vector2(4, -7), Vector2(10.035, 2.465), Vector2(6, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.9302604913129778, 1.5306537539990268, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"detect_hits"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7kqew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dv20"]
+_data = {
+&"RESET": SubResource("Animation_7kqew"),
+&"attack": SubResource("Animation_33coa")
+}
+
+[node name="weapon_axe" type="Node2D"]
+script = ExtResource("1_5vdaq")
+damage = 2
+hit_force = 200.0
+range = 30.0
+use_rate = 0.8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -7)
+texture = ExtResource("1_65o25")
+offset = Vector2(11, 0)
+flip_h = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(21, 0)
+shape = SubResource("RectangleShape2D_5vdaq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8dv20")
+}
