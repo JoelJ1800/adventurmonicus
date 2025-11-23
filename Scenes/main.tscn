@@ -29,9 +29,10 @@ tile_set = ExtResource("1_jjgbg")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("weapons")]
 script = ExtResource("2_8gbba")
 move_speed = 40.0
+weapons = NodePath("PlayerWeapons")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" node_paths=PackedStringArray("character")]
 texture = ExtResource("2_bo1nx")
@@ -49,7 +50,7 @@ script = ExtResource("5_344ge")
 weapon_to_equip = ExtResource("6_hptm8")
 shield_to_equip = ExtResource("7_d1ilt")
 
-[node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("target")]
+[node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("target", "weapons")]
 position = Vector2(193, 69)
 script = ExtResource("5_21xkr")
 target = NodePath("../Player")
@@ -57,6 +58,7 @@ stop_distance = 25.0
 cur_hp = 3
 max_hp = 3
 move_speed = 30.0
+weapons = NodePath("EnemyWeapons")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy" node_paths=PackedStringArray("character")]
 texture = ExtResource("5_kry3j")

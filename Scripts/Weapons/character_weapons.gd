@@ -63,4 +63,11 @@ func toggle_shield(toggle:bool):
 		current_shield.visible = toggle
 
 func try_block_direction(direction: Vector2) -> bool:
-	return false
+	if not current_shield:
+		return false
+	if not has_shield_out:
+		return false
+	var dot:float = current_shield.transform.x.dot(direction)
+	var do_block:bool = dot < -0.8
+	
+	return do_block
