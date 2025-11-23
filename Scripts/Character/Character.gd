@@ -30,7 +30,11 @@ func _move(delta: float):
 
 
 func take_damage(damage: int, force: Vector2):
-	pass
+	cur_hp -= damage
+	add_force(force)
+	
+	if cur_hp <= 0:
+		_die()
 
 
 func _die():
