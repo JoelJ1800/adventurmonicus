@@ -2,10 +2,14 @@ class_name CharacterWeapons
 extends Node2D
 
 @export var weapon_to_equip : PackedScene
+@export var shield_to_equip : PackedScene
 
 var current_weapon : Weapon
+var current_shield : Shield
+var has_shield_out : bool
 
 @onready var character : Character = $".."
+
 
 func _ready ():
 	if weapon_to_equip:

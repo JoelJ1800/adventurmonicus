@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://br87wm46qa1ou"]
+
+[ext_resource type="Script" uid="uid://b22b8wyghp084" path="res://Scripts/Weapons/shield.gd" id="1_jxbso"]
+[ext_resource type="Texture2D" uid="uid://bo7ugi0xnp2op" path="res://Items/Item_Shield.tres" id="2_mnsdq"]
+
+[node name="Shield" type="Node2D"]
+script = ExtResource("1_jxbso")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mnsdq")
+offset = Vector2(9, 0)
