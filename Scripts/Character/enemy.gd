@@ -7,7 +7,7 @@ extends Character
 var target_direction : Vector2
 var target_distance : float
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not target:
 		return
 	

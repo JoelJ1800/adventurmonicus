@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		target_rot = sin(time * wobble_speed) * wobble_amount
 	rotation_degrees = lerpf(rotation_degrees, target_rot, delta * 20)
 
-func _on_take_damage (hit_force : Vector2):
+func _on_take_damage (_hit_force : Vector2):
 	modulate = Color.BLACK
 	await get_tree().create_timer(0.08).timeout
 	modulate = Color.WHITE

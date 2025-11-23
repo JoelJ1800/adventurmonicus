@@ -84,7 +84,7 @@ _data = {
 script = ExtResource("1_5vdaq")
 damage = 2
 hit_force = 200.0
-range = 30.0
+weapon_range = 30.0
 use_rate = 0.8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

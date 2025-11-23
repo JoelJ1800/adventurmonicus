@@ -2,7 +2,7 @@ class_name PlayerWeapons
 extends CharacterWeapons
 
 
-func _process (delta : float):
+func _process (_delta : float):
 	var mouse_pos : Vector2 = get_global_mouse_position()
 	var mouse_dir : Vector2 = global_position.direction_to(mouse_pos)
 	

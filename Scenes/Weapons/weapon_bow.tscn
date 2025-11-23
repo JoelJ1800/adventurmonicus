@@ -7,7 +7,7 @@
 [node name="Weapon_Bow" type="Node2D"]
 script = ExtResource("1_ipr6a")
 projectile_scene = ExtResource("2_4hrs2")
-range = 100.0
+weapon_range = 200.0
 use_rate = 0.8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
