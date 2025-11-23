@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=12 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="2_8gbba"]
@@ -7,11 +7,8 @@
 [ext_resource type="Script" uid="uid://csmuu6wqk0iow" path="res://Scripts/Character/enemy.gd" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_344ge"]
 [ext_resource type="Texture2D" uid="uid://dagt18rdsjnc2" path="res://Characters/Character_EvilWizard.tres" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dlo7lyoxeeqcs" path="res://Scenes/Weapons/weapon_axe.tscn" id="6_hptm8"]
-[ext_resource type="PackedScene" uid="uid://dxfhdatxaunir" path="res://Scenes/Weapons/weapon_sword.tscn" id="6_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="6_hptm8"]
 [ext_resource type="Script" uid="uid://dhj4abphxljfw" path="res://Scripts/Weapons/enemy_weapons.gd" id="9_ynf5e"]
-[ext_resource type="Script" uid="uid://dhc554ht1akct" path="res://Scripts/Weapons/Projectile.gd" id="11_6iyac"]
-[ext_resource type="Texture2D" uid="uid://bxg4rbiy32ydv" path="res://Items/Item_Arrow.tres" id="11_d1ilt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
@@ -20,9 +17,6 @@ height = 16.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
 radius = 7.0
 height = 16.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iyac"]
-size = Vector2(16, 4)
 
 [node name="Main" type="Node2D"]
 
@@ -35,6 +29,7 @@ zoom = Vector2(4, 4)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("2_8gbba")
+move_speed = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" node_paths=PackedStringArray("character")]
 texture = ExtResource("2_bo1nx")
@@ -58,7 +53,7 @@ target = NodePath("../Player")
 stop_distance = 25.0
 cur_hp = 3
 max_hp = 3
-move_speed = 15.0
+move_speed = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy" node_paths=PackedStringArray("character")]
 texture = ExtResource("5_kry3j")
@@ -70,15 +65,4 @@ shape = SubResource("CapsuleShape2D_21xkr")
 
 [node name="EnemyWeapons" type="Node2D" parent="Enemy"]
 script = ExtResource("9_ynf5e")
-weapon_to_equip = ExtResource("6_ynf5e")
-
-[node name="Arrow" type="Area2D" parent="."]
-script = ExtResource("11_6iyac")
-
-[node name="Sprite2D" type="Sprite2D" parent="Arrow"]
-rotation = 0.7853982
-texture = ExtResource("11_d1ilt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow"]
-position = Vector2(2, 0)
-shape = SubResource("RectangleShape2D_6iyac")
+weapon_to_equip = ExtResource("6_hptm8")
