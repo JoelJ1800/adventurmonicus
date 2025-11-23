@@ -14,6 +14,8 @@ var has_shield_out : bool
 func _ready ():
 	if weapon_to_equip:
 		equip_weapon(weapon_to_equip)
+	if shield_to_equip:
+		equip_shield(shield_to_equip)
 
 func equip_weapon (weapon_scene : PackedScene):
 	if current_weapon:
@@ -32,3 +34,27 @@ func unequip_weapon ():
 	
 	current_weapon._unequip()
 	current_weapon.queue_free()
+
+func equip_shield(shield_scene:PackedScene):
+	if current_shield:
+		unequip_shield()
+	
+	current_shield = shield_scene.instantiate()
+	add_child(current_shield)
+	current_shield.global_position = global_position
+	
+	current_shield.owner_character = character
+	current_shield._equip()
+	current_shield.visible = false
+
+func unequip_shield():
+	if not current_shield:
+		return
+	current_shield._unequip()
+	current_shield.queue_free()
+
+func toggle_shield(toggle:bool):
+	current_shield.visible = toggle
+
+func try_block_direction(direction: Vector2) -> bool:
+	return false
