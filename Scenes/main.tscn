@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://csmuu6wqk0iow" path="res://Scripts/Character/enemy.gd" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_344ge"]
 [ext_resource type="Texture2D" uid="uid://dagt18rdsjnc2" path="res://Characters/Character_EvilWizard.tres" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="6_hptm8"]
+[ext_resource type="PackedScene" uid="uid://dxfhdatxaunir" path="res://Scenes/Weapons/weapon_sword.tscn" id="6_ynf5e"]
 [ext_resource type="Script" uid="uid://dhj4abphxljfw" path="res://Scripts/Weapons/enemy_weapons.gd" id="9_ynf5e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
@@ -44,7 +44,7 @@ shape = SubResource("CapsuleShape2D_bo1nx")
 [node name="PlayerWeapons" type="Node2D" parent="Player"]
 position = Vector2(0, -4)
 script = ExtResource("5_344ge")
-weapon_to_equip = ExtResource("6_hptm8")
+weapon_to_equip = ExtResource("6_ynf5e")
 
 [node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(193, 69)
@@ -65,4 +65,4 @@ shape = SubResource("CapsuleShape2D_21xkr")
 
 [node name="EnemyWeapons" type="Node2D" parent="Enemy"]
 script = ExtResource("9_ynf5e")
-weapon_to_equip = ExtResource("6_hptm8")
+weapon_to_equip = ExtResource("6_ynf5e")
