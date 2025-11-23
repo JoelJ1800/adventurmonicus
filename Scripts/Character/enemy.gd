@@ -21,3 +21,6 @@ func _process(delta: float) -> void:
 		move_input = target_direction
 	else:
 		move_input = Vector2.ZERO
+
+func _die():
+	queue_free()
