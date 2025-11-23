@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=16 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="2_8gbba"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dlo7lyoxeeqcs" path="res://Scenes/Weapons/weapon_axe.tscn" id="6_hptm8"]
 [ext_resource type="PackedScene" uid="uid://dxfhdatxaunir" path="res://Scenes/Weapons/weapon_sword.tscn" id="6_ynf5e"]
 [ext_resource type="Script" uid="uid://dhj4abphxljfw" path="res://Scripts/Weapons/enemy_weapons.gd" id="9_ynf5e"]
+[ext_resource type="Script" uid="uid://dhc554ht1akct" path="res://Scripts/Weapons/Projectile.gd" id="11_6iyac"]
+[ext_resource type="Texture2D" uid="uid://bxg4rbiy32ydv" path="res://Items/Item_Arrow.tres" id="11_d1ilt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
@@ -18,6 +20,9 @@ height = 16.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
 radius = 7.0
 height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iyac"]
+size = Vector2(16, 4)
 
 [node name="Main" type="Node2D"]
 
@@ -66,3 +71,14 @@ shape = SubResource("CapsuleShape2D_21xkr")
 [node name="EnemyWeapons" type="Node2D" parent="Enemy"]
 script = ExtResource("9_ynf5e")
 weapon_to_equip = ExtResource("6_ynf5e")
+
+[node name="Arrow" type="Area2D" parent="."]
+script = ExtResource("11_6iyac")
+
+[node name="Sprite2D" type="Sprite2D" parent="Arrow"]
+rotation = 0.7853982
+texture = ExtResource("11_d1ilt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_6iyac")
