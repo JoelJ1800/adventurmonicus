@@ -48,6 +48,9 @@ weapon_to_equip = ExtResource("6_ynf5e")
 position = Vector2(60, -8)
 script = ExtResource("5_21xkr")
 target = NodePath("../Player")
+cur_hp = 3
+max_hp = 3
+move_speed = 15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy" node_paths=PackedStringArray("charater")]
 texture = ExtResource("5_kry3j")
