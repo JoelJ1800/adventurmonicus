@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=15 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://rbivrnejvk3f" path="res://Scripts/Character/camera_controller.gd" id="2_6iyac"]
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://btqlatabplef0" path="res://Characters/Character_Man.tres" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_jjvhh"]
@@ -28,6 +29,7 @@ tile_set = ExtResource("1_jjgbg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+script = ExtResource("2_6iyac")
 
 [node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("weapons")]
 script = ExtResource("2_8gbba")
