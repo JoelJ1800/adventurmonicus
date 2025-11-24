@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxfhdatxaunir"]
+[gd_scene load_steps=8 format=3 uid="uid://dxfhdatxaunir"]
 
 [ext_resource type="Script" uid="uid://bndu7gu6bfll6" path="res://Scripts/Weapons/MeleeWeapon.gd" id="1_pyxvt"]
+[ext_resource type="AudioStream" uid="uid://c7pmdknwox81f" path="res://Audio/Attack_Light.ogg" id="2_51ec5"]
 [ext_resource type="Texture2D" uid="uid://y0wxnt6pofk3" path="res://Items/Item_Sword.tres" id="2_g87a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
@@ -62,6 +63,7 @@ script = ExtResource("1_pyxvt")
 damage = 1
 hit_force = 150.0
 weapon_range = 25.0
+attack_sound = ExtResource("2_51ec5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11, 0)

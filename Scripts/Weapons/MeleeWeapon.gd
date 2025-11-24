@@ -9,6 +9,7 @@ extends Weapon
 
 func _use():
 	anim.play("attack")
+	AudioManager.play(attack_sound)
 
 func detect_hits():
 	for body in hit_box.get_overlapping_bodies():
