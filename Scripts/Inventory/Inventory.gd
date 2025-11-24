@@ -14,7 +14,13 @@ var item_slots : Array[ItemSlot]
 @export var start_items : Dictionary[ItemData, int]
 
 func _ready():
-	pass
+	# create slots
+	for i in range(size):
+		item_slots.append(ItemSlot.new())
+		
+	# add start items
+
+
 
 # adds an item to the inventory
 func add_item(item: ItemData) -> bool:
@@ -54,11 +60,23 @@ func remove_item_from_slot(slot: ItemSlot):
 	UpdatedSlot.emit(slot)
 	
 
+# returns item slot containing specified item
 func get_item_slot(item: ItemData) -> ItemSlot:
+	for slot in item_slots:
+		if slot.item == item:
+			return slot
 	return null
 
+# returns an empty slot with no item in it
 func get_empty_item_slot() -> ItemSlot:
+	for slot in item_slots:
+		if slot.item == null:
+			return slot
 	return null
 
+# searches item slots to see if there is already a stack to add to
 func has_item(item: ItemData) -> bool:
+	for slot in item_slots:
+		if slot.item == item:
+			return true
 	return false
