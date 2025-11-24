@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=18 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://rbivrnejvk3f" path="res://Scripts/Character/camera_controller.gd" id="2_6iyac"]
@@ -16,6 +16,30 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
 height = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iyac"]
+bg_color = Color(0.35, 0.05745832, 0.05249999, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing_size = 0.2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdnlq"]
+bg_color = Color(0.1577819, 0.002118651, 0.054294974, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing_size = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkdf5"]
+bg_color = Color(1, 0.00999999, 0.00999999, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing_size = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
 radius = 7.0
@@ -52,6 +76,39 @@ position = Vector2(0, -4)
 script = ExtResource("5_d1ilt")
 weapon_to_equip = ExtResource("6_6iyac")
 shield_to_equip = ExtResource("7_fdnlq")
+
+[node name="HealthBar" type="Panel" parent="Player"]
+offset_left = -9.0
+offset_top = -21.0
+offset_right = 9.0
+offset_bottom = -17.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6iyac")
+
+[node name="Background" type="Panel" parent="Player/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdnlq")
+
+[node name="Fill" type="Panel" parent="Player/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jkdf5")
 
 [node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("target", "weapons")]
 position = Vector2(193, 69)
