@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShieldItemData" load_steps=4 format=3 uid="uid://blk6mi5x7b6rc"]
+
+[ext_resource type="Script" uid="uid://rq4e2m14yxub" path="res://Scripts/Items/ShieldItemData.gd" id="1_t8itk"]
+[ext_resource type="PackedScene" uid="uid://br87wm46qa1ou" path="res://Scenes/Weapons/shield.tscn" id="1_w7f3s"]
+[ext_resource type="Texture2D" uid="uid://bo7ugi0xnp2op" path="res://Sprites/Items/Item_Shield.tres" id="2_cgr4f"]
+
+[resource]
+script = ExtResource("1_t8itk")
+display_name = "Shield"
+description = "Parry them casuals Simon"
+icon = ExtResource("2_cgr4f")
+equip_scene = ExtResource("1_w7f3s")
+metadata/_custom_type_script = "uid://rq4e2m14yxub"
