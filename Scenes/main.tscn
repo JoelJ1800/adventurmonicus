@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=18 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://rbivrnejvk3f" path="res://Scripts/Character/camera_controller.gd" id="2_6iyac"]
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://btqlatabplef0" path="res://Characters/Character_Man.tres" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_jjvhh"]
+[ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="4_wsu2k"]
 [ext_resource type="Script" uid="uid://csmuu6wqk0iow" path="res://Scripts/Character/enemy.gd" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://dagt18rdsjnc2" path="res://Characters/Character_EvilWizard.tres" id="5_kry3j"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://br87wm46qa1ou" path="res://Scenes/Weapons/shield.tscn" id="7_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="7_jkdf5"]
 [ext_resource type="Script" uid="uid://dhj4abphxljfw" path="res://Scripts/Weapons/enemy_weapons.gd" id="9_ynf5e"]
+[ext_resource type="AudioStream" uid="uid://kjbrxhwt3wra" path="res://Audio/Hit_1.ogg" id="12_k12tt"]
 [ext_resource type="PackedScene" uid="uid://knt5gawodd5f" path="res://Scenes/UI/health_bar.tscn" id="13_fdnlq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
@@ -37,6 +39,7 @@ target = NodePath("../Player")
 script = ExtResource("2_8gbba")
 move_speed = 40.0
 weapons = NodePath("PlayerWeapons")
+damaged_sound = ExtResource("4_wsu2k")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" node_paths=PackedStringArray("character")]
 texture = ExtResource("2_bo1nx")
@@ -65,6 +68,7 @@ cur_hp = 3
 max_hp = 3
 move_speed = 30.0
 weapons = NodePath("EnemyWeapons")
+damaged_sound = ExtResource("12_k12tt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy" node_paths=PackedStringArray("character")]
 texture = ExtResource("5_kry3j")
