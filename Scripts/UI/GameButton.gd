@@ -7,10 +7,12 @@ func _ready():
 	pressed.connect(_on_pressed)
 
 func _on_mouse_entered():
-	pass
+	scale.x = 1.05
+	scale.y = 1.05
 
 func _on_mouse_exited():
-	pass
+	scale.x = 1.0
+	scale.y = 1.0
 
 func _on_pressed():
 	pass
