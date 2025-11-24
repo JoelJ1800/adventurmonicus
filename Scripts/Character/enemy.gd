@@ -1,11 +1,15 @@
 class_name Enemy
 extends Character
 
-@export var target : CharacterBody2D
+var target : CharacterBody2D
 @export var stop_distance : float = 28.0
+@export var chase_distance : float = 100
 
 var target_direction : Vector2
 var target_distance : float
+
+func _ready() -> void:
+	target = get_tree().get_first_node_in_group("Player")
 
 func _process(_delta: float) -> void:
 	if not target:
@@ -17,7 +21,7 @@ func _process(_delta: float) -> void:
 	
 	look_direction = target_direction
 	
-	if target_distance > stop_distance:
+	if target_distance > stop_distance and target_distance < chase_distance:
 		move_input = target_direction
 	else:
 		move_input = Vector2.ZERO

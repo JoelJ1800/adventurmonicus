@@ -1,28 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=7 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://rbivrnejvk3f" path="res://Scripts/Character/camera_controller.gd" id="2_6iyac"]
-[ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="2_8gbba"]
-[ext_resource type="Texture2D" uid="uid://btqlatabplef0" path="res://Characters/Character_Man.tres" id="2_bo1nx"]
-[ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_jjvhh"]
-[ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="4_wsu2k"]
-[ext_resource type="Script" uid="uid://csmuu6wqk0iow" path="res://Scripts/Character/enemy.gd" id="5_21xkr"]
-[ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_d1ilt"]
-[ext_resource type="Texture2D" uid="uid://dagt18rdsjnc2" path="res://Characters/Character_EvilWizard.tres" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dxfhdatxaunir" path="res://Scenes/Weapons/weapon_sword.tscn" id="6_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://br87wm46qa1ou" path="res://Scenes/Weapons/shield.tscn" id="7_fdnlq"]
-[ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="7_jkdf5"]
-[ext_resource type="Script" uid="uid://dhj4abphxljfw" path="res://Scripts/Weapons/enemy_weapons.gd" id="9_ynf5e"]
-[ext_resource type="AudioStream" uid="uid://kjbrxhwt3wra" path="res://Audio/Hit_1.ogg" id="12_k12tt"]
-[ext_resource type="PackedScene" uid="uid://knt5gawodd5f" path="res://Scenes/UI/health_bar.tscn" id="13_fdnlq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
-radius = 6.0
-height = 16.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
-radius = 7.0
-height = 16.0
+[ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="4_21xkr"]
+[ext_resource type="PackedScene" uid="uid://r6bidwth2fe1" path="res://Scenes/Characters/Enemies/ranged_enemy.tscn" id="5_6bp64"]
+[ext_resource type="PackedScene" uid="uid://c5celpswnpx3b" path="res://Scenes/Characters/Enemies/sword_enemy.tscn" id="6_344ge"]
 
 [node name="Main" type="Node2D"]
 
@@ -35,51 +18,13 @@ zoom = Vector2(4, 4)
 script = ExtResource("2_6iyac")
 target = NodePath("../Player")
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("weapons")]
-script = ExtResource("2_8gbba")
-move_speed = 40.0
-weapons = NodePath("PlayerWeapons")
-damaged_sound = ExtResource("4_wsu2k")
+[node name="Player" parent="." instance=ExtResource("3_jjvhh")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" node_paths=PackedStringArray("character")]
-texture = ExtResource("2_bo1nx")
-offset = Vector2(0, -7.5)
-script = ExtResource("4_jjvhh")
-character = NodePath("..")
+[node name="Cyclops" parent="." instance=ExtResource("4_21xkr")]
+position = Vector2(256, 59)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_bo1nx")
+[node name="RangedEnemy" parent="." instance=ExtResource("5_6bp64")]
+position = Vector2(176, 158)
 
-[node name="PlayerWeapons" type="Node2D" parent="Player"]
-position = Vector2(0, -4)
-script = ExtResource("5_d1ilt")
-weapon_to_equip = ExtResource("7_jkdf5")
-shield_to_equip = ExtResource("7_fdnlq")
-
-[node name="HealthBar" parent="Player" instance=ExtResource("13_fdnlq")]
-
-[node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("target", "weapons")]
-position = Vector2(193, 69)
-script = ExtResource("5_21xkr")
-target = NodePath("../Player")
-stop_distance = 25.0
-cur_hp = 3
-max_hp = 3
-move_speed = 30.0
-weapons = NodePath("EnemyWeapons")
-damaged_sound = ExtResource("12_k12tt")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy" node_paths=PackedStringArray("character")]
-texture = ExtResource("5_kry3j")
-script = ExtResource("4_jjvhh")
-character = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("CapsuleShape2D_21xkr")
-
-[node name="EnemyWeapons" type="Node2D" parent="Enemy"]
-script = ExtResource("9_ynf5e")
-weapon_to_equip = ExtResource("6_ynf5e")
-
-[node name="HealthBar" parent="Enemy" instance=ExtResource("13_fdnlq")]
+[node name="SwordEnemy" parent="." instance=ExtResource("6_344ge")]
+position = Vector2(187, 102)

@@ -9,6 +9,5 @@ func _use():
 	get_tree().root.get_node("/root/Main").add_child(projectile)
 	projectile.global_position = muzzle.global_position
 	projectile.global_rotation = muzzle.global_rotation
-	
 	projectile.initialize(owner_character)
 	AudioManager.play(attack_sound)

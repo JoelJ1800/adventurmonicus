@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://dmp4ft03ul1tc" path="res://Scenes/ranged_weapon.gd" id="1_ipr6a"]
 [ext_resource type="PackedScene" uid="uid://ds7ldpyd33lyy" path="res://Scenes/Weapons/arrow.tscn" id="2_4hrs2"]
 [ext_resource type="AudioStream" uid="uid://cw8c5j6f0nlww" path="res://Audio/Bow_Shoot.ogg" id="3_4hrs2"]
-[ext_resource type="Texture2D" uid="uid://mr0hxyrg04io" path="res://Items/Item_Bow.tres" id="3_o1ljt"]
+[ext_resource type="Texture2D" uid="uid://mr0hxyrg04io" path="res://Sprites/Items/Item_Bow.tres" id="3_o1ljt"]
 
 [node name="Weapon_Bow" type="Node2D"]
 script = ExtResource("1_ipr6a")
 projectile_scene = ExtResource("2_4hrs2")
-weapon_range = 200.0
+weapon_range = 100.0
 attack_sound = ExtResource("3_4hrs2")
 use_rate = 0.8
 

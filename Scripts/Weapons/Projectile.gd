@@ -7,7 +7,8 @@ extends Area2D
 var owner_character : Character
 
 func initialize (_owner_character:Character):
-	self.owner_character = owner_character
+	self.owner_character = _owner_character
+	
 
 func _process(delta: float) -> void:
 	translate(transform.x * speed * delta)

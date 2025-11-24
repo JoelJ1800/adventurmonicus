@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxp33ege8epxk"]
+
+[ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
+[ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
+[ext_resource type="Texture2D" uid="uid://btqlatabplef0" path="res://Sprites/Characters/Character_Man.tres" id="3_fcmex"]
+[ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_25bbb"]
+[ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_cueqf"]
+[ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="6_01b8d"]
+[ext_resource type="PackedScene" uid="uid://br87wm46qa1ou" path="res://Scenes/Weapons/shield.tscn" id="7_xccyk"]
+[ext_resource type="PackedScene" uid="uid://knt5gawodd5f" path="res://Scenes/UI/health_bar.tscn" id="8_h1n2f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
+radius = 6.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapons") groups=["Player"]]
+script = ExtResource("1_gdgf0")
+move_speed = 40.0
+weapons = NodePath("PlayerWeapons")
+damaged_sound = ExtResource("2_xo8ps")
+
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("character")]
+texture = ExtResource("3_fcmex")
+offset = Vector2(0, -7.5)
+script = ExtResource("4_25bbb")
+character = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_bo1nx")
+
+[node name="PlayerWeapons" type="Node2D" parent="."]
+position = Vector2(0, -4)
+script = ExtResource("5_cueqf")
+weapon_to_equip = ExtResource("6_01b8d")
+shield_to_equip = ExtResource("7_xccyk")
+
+[node name="HealthBar" parent="." instance=ExtResource("8_h1n2f")]

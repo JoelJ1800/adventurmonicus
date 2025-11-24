@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://duds1cy6h7t3p"]
+
+[ext_resource type="PackedScene" uid="uid://ct7jclx0ir8v0" path="res://Scenes/Characters/Enemies/base_enemy.tscn" id="1_5gmrr"]
+[ext_resource type="Texture2D" uid="uid://delaw40asu4s2" path="res://Sprites/Characters/Character_Cyclops.tres" id="2_706dr"]
+[ext_resource type="PackedScene" uid="uid://dlo7lyoxeeqcs" path="res://Scenes/Weapons/weapon_axe.tscn" id="3_of50x"]
+
+[node name="Cyclops" instance=ExtResource("1_5gmrr")]
+cur_hp = 20
+max_hp = 20
+move_speed = 20.0
+weight = 2.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_706dr")
+
+[node name="EnemyWeapons" parent="." index="2"]
+weapon_to_equip = ExtResource("3_of50x")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://r6bidwth2fe1"]
+
+[ext_resource type="PackedScene" uid="uid://ct7jclx0ir8v0" path="res://Scenes/Characters/Enemies/base_enemy.tscn" id="1_20m03"]
+[ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="2_6pn8d"]
+
+[node name="RangedEnemy" instance=ExtResource("1_20m03")]
+move_speed = 50.0
+
+[node name="EnemyWeapons" parent="." index="2"]
+weapon_to_equip = ExtResource("2_6pn8d")
