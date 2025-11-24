@@ -9,6 +9,8 @@ extends Weapon
 
 func _use():
 	anim.play("attack")
+
+func play_sound():
 	AudioManager.play(attack_sound)
 
 func detect_hits():
