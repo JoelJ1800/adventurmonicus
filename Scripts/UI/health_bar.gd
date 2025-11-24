@@ -7,7 +7,7 @@ extends Panel
 func _ready ():
 	self.visible = false
 	character.OnHealthChange.connect(_update_ui)
-	_update_ui()
+	call_deferred('_update_ui')
 
 func _update_ui():
 	var health_percent : float = float(character.cur_hp) / float(character.max_hp)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dkpemvaistvbs"]
+
+[ext_resource type="Texture2D" uid="uid://bxg4rbiy32ydv" path="res://Sprites/Items/Item_Arrow.tres" id="1_56cgj"]
+[ext_resource type="Script" uid="uid://cvbuijb20q207" path="res://Scripts/Items/ItemData.gd" id="1_h5sph"]
+
+[resource]
+script = ExtResource("1_h5sph")
+display_name = "Arrow"
+description = "Arrow to fire from bow"
+max_stack_size = 64
+icon = ExtResource("1_56cgj")
+metadata/_custom_type_script = "uid://cvbuijb20q207"
