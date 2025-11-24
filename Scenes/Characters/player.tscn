@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=16 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://dym1riip6etm0" path="res://Items/Weapons/Sword.tres" id="9_cueqf"]
 [ext_resource type="Script" uid="uid://rq4e2m14yxub" path="res://Scripts/Items/ShieldItemData.gd" id="10_01b8d"]
 [ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="11_xccyk"]
+[ext_resource type="PackedScene" uid="uid://chytwhqaqhgs3" path="res://Scenes/UI/inventory_slot.tscn" id="12_cueqf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
@@ -66,3 +67,45 @@ offset_right = 246.0
 offset_bottom = -28.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_25bbb")
+
+[node name="Slots" type="GridContainer" parent="HUD/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="InventorySlot" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
+layout_mode = 2
