@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=4 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="4_21xkr"]
-[ext_resource type="PackedScene" uid="uid://r6bidwth2fe1" path="res://Scenes/Characters/Enemies/ranged_enemy.tscn" id="5_6bp64"]
-[ext_resource type="PackedScene" uid="uid://c5celpswnpx3b" path="res://Scenes/Characters/Enemies/sword_enemy.tscn" id="6_344ge"]
 
 [node name="Main" type="Node2D"]
 
@@ -18,12 +15,3 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_jjvhh")]
 move_speed = 60.0
-
-[node name="Cyclops" parent="." instance=ExtResource("4_21xkr")]
-position = Vector2(256, 59)
-
-[node name="RangedEnemy" parent="." instance=ExtResource("5_6bp64")]
-position = Vector2(176, 158)
-
-[node name="SwordEnemy" parent="." instance=ExtResource("6_344ge")]
-position = Vector2(187, 102)
