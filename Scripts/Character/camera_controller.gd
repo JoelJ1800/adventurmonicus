@@ -14,7 +14,7 @@ func _physics_process(delta):
 
 
 func _on_take_damage(hit_force: Vector2):
-	shake_intensity = 4
+	shake_intensity = 2
 
 
 func _process(delta):
