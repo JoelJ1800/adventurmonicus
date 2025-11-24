@@ -36,7 +36,11 @@ func add_item(item: ItemData) -> bool:
 
 # revome an item to the inventory
 func remove_item(item: ItemData):
-	pass
+	if not has_item(item):
+		return
+	
+	var slot: ItemSlot = get_item_slot(item)
+	remove_item_from_slot(slot)
 
 func remove_item_from_slot(slot: ItemSlot):
 	pass
