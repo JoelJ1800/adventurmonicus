@@ -34,7 +34,7 @@ func add_item(item: ItemData) -> bool:
 	
 	return true
 
-# revome an item to the inventory
+# can we remove an item from the inventory
 func remove_item(item: ItemData):
 	if not has_item(item):
 		return
@@ -42,8 +42,17 @@ func remove_item(item: ItemData):
 	var slot: ItemSlot = get_item_slot(item)
 	remove_item_from_slot(slot)
 
+# remove the item
 func remove_item_from_slot(slot: ItemSlot):
-	pass
+	if not slot.item:
+		return
+	if slot.quantity == 1:
+		slot.item = null
+	else:
+		slot.quantity -= 1
+	UpdatedInventory.emit()
+	UpdatedSlot.emit(slot)
+	
 
 func get_item_slot(item: ItemData) -> ItemSlot:
 	return null
