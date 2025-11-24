@@ -70,4 +70,7 @@ func try_block_direction(direction: Vector2) -> bool:
 	var dot:float = current_shield.transform.x.dot(direction)
 	var do_block:bool = dot < -0.8
 	
+	if do_block:
+		AudioManager.play(current_shield.block_sound)
+	
 	return do_block
