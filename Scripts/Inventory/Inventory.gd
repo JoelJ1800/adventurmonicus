@@ -17,8 +17,11 @@ func _ready():
 	# create slots
 	for i in range(size):
 		item_slots.append(ItemSlot.new())
-		
+	
 	# add start items
+	for key in start_items:
+		for i in range(start_items[key]):
+			add_item(key)
 
 
 
