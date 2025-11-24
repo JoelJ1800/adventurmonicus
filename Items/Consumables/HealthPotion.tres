@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ConsumableItemData" load_steps=3 format=3 uid="uid://cw3wh68625y84"]
+
+[ext_resource type="Script" uid="uid://jthed2qtgebd" path="res://Scripts/Items/ConsumableItemData.gd" id="1_1c54b"]
+[ext_resource type="Texture2D" uid="uid://bnl6kuntmw0he" path="res://Sprites/Items/Item_HealthPotion.tres" id="1_oapha"]
+
+[resource]
+script = ExtResource("1_1c54b")
+health_gain = 5
+display_name = "Health Potion"
+description = "Heals 5 hp"
+max_stack_size = 10
+icon = ExtResource("1_oapha")
+metadata/_custom_type_script = "uid://jthed2qtgebd"
