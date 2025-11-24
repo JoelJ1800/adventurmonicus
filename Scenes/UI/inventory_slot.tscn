@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://chytwhqaqhgs3"]
 
-[ext_resource type="Script" uid="uid://preagipnf07a" path="res://Scripts/UI/GameButton.gd" id="1_eb8jj"]
+[ext_resource type="Script" uid="uid://dgbmsyeomv3jx" path="res://Scripts/UI/InventorySlotUI.gd" id="1_77amr"]
 [ext_resource type="Texture2D" uid="uid://cvi2growfl5pu" path="res://Sprites/UI/UI_InventorySlot.tres" id="2_5gi18"]
 [ext_resource type="Texture2D" uid="uid://33xi1ttfelyt" path="res://Sprites/UI/UI_InventoryBackground.tres" id="3_owxyj"]
 [ext_resource type="Texture2D" uid="uid://bxg4rbiy32ydv" path="res://Sprites/Items/Item_Arrow.tres" id="4_l2h8a"]
@@ -92,7 +92,7 @@ button_group = null
 shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
-script = ExtResource("1_eb8jj")
+script = ExtResource("1_77amr")
 metadata/_custom_type_script = "uid://preagipnf07a"
 
 [node name="Background" type="TextureRect" parent="."]

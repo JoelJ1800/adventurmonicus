@@ -15,4 +15,5 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_jjvhh")]
 move_speed = 60.0
-damaged_sound = null
+
+[editable path="Player"]
