@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=14 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -6,11 +6,19 @@
 [ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_25bbb"]
 [ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_cueqf"]
 [ext_resource type="Script" uid="uid://coawsy5oshm3l" path="res://Scripts/Inventory/Inventory.gd" id="7_utp2y"]
+[ext_resource type="Script" uid="uid://cvbuijb20q207" path="res://Scripts/Items/ItemData.gd" id="8_25bbb"]
 [ext_resource type="PackedScene" uid="uid://knt5gawodd5f" path="res://Scenes/UI/health_bar.tscn" id="8_h1n2f"]
+[ext_resource type="Resource" uid="uid://dym1riip6etm0" path="res://Items/Weapons/Sword.tres" id="9_cueqf"]
+[ext_resource type="Script" uid="uid://rq4e2m14yxub" path="res://Scripts/Items/ShieldItemData.gd" id="10_01b8d"]
+[ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="11_xccyk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
 height = 16.0
+
+[sub_resource type="Resource" id="Resource_h1n2f"]
+script = ExtResource("10_01b8d")
+metadata/_custom_type_script = "uid://rq4e2m14yxub"
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 collision_layer = 2
@@ -37,3 +45,8 @@ script = ExtResource("5_cueqf")
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("7_utp2y")
+start_items = Dictionary[ExtResource("8_25bbb"), int]({
+ExtResource("9_cueqf"): 1,
+SubResource("Resource_h1n2f"): 1,
+ExtResource("11_xccyk"): 5
+})
