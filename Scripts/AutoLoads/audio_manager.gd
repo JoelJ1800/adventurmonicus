@@ -4,7 +4,9 @@ var audio_players : Array[AudioStreamPlayer]
 
 
 func play (stream : AudioStream):
-	pass
+	var ap : AudioStreamPlayer = _get_available_audio_player()
+	ap.stream = stream
+	ap.play()
 
 func _create_new () -> AudioStreamPlayer:
 	var ap : AudioStreamPlayer = AudioStreamPlayer.new()
@@ -13,4 +15,8 @@ func _create_new () -> AudioStreamPlayer:
 	return ap
 
 func _get_available_audio_player () -> AudioStreamPlayer:
-	pass
+	for ap in audio_players:
+		if not ap.playing:
+			return ap
+	
+	return _create_new()
