@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlo7lyoxeeqcs"]
 
 [ext_resource type="Script" uid="uid://bndu7gu6bfll6" path="res://Scripts/Weapons/MeleeWeapon.gd" id="1_5vdaq"]
-[ext_resource type="Texture2D" uid="uid://nnn5juuro7la" path="res://Items/Item_Axe.tres" id="1_65o25"]
+[ext_resource type="Texture2D" uid="uid://nnn5juuro7la" path="res://Sprites/Items/Item_Axe.tres" id="1_65o25"]
 [ext_resource type="AudioStream" uid="uid://uydjrhhuhhhj" path="res://Audio/Attack_Heavy.ogg" id="2_33coa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vdaq"]
@@ -110,6 +110,8 @@ offset = Vector2(11, 0)
 flip_h = true
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(21, 0)

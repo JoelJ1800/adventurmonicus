@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="2_6pn8d"]
 
 [node name="RangedEnemy" instance=ExtResource("1_20m03")]
+collision_layer = 2
 move_speed = 50.0
 
 [node name="EnemyWeapons" parent="." index="2"]

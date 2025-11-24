@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlo7lyoxeeqcs" path="res://Scenes/Weapons/weapon_axe.tscn" id="3_of50x"]
 
 [node name="Cyclops" instance=ExtResource("1_5gmrr")]
+collision_layer = 2
 cur_hp = 20
 max_hp = 20
 move_speed = 20.0

@@ -1,12 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds7ldpyd33lyy"]
 
 [ext_resource type="Script" uid="uid://dhc554ht1akct" path="res://Scripts/Weapons/Projectile.gd" id="1_5g1fh"]
-[ext_resource type="Texture2D" uid="uid://bxg4rbiy32ydv" path="res://Items/Item_Arrow.tres" id="2_7sqmg"]
+[ext_resource type="Texture2D" uid="uid://bxg4rbiy32ydv" path="res://Sprites/Items/Item_Arrow.tres" id="2_7sqmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6iyac"]
 size = Vector2(16, 4)
 
 [node name="Arrow" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_5g1fh")
 damage = 1
 speed = 150.0

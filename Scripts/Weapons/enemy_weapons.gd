@@ -3,6 +3,8 @@ extends CharacterWeapons
 
 @onready var me : Enemy = $".."
 
+
+
 func _process(_delta: float) -> void:
 	if not current_weapon:
 		return
