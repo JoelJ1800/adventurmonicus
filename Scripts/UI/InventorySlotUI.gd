@@ -12,7 +12,12 @@ func set_item_slot (item_slot:Inventory.ItemSlot,player:Player):
 	self.item_slot = item_slot
 	self.player = player
 	var is_equipped : bool = false
-	# Change is_equipped depending on if we have this item equipped
+	
+	if player.weapons.weapon_inventory_slot == item_slot:
+		is_equipped = true
+	elif player.weapons.shield_inventory_slot == item_slot:
+		is_equipped = true
+	
 	equipped.visible = is_equipped
 	
 	#set icon
