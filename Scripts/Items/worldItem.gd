@@ -8,6 +8,12 @@ var item: ItemData
 var bob_speed: float = 10
 var bob_amount: float = 2
 
+@export var test_item: ItemData
+
+func _ready():
+	set_item(test_item)
+
+
 func _process(delta: float) -> void:
 	# item bobbing
 	pass
