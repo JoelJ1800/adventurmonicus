@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="ConsumableItemData" load_steps=3 format=3 uid="uid://cw3wh68625y84"]
+[gd_resource type="Resource" script_class="ConsumableItemData" load_steps=4 format=3 uid="uid://cw3wh68625y84"]
 
 [ext_resource type="Script" uid="uid://jthed2qtgebd" path="res://Scripts/Items/ConsumableItemData.gd" id="1_1c54b"]
+[ext_resource type="AudioStream" uid="uid://b2cdrap0ey1le" path="res://Audio/Items/Drink_Potion.ogg" id="1_2iexm"]
 [ext_resource type="Texture2D" uid="uid://bnl6kuntmw0he" path="res://Sprites/Items/Item_HealthPotion.tres" id="1_oapha"]
 
 [resource]
 script = ExtResource("1_1c54b")
 health_gain = 5
+consume_sound = ExtResource("1_2iexm")
 display_name = "Health Potion"
 description = "Heals 5 hp"
 max_stack_size = 10
