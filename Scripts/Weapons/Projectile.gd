@@ -15,10 +15,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is not Character:
-		return
-	if body == owner_character:
-		return
-	
-	body.take_damage(damage, transform.x * hit_force)
+	if body is Character and body != owner_character:
+		body.take_damage(damage, transform.x * hit_force)
 	queue_free()

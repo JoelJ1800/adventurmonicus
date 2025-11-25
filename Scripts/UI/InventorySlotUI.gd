@@ -14,3 +14,26 @@ func set_item_slot (item_slot:Inventory.ItemSlot,player:Player):
 	var is_equipped : bool = false
 	# Change is_equipped depending on if we have this item equipped
 	equipped.visible = is_equipped
+	
+	#set icon
+	if item_slot.item:
+		item_icon.texture = item_slot.item.icon
+	else:
+		item_icon.texture = null
+		quantity_text.text = ""
+		return
+	
+	#set quantity text if > 1
+	if item_slot.quantity > 1:
+		quantity_text.text =str(item_slot.quantity)
+	else: 
+		quantity_text.text = ""
+
+func _on_pressed():
+	super._on_pressed()
+	
+	# return if no item
+	if not item_slot or not item_slot.item:
+		return
+	
+	# Click on the item and then trigger whatever it does

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://c0fc4vepcmsv3"]
+[gd_scene load_steps=7 format=4 uid="uid://c0fc4vepcmsv3"]
 
 [ext_resource type="TileSet" uid="uid://0s53enheoyqm" path="res://Tileset/Dungeons.tres" id="1_48tke"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="2_lg52p"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="3_hbaxp"]
-[ext_resource type="PackedScene" uid="uid://dxfhdatxaunir" path="res://Scenes/Weapons/weapon_sword.tscn" id="3_n3cl4"]
 [ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="5_jipo1"]
 [ext_resource type="PackedScene" uid="uid://c5celpswnpx3b" path="res://Scenes/Characters/Enemies/sword_enemy.tscn" id="6_unf4m"]
 [ext_resource type="PackedScene" uid="uid://r6bidwth2fe1" path="res://Scenes/Characters/Enemies/ranged_enemy.tscn" id="7_pge5u"]
@@ -18,9 +17,6 @@ tile_set = ExtResource("1_48tke")
 position = Vector2(31, 170)
 move_speed = 60.0
 
-[node name="PlayerWeapons" parent="Player" index="2"]
-weapon_to_equip = ExtResource("3_n3cl4")
-
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_hbaxp")]
 position = Vector2(241, 137)
 target = NodePath("../Player")
@@ -28,72 +24,88 @@ target = NodePath("../Player")
 [node name="Cyclops" parent="." instance=ExtResource("5_jipo1")]
 position = Vector2(385, 684)
 chase_distance = 300.0
+damaged_sound = null
 
 [node name="Cyclops2" parent="." instance=ExtResource("5_jipo1")]
 position = Vector2(497, 681)
 chase_distance = 300.0
+damaged_sound = null
 
 [node name="SwordEnemy" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(235, 188)
 chase_distance = 300.0
+damaged_sound = null
 
 [node name="SwordEnemy2" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(711, 177)
 chase_distance = 150.0
+damaged_sound = null
 
 [node name="SwordEnemy3" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(711, 200)
 chase_distance = 150.0
+damaged_sound = null
 
 [node name="SwordEnemy4" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(1116, 318)
 chase_distance = 200.0
+damaged_sound = null
 
 [node name="SwordEnemy5" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(1111, 103)
 chase_distance = 200.0
+damaged_sound = null
 
 [node name="RangedEnemy" parent="." instance=ExtResource("7_pge5u")]
 position = Vector2(1320, 142)
 chase_distance = 200.0
+damaged_sound = null
 
 [node name="RangedEnemy2" parent="." instance=ExtResource("7_pge5u")]
 position = Vector2(1318, 240)
 chase_distance = 200.0
+damaged_sound = null
 
 [node name="RangedEnemy3" parent="." instance=ExtResource("7_pge5u")]
 position = Vector2(615, 371)
 chase_distance = 180.0
+damaged_sound = null
 
 [node name="SwordEnemy6" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(763, 357)
 chase_distance = 180.0
+damaged_sound = null
 
 [node name="SwordEnemy7" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(717, 316)
 chase_distance = 180.0
+damaged_sound = null
 
 [node name="SwordEnemy8" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(117, 347)
 chase_distance = 150.0
+damaged_sound = null
 
 [node name="SwordEnemy9" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(219, 355)
 chase_distance = 150.0
+damaged_sound = null
 
 [node name="SwordEnemy10" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(94, 411)
 chase_distance = 150.0
+damaged_sound = null
 
 [node name="SwordEnemy11" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(150, 467)
 chase_distance = 150.0
+damaged_sound = null
 
 [node name="SwordEnemy12" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(243, 462)
 chase_distance = 150.0
+damaged_sound = null
 
-[editable path="Player"]
 [editable path="SwordEnemy"]
 [editable path="SwordEnemy3"]
 [editable path="SwordEnemy4"]
