@@ -51,7 +51,12 @@ func _die():
 
 
 func heal(amount: int):
-	pass
+	cur_hp += amount
+	
+	if cur_hp > max_hp:
+		cur_hp = max_hp
+	
+	OnHealthChange.emit()
 
 
 func add_force(force: Vector2):
