@@ -37,3 +37,4 @@ func _on_pressed():
 		return
 	
 	# Click on the item and then trigger whatever it does
+	item_slot.item._select_in_inventory(player, item_slot)
