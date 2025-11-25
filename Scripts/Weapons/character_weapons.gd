@@ -1,8 +1,11 @@
 class_name CharacterWeapons
 extends Node2D
 
-@export var weapon_to_equip : PackedScene
-@export var shield_to_equip : PackedScene
+@export var weapon_to_equip : WeaponItemData
+@export var shield_to_equip : ShieldItemData
+
+var weapon_inventory_slot : Inventory.ItemSlot
+var shield_inventory_slot : Inventory.ItemSlot
 
 var current_weapon : Weapon
 var current_shield : Shield
@@ -17,11 +20,11 @@ func _ready ():
 	if shield_to_equip:
 		equip_shield(shield_to_equip)
 
-func equip_weapon (weapon_scene : PackedScene):
+func equip_weapon (weapon_data : WeaponItemData):
 	if current_weapon:
 		unequip_weapon()
 	
-	current_weapon = weapon_scene.instantiate()
+	current_weapon = weapon_data.equip_scene.instantiate()
 	add_child(current_weapon)
 	current_weapon.global_position = global_position
 	
@@ -35,11 +38,11 @@ func unequip_weapon ():
 	current_weapon._unequip()
 	current_weapon.queue_free()
 
-func equip_shield(shield_scene:PackedScene):
+func equip_shield(shield_data:ShieldItemData):
 	if current_shield:
 		unequip_shield()
 	
-	current_shield = shield_scene.instantiate()
+	current_shield = shield_data.equip_scene.instantiate()
 	add_child(current_shield)
 	current_shield.global_position = global_position
 	

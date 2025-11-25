@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://r6bidwth2fe1"]
+[gd_scene load_steps=5 format=3 uid="uid://r6bidwth2fe1"]
 
 [ext_resource type="PackedScene" uid="uid://ct7jclx0ir8v0" path="res://Scenes/Characters/Enemies/base_enemy.tscn" id="1_20m03"]
-[ext_resource type="PackedScene" uid="uid://dwg2frq4dubsl" path="res://Scenes/Weapons/weapon_bow.tscn" id="2_6pn8d"]
 [ext_resource type="Script" uid="uid://cvbuijb20q207" path="res://Scripts/Items/ItemData.gd" id="2_xj8qx"]
 [ext_resource type="Resource" uid="uid://dmqq1jwqp7n8m" path="res://Items/Weapons/Bow.tres" id="3_jby3p"]
 [ext_resource type="Resource" uid="uid://dkpemvaistvbs" path="res://Items/Weapons/Arrow.tres" id="4_c2sp6"]
@@ -15,4 +14,4 @@ ExtResource("4_c2sp6"): 6
 move_speed = 50.0
 
 [node name="EnemyWeapons" parent="." index="2"]
-weapon_to_equip = ExtResource("2_6pn8d")
+weapon_to_equip = ExtResource("3_jby3p")

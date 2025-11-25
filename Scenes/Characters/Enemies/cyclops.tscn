@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://duds1cy6h7t3p"]
+[gd_scene load_steps=7 format=3 uid="uid://duds1cy6h7t3p"]
 
 [ext_resource type="PackedScene" uid="uid://ct7jclx0ir8v0" path="res://Scenes/Characters/Enemies/base_enemy.tscn" id="1_5gmrr"]
 [ext_resource type="Texture2D" uid="uid://delaw40asu4s2" path="res://Sprites/Characters/Character_Cyclops.tres" id="2_706dr"]
 [ext_resource type="Script" uid="uid://cvbuijb20q207" path="res://Scripts/Items/ItemData.gd" id="2_euq4o"]
 [ext_resource type="Resource" uid="uid://dqf256v3f3ldm" path="res://Items/Weapons/Axe.tres" id="3_0qe1m"]
-[ext_resource type="PackedScene" uid="uid://dlo7lyoxeeqcs" path="res://Scenes/Weapons/weapon_axe.tscn" id="3_of50x"]
 [ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="4_saocy"]
 [ext_resource type="Resource" uid="uid://dkpemvaistvbs" path="res://Items/Weapons/Arrow.tres" id="5_mavet"]
 
@@ -24,4 +23,4 @@ weight = 2.0
 texture = ExtResource("2_706dr")
 
 [node name="EnemyWeapons" parent="." index="2"]
-weapon_to_equip = ExtResource("3_of50x")
+weapon_to_equip = ExtResource("3_0qe1m")
