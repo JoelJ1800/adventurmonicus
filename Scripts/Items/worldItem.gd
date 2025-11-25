@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 
 func set_item(item:ItemData):
 	self.item = item
-	sprite.texture = item.icon
+	$Sprite2D.texture = item.icon
 
 
 

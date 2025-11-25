@@ -1,7 +1,7 @@
 class_name Enemy
 extends Character
 
-var target : CharacterBody2D
+@onready var target : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @export var stop_distance : float = 28.0
 @export var chase_distance : float = 100
 
@@ -43,4 +43,18 @@ func _drop_item ():
 	world_item.set_item(item_data)
 
 func _get_item_to_drop() -> ItemData:
+	var total_weight:int = 0
+	
+	for key in drop_pool:
+		total_weight += drop_pool[key]
+	
+	var rand : int = randi_range(0, total_weight)
+	var count : int = 0
+	
+	for key in drop_pool:
+		count += drop_pool[key]
+		
+		if rand <= count:
+			return key
+	
 	return null
