@@ -7,6 +7,7 @@ var item: ItemData
 
 var bob_speed: float = 10
 var bob_amount: float = 2
+var pickup_sound: AudioStream = preload("res://Audio/Items/Pickup_Item.ogg")
 
 
 
@@ -31,4 +32,5 @@ func _on_body_entered(body):
 	if not picked_up:
 		return
 	
+	AudioManager.play(pickup_sound)
 	queue_free()
