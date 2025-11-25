@@ -19,4 +19,11 @@ func set_item(item:ItemData):
 
 
 func _on_body_entered(body):
-	pass # Replace with function body.
+	if not body.is_in_group("Player"):
+		return
+	
+	var picked_up = body.inventory.add_item(item)
+	if not picked_up:
+		return
+	
+	queue_free()
