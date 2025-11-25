@@ -1,6 +1,10 @@
 class_name PlayerWeapons
 extends CharacterWeapons
 
+func _ready ():
+	super._ready()
+	
+	$"../Inventory".UpdatedSlot.connect(_on_updated_inventory_slot)
 
 func _process (_delta : float):
 	var mouse_pos : Vector2 = get_global_mouse_position()
@@ -21,3 +25,10 @@ func _process (_delta : float):
 			toggle_shield(true)
 		elif Input.is_action_just_released("block"):
 			toggle_shield(false)
+
+func _on_updated_inventory_slot (slot : Inventory.ItemSlot):
+	if slot == weapon_inventory_slot and not slot.item:
+		unequip_weapon()
+	
+	if slot == shield_inventory_slot and not slot.item:
+		unequip_shield()
