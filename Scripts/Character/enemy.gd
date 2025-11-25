@@ -30,4 +30,11 @@ func _process(_delta: float) -> void:
 		move_input = Vector2.ZERO
 
 func _die():
+	_drop_item()
 	queue_free()
+
+func _drop_item ():
+	pass
+
+func _get_item_to_drop() -> ItemData:
+	return null
