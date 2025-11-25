@@ -6,3 +6,6 @@ extends Resource
 @export var max_stack_size: int = 1
 @export var icon: Texture
 @export var equip_scene: PackedScene
+
+func _select_in_inventory (player:Player, item_slot: Inventory.ItemSlot):
+	pass
