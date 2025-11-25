@@ -11,7 +11,8 @@ func _process (_delta : float):
 
 		
 		if Input.is_action_just_pressed("attack"):
-			current_weapon._try_use()
+			if get_viewport().gui_get_hovered_control() == null:
+				current_weapon._try_use()
 	
 	if current_shield:
 		current_shield.set_aim_direction(mouse_dir)
