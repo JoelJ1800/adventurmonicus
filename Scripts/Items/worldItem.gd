@@ -13,7 +13,8 @@ func _process(delta: float) -> void:
 	pass
 
 func set_item(item:ItemData):
-	pass
+	self.item = item
+	sprite.texture = item.icon
 
 
 
