@@ -6,13 +6,15 @@ extends Panel
 @onready var player : Player = $"../.."
 
 func _ready() -> void:
-	pass
+	inventory.UpdatedInventory.connect(_update_ui)
+	_update_ui()
 
 func _process(delta: float) -> void:
 	pass
 
 func _update_ui():
-	pass
+	for i in len(slots):
+		slots[i].set_item_slot(inventory.item_slots[i], player)
 
 func _set_info_panel (slot: InventorySlotUI):
 	pass
