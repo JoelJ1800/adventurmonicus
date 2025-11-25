@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=21 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -13,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="11_xccyk"]
 [ext_resource type="Script" uid="uid://cxjhhwrll1uo5" path="res://Scripts/UI/InventoryUI.gd" id="12_01b8d"]
 [ext_resource type="PackedScene" uid="uid://cu5o5xbasd1xp" path="res://Scenes/UI/inventory_slot.tscn" id="12_cueqf"]
+[ext_resource type="Resource" uid="uid://dmqq1jwqp7n8m" path="res://Items/Weapons/Bow.tres" id="12_h1n2f"]
+[ext_resource type="Resource" uid="uid://dkpemvaistvbs" path="res://Items/Weapons/Arrow.tres" id="13_dxpk4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
@@ -65,7 +67,9 @@ script = ExtResource("7_utp2y")
 start_items = Dictionary[ExtResource("8_25bbb"), int]({
 ExtResource("9_cueqf"): 1,
 ExtResource("11_xccyk"): 5,
-ExtResource("11_01b8d"): 1
+ExtResource("11_01b8d"): 1,
+ExtResource("12_h1n2f"): 1,
+ExtResource("13_dxpk4"): 20
 })
 
 [node name="HUD" type="CanvasLayer" parent="."]
