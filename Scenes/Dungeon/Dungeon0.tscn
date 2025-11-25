@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://c0fc4vepcmsv3"]
+[gd_scene load_steps=9 format=4 uid="uid://c0fc4vepcmsv3"]
 
 [ext_resource type="TileSet" uid="uid://0s53enheoyqm" path="res://Tileset/Dungeons.tres" id="1_48tke"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="2_lg52p"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="3_hbaxp"]
 [ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="5_jipo1"]
 [ext_resource type="PackedScene" uid="uid://c5celpswnpx3b" path="res://Scenes/Characters/Enemies/sword_enemy.tscn" id="6_unf4m"]
+[ext_resource type="Texture2D" uid="uid://bnl6kuntmw0he" path="res://Sprites/Items/Item_HealthPotion.tres" id="7_jipo1"]
 [ext_resource type="PackedScene" uid="uid://r6bidwth2fe1" path="res://Scenes/Characters/Enemies/ranged_enemy.tscn" id="7_pge5u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_unf4m"]
+radius = 3.1622777
 
 [node name="Main" type="Node2D"]
 
@@ -105,6 +109,15 @@ damaged_sound = null
 position = Vector2(243, 462)
 chase_distance = 150.0
 damaged_sound = null
+
+[node name="WorldItem" type="Area2D" parent="."]
+position = Vector2(107, 194)
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldItem"]
+texture = ExtResource("7_jipo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldItem"]
+shape = SubResource("CircleShape2D_unf4m")
 
 [editable path="SwordEnemy"]
 [editable path="SwordEnemy3"]
