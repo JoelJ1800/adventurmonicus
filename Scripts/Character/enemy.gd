@@ -34,7 +34,13 @@ func _die():
 	queue_free()
 
 func _drop_item ():
-	pass
+	var item_data:ItemData = _get_item_to_drop()
+	var world_item:WorldItem = world_item_scene.instantiate()
+	
+	get_parent().add_child.call_deferred(world_item)
+	world_item.global_position = global_position
+	
+	world_item.set_item(item_data)
 
 func _get_item_to_drop() -> ItemData:
 	return null
