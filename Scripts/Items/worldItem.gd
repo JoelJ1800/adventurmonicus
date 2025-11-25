@@ -13,7 +13,9 @@ var bob_amount: float = 2
 
 func _process(delta: float) -> void:
 	# item bobbing
-	pass
+	var time : float = Time.get_unix_time_from_system()
+	var offset : float = sin(time * bob_speed) * bob_amount
+	sprite.position.y = offset
 
 func set_item(item:ItemData):
 	self.item = item
