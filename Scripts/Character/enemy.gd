@@ -8,6 +8,9 @@ var target : CharacterBody2D
 var target_direction : Vector2
 var target_distance : float
 
+@export var drop_pool : Dictionary[ItemData, int]
+var world_item_scene : PackedScene = preload("res://Scenes/Other Entities/world_item.tscn")
+
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("Player")
 
