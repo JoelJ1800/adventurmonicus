@@ -3,15 +3,12 @@ extends Area2D
 
 var item: ItemData
 
-@onready var sprite: Sprite2D = $Sprite
+@onready var sprite: Sprite2D = $Sprite2D
 
 var bob_speed: float = 10
 var bob_amount: float = 2
 
-@export var test_item: ItemData
 
-func _ready():
-	set_item(test_item)
 
 
 func _process(delta: float) -> void:

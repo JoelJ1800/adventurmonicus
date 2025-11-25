@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxo4d3njqttab"]
+[gd_scene load_steps=5 format=3 uid="uid://cxo4d3njqttab"]
 
 [ext_resource type="Script" uid="uid://rerghkqce2vk" path="res://Scripts/Items/worldItem.gd" id="1_3gdxi"]
 [ext_resource type="Texture2D" uid="uid://bnl6kuntmw0he" path="res://Sprites/Items/Item_HealthPotion.tres" id="1_cewje"]
+[ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="2_eij2y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_unf4m"]
 radius = 3.1622777
 
 [node name="WorldItem" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_3gdxi")
+test_item = ExtResource("2_eij2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cewje")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c0fc4vepcmsv3"]
+[gd_scene load_steps=7 format=4 uid="uid://c0fc4vepcmsv3"]
 
 [ext_resource type="TileSet" uid="uid://0s53enheoyqm" path="res://Tileset/Dungeons.tres" id="1_48tke"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="2_lg52p"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="5_jipo1"]
 [ext_resource type="PackedScene" uid="uid://c5celpswnpx3b" path="res://Scenes/Characters/Enemies/sword_enemy.tscn" id="6_unf4m"]
 [ext_resource type="PackedScene" uid="uid://r6bidwth2fe1" path="res://Scenes/Characters/Enemies/ranged_enemy.tscn" id="7_pge5u"]
-[ext_resource type="PackedScene" uid="uid://cxo4d3njqttab" path="res://Scenes/Other Entities/world_item.tscn" id="7_unf4m"]
-[ext_resource type="Script" uid="uid://rerghkqce2vk" path="res://Scripts/Items/worldItem.gd" id="8_pge5u"]
 
 [node name="Main" type="Node2D"]
 
@@ -107,10 +105,6 @@ damaged_sound = null
 position = Vector2(243, 462)
 chase_distance = 150.0
 damaged_sound = null
-
-[node name="WorldItem" parent="." instance=ExtResource("7_unf4m")]
-position = Vector2(107, 194)
-script = ExtResource("8_pge5u")
 
 [editable path="SwordEnemy"]
 [editable path="SwordEnemy3"]

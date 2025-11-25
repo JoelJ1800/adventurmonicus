@@ -1,6 +1,8 @@
 class_name Player
 extends Character
 
+@onready var inventory:Inventory = $Inventory
+
 func _process(_delta: float) -> void:
 	move_input = Input.get_vector("move_left","move_right","move_up","move_down")
 	
