@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxo4d3njqttab"]
+[gd_scene load_steps=4 format=3 uid="uid://cxo4d3njqttab"]
 
+[ext_resource type="Script" uid="uid://rerghkqce2vk" path="res://Scripts/Items/worldItem.gd" id="1_3gdxi"]
 [ext_resource type="Texture2D" uid="uid://bnl6kuntmw0he" path="res://Sprites/Items/Item_HealthPotion.tres" id="1_cewje"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_unf4m"]
 radius = 3.1622777
 
 [node name="WorldItem" type="Area2D"]
+script = ExtResource("1_3gdxi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cewje")
