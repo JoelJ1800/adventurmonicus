@@ -1,6 +1,7 @@
 class_name WorldItem
 extends Area2D
 
+@export var start_item : ItemData
 var item: ItemData
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -9,8 +10,11 @@ var bob_speed: float = 10
 var bob_amount: float = 2
 var pickup_sound: AudioStream = preload("res://Audio/Items/Pickup_Item.ogg")
 
-
-
+func _ready ():
+	if start_item:
+		set_item(start_item)
+	if not start_item and not item:
+		queue_free()
 
 func _process(delta: float) -> void:
 	# item bobbing

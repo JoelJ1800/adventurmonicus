@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=4 uid="uid://c0fc4vepcmsv3"]
+[gd_scene load_steps=13 format=4 uid="uid://c0fc4vepcmsv3"]
 
 [ext_resource type="TileSet" uid="uid://0s53enheoyqm" path="res://Tileset/Dungeons.tres" id="1_48tke"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="2_lg52p"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="3_hbaxp"]
 [ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="5_jipo1"]
+[ext_resource type="Script" uid="uid://cvbuijb20q207" path="res://Scripts/Items/ItemData.gd" id="6_6jjd4"]
 [ext_resource type="PackedScene" uid="uid://c5celpswnpx3b" path="res://Scenes/Characters/Enemies/sword_enemy.tscn" id="6_unf4m"]
+[ext_resource type="PackedScene" uid="uid://cxo4d3njqttab" path="res://Scenes/Other Entities/world_item.tscn" id="7_jipo1"]
 [ext_resource type="PackedScene" uid="uid://r6bidwth2fe1" path="res://Scenes/Characters/Enemies/ranged_enemy.tscn" id="7_pge5u"]
+[ext_resource type="Resource" uid="uid://blk6mi5x7b6rc" path="res://Items/Shield/Shield.tres" id="7_u5wvp"]
+[ext_resource type="Resource" uid="uid://dkpemvaistvbs" path="res://Items/Weapons/Arrow.tres" id="10_2ager"]
+[ext_resource type="Resource" uid="uid://dmqq1jwqp7n8m" path="res://Items/Weapons/Bow.tres" id="10_u5wvp"]
+[ext_resource type="Resource" uid="uid://dqf256v3f3ldm" path="res://Items/Weapons/Axe.tres" id="12_2ager"]
 
 [node name="Main" type="Node2D"]
 
@@ -32,6 +38,9 @@ chase_distance = 300.0
 [node name="SwordEnemy" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(235, 188)
 chase_distance = 300.0
+drop_pool = Dictionary[ExtResource("6_6jjd4"), int]({
+ExtResource("7_u5wvp"): 1
+})
 
 [node name="SwordEnemy2" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(711, 177)
@@ -88,3 +97,53 @@ chase_distance = 150.0
 [node name="SwordEnemy12" parent="." instance=ExtResource("6_unf4m")]
 position = Vector2(243, 462)
 chase_distance = 150.0
+
+[node name="DungeonObjects" type="Node" parent="."]
+
+[node name="WorldItem11" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(1196, 198)
+start_item = ExtResource("10_u5wvp")
+
+[node name="WorldItem" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(526, 183)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem2" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(514, 174)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem3" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(521, 190)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem4" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(504, 180)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem5" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(502, 191)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem6" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(511, 200)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem7" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(521, 200)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem8" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(519, 180)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem9" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(496, 184)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem10" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(513, 187)
+start_item = ExtResource("10_2ager")
+
+[node name="WorldItem12" parent="DungeonObjects" instance=ExtResource("7_jipo1")]
+position = Vector2(177, 404)
+start_item = ExtResource("12_2ager")
