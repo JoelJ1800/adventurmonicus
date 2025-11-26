@@ -40,6 +40,7 @@ shape = SubResource("CircleShape2D_kry3j")
 position = Vector2(352, -201)
 script = ExtResource("5_kry3j")
 scene_to_load = ExtResource("6_21xkr")
+player_spawn_pos = Vector2(31, 170)
 
 [node name="Interactable" type="Area2D" parent="DungeonEntrance"]
 script = ExtResource("4_jjvhh")
