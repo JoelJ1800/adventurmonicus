@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c0fc4vepcmsv3"]
+[gd_scene load_steps=16 format=4 uid="uid://c0fc4vepcmsv3"]
 
 [ext_resource type="TileSet" uid="uid://0s53enheoyqm" path="res://Tileset/Dungeons.tres" id="1_48tke"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="2_lg52p"]
@@ -13,7 +13,6 @@
 [ext_resource type="Resource" uid="uid://dmqq1jwqp7n8m" path="res://Items/Weapons/Bow.tres" id="10_u5wvp"]
 [ext_resource type="Resource" uid="uid://dqf256v3f3ldm" path="res://Items/Weapons/Axe.tres" id="12_2ager"]
 [ext_resource type="Script" uid="uid://vpr5q46ix4do" path="res://Scripts/Interaction/portalInteraction.gd" id="13_00226"]
-[ext_resource type="PackedScene" uid="uid://b8fcqouup0s58" path="res://Scenes/Overworld.tscn" id="14_fx15a"]
 [ext_resource type="Script" uid="uid://cbcebxh1lht2n" path="res://Scripts/Interaction/Interactable.gd" id="15_hgiut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00226"]
@@ -156,7 +155,7 @@ start_item = ExtResource("12_2ager")
 [node name="DungeonExit" type="Node2D" parent="."]
 position = Vector2(32, 159)
 script = ExtResource("13_00226")
-scene_to_load = ExtResource("14_fx15a")
+scene_to_load = "uid://b8fcqouup0s58"
 player_spawn_pos = Vector2(352, -190)
 
 [node name="Interactable" type="Area2D" parent="DungeonExit"]

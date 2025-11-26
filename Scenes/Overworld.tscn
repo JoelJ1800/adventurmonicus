@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=8 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_s7wd7"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="2_d6kyl"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_7g7yc"]
 [ext_resource type="Script" uid="uid://cbcebxh1lht2n" path="res://Scripts/Interaction/Interactable.gd" id="4_p68c8"]
 [ext_resource type="Script" uid="uid://vpr5q46ix4do" path="res://Scripts/Interaction/portalInteraction.gd" id="5_vd8s3"]
-[ext_resource type="PackedScene" uid="uid://c0fc4vepcmsv3" path="res://Scenes/Dungeon/Dungeon0.tscn" id="6_36n5q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kry3j"]
 
@@ -39,7 +38,7 @@ shape = SubResource("CircleShape2D_kry3j")
 [node name="DungeonEntrance" type="Node2D" parent="."]
 position = Vector2(352, -201)
 script = ExtResource("5_vd8s3")
-scene_to_load = ExtResource("6_36n5q")
+scene_to_load = "uid://c0fc4vepcmsv3"
 player_spawn_pos = Vector2(31, 170)
 
 [node name="Interactable" type="Area2D" parent="DungeonEntrance"]
