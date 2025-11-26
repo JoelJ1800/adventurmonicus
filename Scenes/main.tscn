@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=8 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_jjvhh"]
 [ext_resource type="Script" uid="uid://cbcebxh1lht2n" path="res://Scripts/Interaction/Interactable.gd" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://vpr5q46ix4do" path="res://Scripts/Interaction/portalInteraction.gd" id="5_kry3j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kry3j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_21xkr"]
 
 [node name="Main" type="Node2D"]
 
@@ -31,5 +34,16 @@ single_use = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestInteraction"]
 shape = SubResource("CircleShape2D_kry3j")
+
+[node name="DungeonEntrance" type="Node2D" parent="."]
+position = Vector2(352, -201)
+script = ExtResource("5_kry3j")
+
+[node name="Interactable" type="Area2D" parent="DungeonEntrance"]
+script = ExtResource("4_jjvhh")
+prompt = "Enter Dungeon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonEntrance/Interactable"]
+shape = SubResource("CircleShape2D_21xkr")
 
 [editable path="Player"]

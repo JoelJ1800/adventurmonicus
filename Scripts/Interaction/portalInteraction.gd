@@ -1,0 +1,2 @@
+class_name PortalInteraction
+extends Node2D
