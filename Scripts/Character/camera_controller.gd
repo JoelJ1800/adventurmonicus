@@ -5,6 +5,13 @@ var shake_intensity: float = 0
 
 
 func _ready():
+	if GameManager.camera and GameManager.camera != self:
+		queue_free()
+		return
+	
+	GameManager.camera = self
+	reparent.call_deferred(get_tree().root)
+	
 	global_position = target.global_position
 	target.OnTakeDamage.connect(_on_take_damage)
 
