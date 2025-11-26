@@ -11,14 +11,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _check():
-	pass
+	$CheckTimer.start()
 
 func enable():
 	pass
 
 func disable():
 	pass
-
-
-func _on_timer_timeout() -> void:
-	_check()
