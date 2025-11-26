@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://sgbs5s2cw82c" path="res://icon.svg" id="4_jjvhh"]
-[ext_resource type="Script" uid="uid://be7nujx1f3c7e" path="res://Scenes/TestingEntrance.gd" id="4_kry3j"]
+[ext_resource type="Script" path="res://Scenes/TestingEntrance.gd" id="4_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 
