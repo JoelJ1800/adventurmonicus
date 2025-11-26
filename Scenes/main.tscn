@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=6 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_jjvhh"]
+[ext_resource type="Script" uid="uid://cbcebxh1lht2n" path="res://Scripts/Interaction/Interactable.gd" id="4_jjvhh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kry3j"]
 
 [node name="Main" type="Node2D"]
 
@@ -19,5 +22,14 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_jjvhh")]
 move_speed = 60.0
+
+[node name="TestInteraction" type="Area2D" parent="."]
+position = Vector2(41, -67)
+script = ExtResource("4_jjvhh")
+prompt = "Open door"
+single_use = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestInteraction"]
+shape = SubResource("CircleShape2D_kry3j")
 
 [editable path="Player"]
