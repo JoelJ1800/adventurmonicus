@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=21 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
 [ext_resource type="Texture2D" uid="uid://btqlatabplef0" path="res://Sprites/Characters/Character_Man.tres" id="3_fcmex"]
 [ext_resource type="Script" uid="uid://7ud4vuoncm0g" path="res://Scripts/Character/CharacterVisual.gd" id="4_25bbb"]
 [ext_resource type="Script" uid="uid://5wkjuef45nvs" path="res://Scripts/Weapons/player_weapons.gd" id="5_cueqf"]
+[ext_resource type="Script" uid="uid://cmq7sysbr0wko" path="res://Scripts/Interaction/interaction_controller.gd" id="6_01b8d"]
 [ext_resource type="Script" uid="uid://coawsy5oshm3l" path="res://Scripts/Inventory/Inventory.gd" id="7_utp2y"]
 [ext_resource type="Script" uid="uid://cvbuijb20q207" path="res://Scripts/Items/ItemData.gd" id="8_25bbb"]
 [ext_resource type="PackedScene" uid="uid://knt5gawodd5f" path="res://Scenes/UI/health_bar.tscn" id="8_h1n2f"]
@@ -16,6 +17,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
 height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xccyk"]
+radius = 13.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25bbb"]
 bg_color = Color(0.29, 0.053166665, 0, 0.50980395)
@@ -63,6 +67,13 @@ shape = SubResource("CapsuleShape2D_bo1nx")
 [node name="PlayerWeapons" type="Node2D" parent="."]
 position = Vector2(0, -4)
 script = ExtResource("5_cueqf")
+
+[node name="InteractionController" type="Area2D" parent="."]
+script = ExtResource("6_01b8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionController"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_xccyk")
 
 [node name="HealthBar" parent="." instance=ExtResource("8_h1n2f")]
 
