@@ -11,7 +11,22 @@ func _process(delta: float) -> void:
 	pass
 
 func _check():
-	$CheckTimer.start()
+	current_interactable = null
+	prompt_text.visible = false 
+	
+	if not can_interact:
+		return
+	
+	for area in get_overlapping_areas():
+		if area is not Interactable:
+			continue
+		if not area.can_interact:
+			continue
+		
+		current_interactable = area
+		prompt_text.text = "[E] - " + area.prompt
+		prompt_text.visible = true
+
 
 func enable():
 	pass
