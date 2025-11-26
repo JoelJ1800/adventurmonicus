@@ -75,6 +75,10 @@ script = ExtResource("6_01b8d")
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_xccyk")
 
+[node name="Timer" type="Timer" parent="InteractionController"]
+wait_time = 0.1
+autostart = true
+
 [node name="HealthBar" parent="." instance=ExtResource("8_h1n2f")]
 
 [node name="Inventory" type="Node" parent="."]
@@ -191,3 +195,5 @@ text = "[E] - Pickup Item Name"
 label_settings = SubResource("LabelSettings_cueqf")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="timeout" from="InteractionController/Timer" to="InteractionController" method="_on_timer_timeout"]

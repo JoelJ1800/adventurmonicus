@@ -6,3 +6,19 @@ extends Area2D
 
 var current_interactable : Interactable
 var can_interact : bool = true
+
+func _process(delta: float) -> void:
+	pass
+
+func _check():
+	pass
+
+func enable():
+	pass
+
+func disable():
+	pass
+
+
+func _on_timer_timeout() -> void:
+	_check()
