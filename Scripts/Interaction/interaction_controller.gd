@@ -8,7 +8,11 @@ var current_interactable : Interactable
 var can_interact : bool = true
 
 func _process(delta: float) -> void:
-	pass
+	if not current_interactable:
+		return
+	
+	if Input.is_action_just_pressed("interact"):
+		current_interactable.try_interact(player)
 
 func _check():
 	current_interactable = null
@@ -29,7 +33,9 @@ func _check():
 
 
 func enable():
-	pass
+	can_interact = true
 
 func disable():
-	pass
+	can_interact = false
+	current_interactable = null
+	prompt_text.visible = false
