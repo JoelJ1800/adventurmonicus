@@ -17,6 +17,7 @@ func _ready():
 	# This will be called when the node enters the scene tree.
 	# We will hide the dialogue screen by default.
 	close_screen()
+	
 
 func close_screen():
 	# This function will hide the dialogue UI and restore player control.
@@ -42,6 +43,16 @@ func _process(delta):
 	# This function runs every frame and will be used for the text animation.
 	visible_chars += 30 * delta
 	dialogue_text.visible_characters = int(visible_chars)
+	
+	if not current_dialogue:
+		return
+	if Input.is_action_just_pressed("interact"):
+		if len(current_dialogue.lines) == current_line + 1:
+			# TODO: Give player item
+			close_screen()
+		else:
+			current_line += 1
+			_set_line(current_dialogue.lines[current_line])
 
 func _set_line(line : String):
 	# This will update the UI to show a specific line of dialogue.
