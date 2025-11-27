@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=34 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -52,6 +52,33 @@ shadow_offset = Vector2(-1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cueqf"]
 bg_color = Color(0, 0, 0, 0.5058824)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxpk4"]
+bg_color = Color(0.33711824, 0.22367227, 0.19339958, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15c3i"]
+bg_color = Color(0.1787492, 0.11014979, 0.09185516, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt1oc"]
+bg_color = Color(0.11302585, 0.062489115, 0.04845263, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yt1oc"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1n2f"]
+font_size = 42
+font_color = Color(0.86531115, 0.754652, 2.695322e-06, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xccyk"]
 bg_color = Color(0.5607315, 0.3966813, 0.2338498, 1)
 corner_radius_top_left = 4
@@ -76,13 +103,6 @@ shadow_offset = Vector2(-1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_15c3i"]
 font_size = 26
 font_color = Color(0.94612104, 0.9461486, 0.8590335, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_h1n2f"]
-font_size = 42
-font_color = Color(0.86531115, 0.754652, 2.695322e-06, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(-1, 1)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 collision_layer = 2
@@ -235,6 +255,132 @@ label_settings = SubResource("LabelSettings_cueqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ShopScreen" type="Panel" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cueqf")
+
+[node name="ShopPanel" type="Panel" parent="HUD/ShopScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26000002
+anchor_top = 0.13000001
+anchor_right = 0.74
+anchor_bottom = 0.87000006
+offset_left = 0.7999573
+offset_top = -0.40000916
+offset_right = -0.8000488
+offset_bottom = 0.39990234
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dxpk4")
+
+[node name="BG" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 9.0
+offset_right = -12.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15c3i")
+
+[node name="Shopkeep" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.523
+anchor_top = 0.039
+anchor_right = 0.9620001
+anchor_bottom = 0.961
+offset_left = -5.1600037
+offset_top = 2.7999992
+offset_right = -4.9680786
+offset_bottom = -5.800049
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yt1oc")
+
+[node name="PlayerPanel" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031000001
+anchor_top = 0.039
+anchor_right = 0.47000003
+anchor_bottom = 0.961
+offset_left = 11.48
+offset_top = 2.7999992
+offset_right = 11.671967
+offset_bottom = -5.800049
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yt1oc")
+
+[node name="SellText" type="Label" parent="HUD/ShopScreen/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.049000002
+anchor_top = 0.045
+anchor_right = 0.09200001
+anchor_bottom = 0.087000005
+offset_left = -0.08000183
+offset_right = 0.35999298
+offset_bottom = 0.3999939
+text = "Sell"
+label_settings = SubResource("LabelSettings_yt1oc")
+
+[node name="BuyText" type="Label" parent="HUD/ShopScreen/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517
+anchor_top = 0.045
+anchor_right = 0.565
+anchor_bottom = 0.087000005
+offset_left = 5.3599854
+offset_top = 2.0
+offset_right = 5.200012
+offset_bottom = 2.399994
+text = "Buy"
+label_settings = SubResource("LabelSettings_yt1oc")
+
+[node name="Gold" type="Control" parent="HUD"]
+layout_mode = 3
+anchor_left = 0.0050000004
+anchor_top = 0.007
+anchor_right = 0.0050000004
+anchor_bottom = 0.007
+offset_left = 1.3999996
+offset_top = 9.44
+offset_right = 41.4
+offset_bottom = 49.44
+mouse_filter = 2
+
+[node name="GoldIcon" type="TextureRect" parent="HUD/Gold"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 79.0
+offset_bottom = 70.0
+texture = ExtResource("15_h1n2f")
+stretch_mode = 5
+
+[node name="GoldText" type="Label" parent="HUD/Gold"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.975
+anchor_right = 1.0
+anchor_bottom = 0.975
+offset_left = 39.0
+offset_top = -33.0
+offset_right = 223.0
+offset_bottom = 25.0
+text = "500"
+label_settings = SubResource("LabelSettings_h1n2f")
+script = ExtResource("16_dxpk4")
+
 [node name="DialogueScreen" type="Panel" parent="HUD"]
 visible = false
 anchors_preset = 15
@@ -310,40 +456,5 @@ grow_horizontal = 2
 text = "This is where the NPC text will display when they are talking to the Player"
 label_settings = SubResource("LabelSettings_15c3i")
 autowrap_mode = 2
-
-[node name="Gold" type="Control" parent="HUD"]
-layout_mode = 3
-anchor_left = 0.0050000004
-anchor_top = 0.007
-anchor_right = 0.0050000004
-anchor_bottom = 0.007
-offset_left = 1.3999996
-offset_top = 9.44
-offset_right = 41.4
-offset_bottom = 49.44
-mouse_filter = 2
-
-[node name="GoldIcon" type="TextureRect" parent="HUD/Gold"]
-layout_mode = 0
-offset_left = 1.0
-offset_right = 79.0
-offset_bottom = 70.0
-texture = ExtResource("15_h1n2f")
-stretch_mode = 5
-
-[node name="GoldText" type="Label" parent="HUD/Gold"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.975
-anchor_right = 1.0
-anchor_bottom = 0.975
-offset_left = 39.0
-offset_top = -33.0
-offset_right = 223.0
-offset_bottom = 25.0
-text = "500"
-label_settings = SubResource("LabelSettings_h1n2f")
-script = ExtResource("16_dxpk4")
 
 [connection signal="timeout" from="InteractionController/CheckTimer" to="InteractionController" method="_check"]
