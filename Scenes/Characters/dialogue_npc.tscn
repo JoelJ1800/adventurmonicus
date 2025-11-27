@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcn0uu808gawx"]
+
+[ext_resource type="Script" uid="uid://dp8e3osncboim" path="res://Scripts/Interaction/DialogueNPC.gd" id="1_73nre"]
+[ext_resource type="Texture2D" uid="uid://ryo8ejfhg2w4" path="res://Sprites/Characters/Character_Wizard.tres" id="1_152xa"]
+[ext_resource type="Script" uid="uid://cbcebxh1lht2n" path="res://Scripts/Interaction/Interactable.gd" id="2_8cx6i"]
+[ext_resource type="Resource" uid="uid://b31t0ij76e76s" path="res://NPC Dialogue/NPCwelcome.tres" id="2_kd8od"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73nre"]
+radius = 13.038404
+
+[node name="DialogueNPC" type="Node2D"]
+script = ExtResource("1_73nre")
+dialogue = ExtResource("2_kd8od")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_152xa")
+
+[node name="Interactable" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("2_8cx6i")
+prompt = "Talk to Wizard"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_73nre")

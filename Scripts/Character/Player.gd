@@ -2,6 +2,7 @@ class_name Player
 extends Character
 
 @onready var inventory:Inventory = $Inventory
+@onready var dialogue_controller : DialogueController = $DialogueController
 var interaction_controller : InteractionController
 
 func _ready() -> void:

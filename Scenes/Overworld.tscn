@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://b8fcqouup0s58"]
+[gd_scene load_steps=9 format=4 uid="uid://b8fcqouup0s58"]
 
 [ext_resource type="TileSet" uid="uid://c6hom8sdicc88" path="res://Tileset/Overworld.tres" id="1_s7wd7"]
 [ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="2_d6kyl"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_7g7yc"]
 [ext_resource type="Script" uid="uid://cbcebxh1lht2n" path="res://Scripts/Interaction/Interactable.gd" id="4_p68c8"]
 [ext_resource type="Script" uid="uid://vpr5q46ix4do" path="res://Scripts/Interaction/portalInteraction.gd" id="5_vd8s3"]
+[ext_resource type="PackedScene" uid="uid://bcn0uu808gawx" path="res://Scenes/Characters/dialogue_npc.tscn" id="6_s7wd7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kry3j"]
 
@@ -48,4 +49,11 @@ prompt = "Enter Dungeon"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonEntrance/Interactable"]
 shape = SubResource("CircleShape2D_21xkr")
 
+[node name="DialogueNPC" parent="." instance=ExtResource("6_s7wd7")]
+position = Vector2(0, -48)
+
+[node name="Interactable" parent="DialogueNPC" index="1"]
+single_use = true
+
 [editable path="Player"]
+[editable path="DialogueNPC"]
