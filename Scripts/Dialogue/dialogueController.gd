@@ -13,11 +13,13 @@ var current_dialogue : Dialogue
 var visible_chars : float
 var current_line : int
 
+@export var test_dialogue : Dialogue
+
 func _ready():
 	# This will be called when the node enters the scene tree.
 	# We will hide the dialogue screen by default.
 	close_screen()
-	
+	set_dialogue(test_dialogue)
 
 func close_screen():
 	# This function will hide the dialogue UI and restore player control.
@@ -34,7 +36,7 @@ func set_dialogue(dialogue : Dialogue):
 	npc_name_text.text = dialogue.npc_name
 	npc_icon.texture = dialogue.npc_icon
 	
-	current_line = -1
+	current_line = 0
 	_set_line(dialogue.lines[0])
 	
 	# TODO disable player movement
