@@ -1,9 +1,13 @@
 class_name Player
 extends Character
 
+signal UpdatedGold(gold:int)
+
 @onready var inventory:Inventory = $Inventory
 @onready var dialogue_controller : DialogueController = $DialogueController
 var interaction_controller : InteractionController
+
+var gold : int = 0
 
 func _ready() -> void:
 	if GameManager.player and GameManager.player != self:
@@ -12,6 +16,7 @@ func _ready() -> void:
 		
 	GameManager.player = self
 	reparent.call_deferred(get_tree().root)
+	UpdatedGold.emit(gold)
 
 func _process(_delta: float) -> void:
 	move_input = Input.get_vector("move_left","move_right","move_up","move_down")
