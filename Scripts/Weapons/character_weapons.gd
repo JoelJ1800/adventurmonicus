@@ -11,6 +11,8 @@ var current_weapon : Weapon
 var current_shield : Shield
 var has_shield_out : bool
 
+var can_use:bool = true
+
 @onready var character : Character = $".."
 
 

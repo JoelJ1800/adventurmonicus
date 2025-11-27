@@ -16,10 +16,12 @@ signal OnHealthChange
 var move_input: Vector2
 var look_direction: Vector2
 var external_force: Vector2
+var can_move: bool = true
 
 
 func _physics_process(delta):
-	_move(delta)
+	if can_move:
+		_move(delta)
 
 
 func _move(delta: float):
