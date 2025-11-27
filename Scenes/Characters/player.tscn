@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=30 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" path="res://Scripts/UI/InventoryUI.gd" id="12_01b8d"]
 [ext_resource type="PackedScene" uid="uid://cu5o5xbasd1xp" path="res://Scenes/UI/inventory_slot.tscn" id="12_cueqf"]
 [ext_resource type="Texture2D" uid="uid://ryo8ejfhg2w4" path="res://Sprites/Characters/Character_Wizard.tres" id="13_01b8d"]
+[ext_resource type="Texture2D" path="res://Sprites/UI/UI_Gold.tres" id="15_h1n2f"]
+[ext_resource type="Script" uid="uid://dd3dvn4uvk633" path="res://Scripts/UI/gold_ui.gd" id="16_dxpk4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo1nx"]
 radius = 6.0
@@ -74,6 +76,13 @@ shadow_offset = Vector2(-1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_15c3i"]
 font_size = 26
 font_color = Color(0.94612104, 0.9461486, 0.8590335, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1n2f"]
+font_size = 42
+font_color = Color(0.86531115, 0.754652, 2.695322e-06, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 collision_layer = 2
@@ -301,5 +310,40 @@ grow_horizontal = 2
 text = "This is where the NPC text will display when they are talking to the Player"
 label_settings = SubResource("LabelSettings_15c3i")
 autowrap_mode = 2
+
+[node name="Gold" type="Control" parent="HUD"]
+layout_mode = 3
+anchor_left = 0.0050000004
+anchor_top = 0.007
+anchor_right = 0.0050000004
+anchor_bottom = 0.007
+offset_left = 1.3999996
+offset_top = 9.44
+offset_right = 41.4
+offset_bottom = 49.44
+mouse_filter = 2
+
+[node name="GoldIcon" type="TextureRect" parent="HUD/Gold"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 79.0
+offset_bottom = 70.0
+texture = ExtResource("15_h1n2f")
+stretch_mode = 5
+
+[node name="GoldText" type="Label" parent="HUD/Gold"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.975
+anchor_right = 1.0
+anchor_bottom = 0.975
+offset_left = 39.0
+offset_top = -33.0
+offset_right = 223.0
+offset_bottom = 25.0
+text = "500"
+label_settings = SubResource("LabelSettings_h1n2f")
+script = ExtResource("16_dxpk4")
 
 [connection signal="timeout" from="InteractionController/CheckTimer" to="InteractionController" method="_check"]
