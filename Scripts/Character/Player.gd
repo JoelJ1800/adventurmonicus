@@ -37,3 +37,11 @@ func toggle_usability (toggle:bool):
 		interaction_controller.enable()
 	else:
 		interaction_controller.disable()
+
+func give_gold (amount : int):
+	gold += amount
+	UpdatedGold.emit(gold)
+
+func take_gold (amount : int):
+	gold -= amount
+	UpdatedGold.emit(gold)
