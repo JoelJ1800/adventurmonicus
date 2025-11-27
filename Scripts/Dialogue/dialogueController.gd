@@ -13,20 +13,17 @@ var current_dialogue : Dialogue
 var visible_chars : float
 var current_line : int
 
-@export var test_dialogue : Dialogue
-
 func _ready():
 	# This will be called when the node enters the scene tree.
 	# We will hide the dialogue screen by default.
 	close_screen()
-	set_dialogue(test_dialogue)
 
 func close_screen():
 	# This function will hide the dialogue UI and restore player control.
 	dialogue_screen.visible = false
 	current_dialogue = null
 	
-	# TODO enable player movement
+	player.toggle_usability(true)
 
 func set_dialogue(dialogue : Dialogue):
 	# This function will be called to start a new conversation.
@@ -39,7 +36,7 @@ func set_dialogue(dialogue : Dialogue):
 	current_line = 0
 	_set_line(dialogue.lines[0])
 	
-	# TODO disable player movement
+	player.toggle_usability(false)
 
 func _process(delta):
 	# This function runs every frame and will be used for the text animation.
