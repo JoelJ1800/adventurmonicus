@@ -50,7 +50,9 @@ func _process(delta):
 		return
 	if Input.is_action_just_pressed("interact"):
 		if len(current_dialogue.lines) == current_line + 1:
-			# TODO: Give player item
+			if current_dialogue.item_to_give:
+				for i in range(current_dialogue.item_to_give_quantity):
+					player.inventory.add_item(current_dialogue.item_to_give)
 			close_screen()
 		else:
 			current_line += 1
