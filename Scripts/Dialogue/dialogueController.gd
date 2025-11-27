@@ -40,7 +40,8 @@ func set_dialogue(dialogue : Dialogue):
 
 func _process(delta):
 	# This function runs every frame and will be used for the text animation.
-	pass
+	visible_chars += 30 * delta
+	dialogue_text.visible_characters = int(visible_chars)
 
 func _set_line(line : String):
 	# This will update the UI to show a specific line of dialogue.
