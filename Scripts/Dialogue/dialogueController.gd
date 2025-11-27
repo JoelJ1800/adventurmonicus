@@ -44,4 +44,6 @@ func _process(delta):
 
 func _set_line(line : String):
 	# This will update the UI to show a specific line of dialogue.
-	pass
+	visible_chars = 0
+	dialogue_text.visible_characters = 0
+	dialogue_text.text = line
