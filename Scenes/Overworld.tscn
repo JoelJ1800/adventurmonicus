@@ -27,7 +27,7 @@ target = NodePath("../Player")
 move_speed = 60.0
 
 [node name="TestInteraction" type="Area2D" parent="."]
-position = Vector2(41, -67)
+position = Vector2(40, -66)
 script = ExtResource("4_p68c8")
 prompt = "Open door"
 single_use = true
