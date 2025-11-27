@@ -13,10 +13,15 @@ func _ready() -> void:
 	if GameManager.player and GameManager.player != self:
 		queue_free()
 		return
-		
+	
+	var gold_ui = $HUD/Gold/GoldText
+	UpdatedGold.connect(gold_ui._on_updated_gold)
+	
+	UpdatedGold.emit(gold)
+	
 	GameManager.player = self
 	reparent.call_deferred(get_tree().root)
-	UpdatedGold.emit(gold)
+
 
 func _process(_delta: float) -> void:
 	move_input = Input.get_vector("move_left","move_right","move_up","move_down")
