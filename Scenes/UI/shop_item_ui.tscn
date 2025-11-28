@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cp7od6851etuw"]
 
-[ext_resource type="Script" uid="uid://preagipnf07a" path="res://Scripts/UI/GameButton.gd" id="1_tpr8k"]
+[ext_resource type="Script" uid="uid://cprp4sjgjx05m" path="res://Scripts/UI/shopitemUI.gd" id="1_emgyl"]
 [ext_resource type="Texture2D" uid="uid://cvi2growfl5pu" path="res://Sprites/UI/UI_InventorySlot.tres" id="2_lg1lg"]
 [ext_resource type="Texture2D" uid="uid://nnn5juuro7la" path="res://Sprites/Items/Item_Axe.tres" id="3_6bce6"]
 [ext_resource type="Texture2D" path="res://Sprites/UI/UI_Gold.tres" id="4_emgyl"]
@@ -104,7 +104,7 @@ button_group = null
 shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
-script = ExtResource("1_tpr8k")
+script = ExtResource("1_emgyl")
 metadata/_custom_type_script = "uid://preagipnf07a"
 
 [node name="BG" type="Panel" parent="."]

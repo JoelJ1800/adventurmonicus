@@ -365,30 +365,39 @@ theme_override_constants/separation = 5
 
 [node name="ShopItemUI" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI2" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI3" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI4" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI5" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI6" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI7" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI8" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="ShopItemUI9" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
 layout_mode = 2
+selling = true
 
 [node name="SellText" type="Label" parent="HUD/ShopScreen/ShopPanel"]
 layout_mode = 1
