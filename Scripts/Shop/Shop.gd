@@ -18,8 +18,9 @@ func try_buy_item (player : Player, item_data : ItemData):
 	if player.gold < price:
 		return
 	
-	player.inventory.add_item(item_data)
-	player.take_gold(price)
+	var item_added: bool = player.inventory.add_item(item_data)
+	if item_added:
+		player.take_gold(price)
 
 func get_sell_price (item_data : ItemData) -> int:
 	return ceili(float(item_data.base_price) * sell_price_mod)
