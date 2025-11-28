@@ -7,5 +7,7 @@ extends Resource
 @export var icon: Texture
 @export var equip_scene: PackedScene
 
+@export var base_price: int
+
 func _select_in_inventory (player:Player, item_slot: Inventory.ItemSlot):
 	pass

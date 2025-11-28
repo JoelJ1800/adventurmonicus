@@ -178,12 +178,12 @@ label_settings = SubResource("LabelSettings_sb7i5")
 
 [node name="GoldIcon" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.177
 anchor_bottom = 1.0
-offset_left = 69.0
+offset_left = 65.0
 offset_top = 36.0
-offset_right = -261.0
+offset_right = 31.279999
 offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2

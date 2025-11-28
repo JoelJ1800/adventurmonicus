@@ -292,7 +292,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_15c3i")
 
-[node name="Shopkeep" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
+[node name="ShopPanel" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.523
@@ -305,6 +305,41 @@ offset_right = -4.9680786
 offset_bottom = -5.800049
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yt1oc")
+
+[node name="ShopItems" type="VBoxContainer" parent="HUD/ShopScreen/ShopPanel/ShopPanel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 396.0
+offset_bottom = 679.0
+theme_override_constants/separation = 5
+
+[node name="ShopItemUI" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI2" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI3" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI4" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI5" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI6" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI7" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI8" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI9" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
 
 [node name="PlayerPanel" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
 layout_mode = 1
@@ -319,6 +354,41 @@ offset_right = 11.671967
 offset_bottom = -5.800049
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yt1oc")
+
+[node name="PlayerItems" type="VBoxContainer" parent="HUD/ShopScreen/ShopPanel/PlayerPanel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 398.0
+offset_bottom = 679.0
+theme_override_constants/separation = 5
+
+[node name="ShopItemUI" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI2" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI3" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI4" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI5" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI6" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI7" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI8" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
+
+[node name="ShopItemUI9" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
+layout_mode = 2
 
 [node name="SellText" type="Label" parent="HUD/ShopScreen/ShopPanel"]
 layout_mode = 1
@@ -345,13 +415,6 @@ offset_top = 0.3999977
 offset_right = -0.16003418
 text = "Buy"
 label_settings = SubResource("LabelSettings_yt1oc")
-
-[node name="ShopItemUI" parent="HUD/ShopScreen" instance=ExtResource("14_15c3i")]
-layout_mode = 0
-offset_left = 560.0
-offset_top = 235.0
-offset_right = 920.0
-offset_bottom = 305.0
 
 [node name="Gold" type="Control" parent="HUD"]
 layout_mode = 3

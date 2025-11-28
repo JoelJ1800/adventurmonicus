@@ -10,4 +10,5 @@ display_name = "Axe"
 description = "Slow and heavy weapon"
 icon = ExtResource("2_rtk6x")
 equip_scene = ExtResource("1_i8wjf")
+base_price = 20
 metadata/_custom_type_script = "uid://dgcovtinm2t8p"

@@ -10,4 +10,5 @@ display_name = "Shield"
 description = "Parry them casuals Simon"
 icon = ExtResource("2_cgr4f")
 equip_scene = ExtResource("1_w7f3s")
+base_price = 5
 metadata/_custom_type_script = "uid://rq4e2m14yxub"

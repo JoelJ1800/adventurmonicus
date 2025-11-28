@@ -9,4 +9,5 @@ display_name = "Arrow"
 description = "Arrow to fire from bow"
 max_stack_size = 64
 icon = ExtResource("1_56cgj")
+base_price = 2
 metadata/_custom_type_script = "uid://cvbuijb20q207"

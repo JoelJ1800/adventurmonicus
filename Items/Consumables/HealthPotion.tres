@@ -12,4 +12,5 @@ display_name = "Health Potion"
 description = "Heals 5 hp"
 max_stack_size = 10
 icon = ExtResource("1_oapha")
+base_price = 10
 metadata/_custom_type_script = "uid://jthed2qtgebd"

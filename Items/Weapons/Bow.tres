@@ -10,4 +10,5 @@ display_name = "Bow"
 description = "weak ranged weapon"
 icon = ExtResource("2_hg3ga")
 equip_scene = ExtResource("1_575tc")
+base_price = 4
 metadata/_custom_type_script = "uid://dgcovtinm2t8p"

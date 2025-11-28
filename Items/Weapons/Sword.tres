@@ -10,4 +10,5 @@ display_name = "Sword"
 description = "Light weapon with quick attacks."
 icon = ExtResource("2_dkb10")
 equip_scene = ExtResource("1_mpvd6")
+base_price = 5
 metadata/_custom_type_script = "uid://dgcovtinm2t8p"
