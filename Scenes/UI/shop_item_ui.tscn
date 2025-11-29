@@ -157,6 +157,8 @@ offset_left = 69.0
 offset_top = 2.0
 offset_right = -40.0
 offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Item Name
 "
 label_settings = SubResource("LabelSettings_6bce6")
