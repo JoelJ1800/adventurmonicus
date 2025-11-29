@@ -28,7 +28,19 @@ func _process(delta: float) -> void:
 	pass
 
 func set_shop( shop : Shop):
-	pass
+	self.shop = shop
+	visible = true
+	player.toggle_usability(false)
+	
+	_update_player_items()
+	
+	for i in len(shop_items):
+		if i >= len(shop.items):
+			shop_items[i].visible = false
+			continue
+		
+		shop_items[i].visible = true
+		shop_items[i].set_buy_item(player,shop,shop.item[i])
 
 func _update_player_items ():
 	pass
