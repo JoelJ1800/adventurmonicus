@@ -38,8 +38,9 @@ func add_item(item: ItemData) -> bool:
 		
 		slot.item = item
 		slot.quantity = 1
-	UpdatedInventory.emit()
 	UpdatedSlot.emit(slot)
+	UpdatedInventory.emit()
+	
 	
 	return true
 
@@ -59,8 +60,9 @@ func remove_item_from_slot(slot: ItemSlot):
 		slot.item = null
 	else:
 		slot.quantity -= 1
-	UpdatedInventory.emit()
 	UpdatedSlot.emit(slot)
+	UpdatedInventory.emit()
+	
 	
 
 # returns item slot containing specified item

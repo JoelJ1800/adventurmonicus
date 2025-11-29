@@ -31,6 +31,8 @@ func _process (_delta : float):
 func _on_updated_inventory_slot (slot : Inventory.ItemSlot):
 	if slot == weapon_inventory_slot and not slot.item:
 		unequip_weapon()
+		weapon_inventory_slot = null
 	
 	if slot == shield_inventory_slot and not slot.item:
 		unequip_shield()
+		weapon_inventory_slot = null

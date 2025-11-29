@@ -5,6 +5,7 @@ signal Interact (player:Player)
 
 @export var prompt : String = "Pickup Item"
 @export var single_use : bool = false
+@export var is_shop: bool = false
 var can_interact : bool = true
 
 func try_interact (player:Player):
