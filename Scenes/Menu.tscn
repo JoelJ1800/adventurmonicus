@@ -272,6 +272,3 @@ grow_vertical = 2
 text = "Quit"
 label_settings = SubResource("LabelSettings_s2c3o")
 horizontal_alignment = 1
-
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]
