@@ -12,6 +12,7 @@ var player_items : Array[ShopItemUI]
 var shop_items : Array[ShopItemUI]
 
 func _ready():
+	close_shop()
 	inventory.UpdatedInventory.connect(_update_player_items)
 	
 	for child in player_items_container.get_children():
@@ -27,7 +28,11 @@ func _ready():
 		shop_items.append(child)
 
 func _process(delta: float) -> void:
-	pass
+	if not visible:
+		return
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		close_shop()
 
 func set_shop( shop : Shop):
 	self.shop = shop
