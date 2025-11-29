@@ -43,8 +43,15 @@ func set_shop( shop : Shop):
 		shop_items[i].set_buy_item(player,shop,shop.item[i])
 
 func _update_player_items ():
-	pass
-
+	if not visible or not shop:
+		return
+	for i in len(player_items):
+		if i >= inventory.size or not inventory.item_slots[i].item:
+			player_items[i].visible = false
+			continue
+		
+		player_items[i].visible = true
+		player_items[i].set_sell_item(player,shop,inventory.item_slots[i])
 func close_shop ():
 	visible = false
 	player.toggle_usability(true)
