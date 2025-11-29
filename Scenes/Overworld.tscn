@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bcn0uu808gawx" path="res://Scenes/Characters/dialogue_npc.tscn" id="6_s7wd7"]
 [ext_resource type="Texture2D" path="res://Sprites/Characters/Character_Shopkeeper.tres" id="7_d6kyl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kry3j"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_21xkr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6kyl"]
 
 [node name="Main" type="Node2D"]
 
@@ -29,15 +29,6 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_7g7yc")]
 move_speed = 60.0
-
-[node name="TestInteraction" type="Area2D" parent="."]
-position = Vector2(40, -66)
-script = ExtResource("4_p68c8")
-prompt = "Open door"
-single_use = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestInteraction"]
-shape = SubResource("CircleShape2D_kry3j")
 
 [node name="DungeonEntrance" type="Node2D" parent="."]
 position = Vector2(352, -201)
@@ -67,6 +58,19 @@ texture = ExtResource("7_d6kyl")
 
 [node name="Interactable" parent="Shopkeeper" index="1"]
 prompt = "Talk to Blacksmith"
+
+[node name="BlacksmithEntrance" type="Node2D" parent="."]
+position = Vector2(40, -66)
+script = ExtResource("5_vd8s3")
+scene_to_load = "uid://xwjl3o6we6ju"
+player_spawn_pos = Vector2(208, 116)
+
+[node name="Interactable" type="Area2D" parent="BlacksmithEntrance"]
+script = ExtResource("4_p68c8")
+prompt = "Open Blacksmith"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlacksmithEntrance/Interactable"]
+shape = SubResource("CapsuleShape2D_d6kyl")
 
 [editable path="Player"]
 [editable path="DialogueNPC"]
