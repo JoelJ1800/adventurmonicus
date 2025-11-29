@@ -23,3 +23,16 @@ func _ready():
 			continue
 		
 		shop_items.append(child)
+
+func _process(delta: float) -> void:
+	pass
+
+func set_shop( shop : Shop):
+	pass
+
+func _update_player_items ():
+	pass
+
+func close_shop ():
+	visible = false
+	player.toggle_usability(true)
