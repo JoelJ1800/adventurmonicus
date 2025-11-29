@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=36 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cu5o5xbasd1xp" path="res://Scenes/UI/inventory_slot.tscn" id="12_cueqf"]
 [ext_resource type="Texture2D" uid="uid://ryo8ejfhg2w4" path="res://Sprites/Characters/Character_Wizard.tres" id="13_01b8d"]
 [ext_resource type="PackedScene" uid="uid://cp7od6851etuw" path="res://Scenes/UI/shop_item_ui.tscn" id="14_15c3i"]
+[ext_resource type="Script" uid="uid://d2f7blxor54pp" path="res://Scripts/UI/shop_ui.gd" id="14_yt1oc"]
 [ext_resource type="Texture2D" path="res://Sprites/UI/UI_Gold.tres" id="15_h1n2f"]
 [ext_resource type="Script" uid="uid://dd3dvn4uvk633" path="res://Scripts/UI/gold_ui.gd" id="16_dxpk4"]
 
@@ -263,6 +264,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cueqf")
+script = ExtResource("14_yt1oc")
 
 [node name="ShopPanel" type="Panel" parent="HUD/ShopScreen"]
 layout_mode = 1
