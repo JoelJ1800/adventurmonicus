@@ -12,6 +12,8 @@ var player_items : Array[ShopItemUI]
 var shop_items : Array[ShopItemUI]
 
 func _ready():
+	inventory.UpdatedInventory.connect(_update_player_items)
+	
 	for child in player_items_container.get_children():
 		if child is not ShopItemUI:
 			continue
