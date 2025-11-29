@@ -6,6 +6,7 @@ signal UpdatedGold(gold:int)
 @onready var inventory:Inventory = $Inventory
 @onready var dialogue_controller : DialogueController = $DialogueController
 var interaction_controller : InteractionController
+@onready var shop_ui : ShopUI = $HUD/ShopScreen
 
 var gold : int = 0
 

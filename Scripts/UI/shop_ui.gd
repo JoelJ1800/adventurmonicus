@@ -47,7 +47,7 @@ func set_shop( shop : Shop):
 			continue
 		
 		shop_items[i].visible = true
-		shop_items[i].set_buy_item(player,shop,shop.item[i])
+		shop_items[i].set_buy_item(player,shop,shop.items[i])
 
 func _update_player_items ():
 	if not visible or not shop:

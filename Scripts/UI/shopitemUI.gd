@@ -32,6 +32,6 @@ func set_buy_item (player : Player, shop : Shop, item_data : ItemData):
 	self.player = player
 	self.shop = shop
 	buy_item = item_data
-	item_icon.texture = item_data.item.icon
-	item_name_text.text = item_data.item.display_name
+	item_icon.texture = item_data.icon
+	item_name_text.text = item_data.display_name
 	price_text.text = str(shop.get_buy_price(item_data))

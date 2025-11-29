@@ -1,0 +1,34 @@
+[gd_scene load_steps=13 format=3 uid="uid://c57oiumdylq4e"]
+
+[ext_resource type="Script" uid="uid://cgn5422fljcl8" path="res://Scripts/Shop/ShopNPC.gd" id="1_dji6d"]
+[ext_resource type="Texture2D" path="res://Sprites/Characters/Character_Shopkeeper.tres" id="2_046f7"]
+[ext_resource type="Script" uid="uid://cbcebxh1lht2n" path="res://Scripts/Interaction/Interactable.gd" id="3_bawnb"]
+[ext_resource type="Script" uid="uid://c0mm7lcn3gtha" path="res://Scripts/Shop/Shop.gd" id="4_1hutc"]
+[ext_resource type="Script" uid="uid://cvbuijb20q207" path="res://Scripts/Items/ItemData.gd" id="5_cprgi"]
+[ext_resource type="Resource" uid="uid://blk6mi5x7b6rc" path="res://Items/Shield/Shield.tres" id="6_vd3e3"]
+[ext_resource type="Resource" uid="uid://dym1riip6etm0" path="res://Items/Weapons/Sword.tres" id="7_38sqj"]
+[ext_resource type="Resource" uid="uid://dqf256v3f3ldm" path="res://Items/Weapons/Axe.tres" id="8_xx68q"]
+[ext_resource type="Resource" uid="uid://dmqq1jwqp7n8m" path="res://Items/Weapons/Bow.tres" id="9_xmiqj"]
+[ext_resource type="Resource" uid="uid://dkpemvaistvbs" path="res://Items/Weapons/Arrow.tres" id="10_y23l4"]
+[ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="11_cyqiq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdcja"]
+radius = 18.0
+
+[node name="ShopkeeperNPC" type="Node2D"]
+script = ExtResource("1_dji6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_046f7")
+
+[node name="Interactable" type="Area2D" parent="."]
+script = ExtResource("3_bawnb")
+prompt = "Blacksmith"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_xdcja")
+
+[node name="Shop" type="Node" parent="."]
+script = ExtResource("4_1hutc")
+items = Array[ExtResource("5_cprgi")]([ExtResource("6_vd3e3"), ExtResource("7_38sqj"), ExtResource("8_xx68q"), ExtResource("9_xmiqj"), ExtResource("10_y23l4"), ExtResource("11_cyqiq")])
+metadata/_custom_type_script = "uid://c0mm7lcn3gtha"
