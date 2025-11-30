@@ -1,7 +1,7 @@
 extends Control
 
 func _on_play_pressed():
-	pass
+	GameManager.play_game()
 
 func _on_quit_pressed():
-	pass
+	get_tree().quit()

@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 
 
 func _die():
-	get_tree().reload_current_scene()
+	GameManager.game_over()
 
 func toggle_usability (toggle:bool):
 	can_move = toggle
