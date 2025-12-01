@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://knt5gawodd5f" path="res://Scenes/UI/health_bar.tscn" id="8_h1n2f"]
 [ext_resource type="Script" uid="uid://bl48yv51r0ep" path="res://Scripts/Dialogue/dialogueController.gd" id="8_xccyk"]
 [ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="11_xccyk"]
-[ext_resource type="Script" path="res://Scripts/UI/InventoryUI.gd" id="12_01b8d"]
+[ext_resource type="Script" uid="uid://cxjhhwrll1uo5" path="res://Scripts/UI/InventoryUI.gd" id="12_01b8d"]
 [ext_resource type="PackedScene" uid="uid://cu5o5xbasd1xp" path="res://Scenes/UI/inventory_slot.tscn" id="12_cueqf"]
 [ext_resource type="Texture2D" uid="uid://ryo8ejfhg2w4" path="res://Sprites/Characters/Character_Wizard.tres" id="13_01b8d"]
 [ext_resource type="PackedScene" uid="uid://cp7od6851etuw" path="res://Scenes/UI/shop_item_ui.tscn" id="14_15c3i"]
@@ -258,6 +258,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ShopScreen" type="Panel" parent="HUD"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

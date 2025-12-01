@@ -425,8 +425,8 @@ shape = SubResource("RectangleShape2D_f10gg")
 [node name="BlacksmithExit" type="Node2D" parent="."]
 position = Vector2(248, 50)
 script = ExtResource("8_qif77")
-scene_to_load = "uid://b8fcqouup0s58"
-player_spawn_pos = Vector2(40, -66)
+scene_to_load = "uid://bpjwf1gxhurps"
+player_spawn_pos = Vector2(737, 630)
 
 [node name="Interactable" type="Area2D" parent="BlacksmithExit"]
 position = Vector2(-40, 67)

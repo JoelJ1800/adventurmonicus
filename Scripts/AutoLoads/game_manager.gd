@@ -12,7 +12,7 @@ func change_scene (scene : PackedScene,player_position : Vector2): # takes in sc
 	camera.global_position = player_position
 
 func play_game():
-	get_tree().change_scene_to_file("res://Scenes/Overworld.tscn")
+	get_tree().change_scene_to_file("res://Scenes/NewOverwerld/overworld_2.tscn")
 
 func game_over():
 	player.queue_free()

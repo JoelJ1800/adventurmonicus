@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://ijadedn4uhd1" path="res://Scripts/Menu/menu.gd" id="1_6pedr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kf3n"]
-bg_color = Color(0.90821993, 0.63754606, 1, 1)
+bg_color = Color(0.17736241, 0.044529624, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6pedr"]
 font_size = 118
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syfuq"]
-bg_color = Color(0.6878247, 0.98879975, 0.8136716, 1)
+bg_color = Color(0.0013114917, 0.016520463, 0, 1)
 corner_radius_top_left = 24
 corner_radius_top_right = 24
 corner_radius_bottom_right = 24
@@ -18,7 +18,6 @@ corner_radius_bottom_left = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_s2c3o"]
 font_size = 48
-font_color = Color(0.9365369, 0.59407073, 1, 1)
 outline_size = 8
 outline_color = Color(0.2, 0.14400001, 0.14400001, 1)
 
