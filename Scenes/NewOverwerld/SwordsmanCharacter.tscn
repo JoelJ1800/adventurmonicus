@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://rtu83hbikvt"]
+
+[node name="Swordsman" type="CharacterBody2D"]
