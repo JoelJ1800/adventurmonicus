@@ -4900,7 +4900,7 @@ tile_set = SubResource("TileSet_sgwer")
 
 [node name="Player" parent="." instance=ExtResource("9_13hjl")]
 position = Vector2(23, 466)
-move_speed = 150.0
+move_speed = 75.0
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_sgwer")]
 limit_left = 0

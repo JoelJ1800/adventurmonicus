@@ -722,6 +722,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-394, 22)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_cacbj"]
+break_loop_at_end = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wi16j"]
 animation = &"attack_down"
@@ -883,12 +884,15 @@ blend_point_8/pos = Vector2(1, -1)
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x41km"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ipscb"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yc7pt"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1s3u7"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hp2f6"]
@@ -900,24 +904,21 @@ states/RunningAttack/position = Vector2(350, 134)
 states/Start/position = Vector2(160, -78)
 states/WalkingAttack/node = SubResource("AnimationNodeBlendSpace2D_qsb8p")
 states/WalkingAttack/position = Vector2(350, 42)
-transitions = ["Start", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_q2fsp"), "Start", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_cedbe"), "WalkingAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hcfdb"), "RunningAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_nlvnh"), "Start", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_wi16j"), "IdleAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_k2llm"), "WalkingAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_ijsmg"), "IdleAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hxh0i"), "RunningAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_x41km"), "RunningAttack", "End", SubResource("AnimationNodeStateMachineTransition_ipscb"), "WalkingAttack", "End", SubResource("AnimationNodeStateMachineTransition_yc7pt"), "IdleAttack", "End", SubResource("AnimationNodeStateMachineTransition_1s3u7")]
-graph_offset = Vector2(-404, -147)
+transitions = ["Start", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_q2fsp"), "Start", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_cedbe"), "WalkingAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hcfdb"), "RunningAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_nlvnh"), "Start", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_wi16j"), "IdleAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_k2llm"), "WalkingAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_ijsmg"), "IdleAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hxh0i"), "RunningAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_x41km"), "IdleAttack", "End", SubResource("AnimationNodeStateMachineTransition_ipscb"), "WalkingAttack", "End", SubResource("AnimationNodeStateMachineTransition_yc7pt"), "RunningAttack", "End", SubResource("AnimationNodeStateMachineTransition_1s3u7")]
+graph_offset = Vector2(-442, -60)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cacbj"]
-graph_offset = Vector2(-962.4707, 134.95128)
+graph_offset = Vector2(-785.30255, 14.678635)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_cacbj")
 nodes/MoveStateMachine/position = Vector2(-220, 80)
 nodes/SwordStateMachine/node = SubResource("AnimationNodeStateMachine_hp2f6")
 nodes/SwordStateMachine/position = Vector2(-220, 260)
 nodes/SwordOneShot/node = SubResource("AnimationNodeOneShot_cacbj")
-nodes/SwordOneShot/position = Vector2(120, 80)
+nodes/SwordOneShot/position = Vector2(80, 180)
 node_connections = [&"output", 0, &"SwordOneShot", &"SwordOneShot", 0, &"MoveStateMachine", &"SwordOneShot", 1, &"SwordStateMachine"]
 
 [node name="Swordsman" type="CharacterBody2D"]
 script = ExtResource("1_81xo3")
-speed = null
-sprint_speed = null
-tool_offset = null
 
 [node name="Swordsman" type="Sprite2D" parent="."]
 texture = ExtResource("1_cacbj")
@@ -940,7 +941,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/MoveStateMachine/Idle/blend_position = Vector2(0, 0)
 parameters/MoveStateMachine/Running/blend_position = Vector2(-0.0012853742, 0.006507635)
 parameters/MoveStateMachine/Walk/blend_position = Vector2(0, 0)
-parameters/SwordStateMachine/IdleAttack/blend_position = Vector2(0, 0)
+parameters/SwordStateMachine/IdleAttack/blend_position = Vector2(-1.0025381, -0.01025641)
 parameters/SwordStateMachine/RunningAttack/blend_position = Vector2(0, 0)
 parameters/SwordStateMachine/WalkingAttack/blend_position = Vector2(0, 0)
 parameters/SwordOneShot/active = false

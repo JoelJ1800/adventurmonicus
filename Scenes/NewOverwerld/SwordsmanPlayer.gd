@@ -24,6 +24,8 @@ func _physics_process(_delta: float) -> void:
 	if can_move:
 		get_input()
 		set_animation()
+	if direction:
+		last_direction = direction
 	if Input.is_action_pressed("sprint"):
 		velocity = direction * sprint_speed * int(can_move)
 	else:
@@ -33,11 +35,19 @@ func _physics_process(_delta: float) -> void:
 
 func get_input():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	if Input.is_action_just_pressed("attack"):
-		print(move_state)
-		sword_state_machine.travel()
-		#$AnimationTree.set("parameters/ToolOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-		#can_move = false
+	
+	if Input.is_action_just_pressed("attack") and not $AnimationTree.get("parameters/SwordOneShot/active"):
+		can_move = false
+		var attack_anim = get_attack_animation_name()
+		sword_state_machine.travel(attack_anim)
+		var direction_animation: Vector2 = Vector2(round(last_direction.x), round(last_direction.y))
+		$AnimationTree.set("parameters/SwordStateMachine/" + attack_anim + "/blend_position", direction_animation)
+		$AnimationTree.set("parameters/SwordOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		print(attack_anim + move_state)
+		await get_tree().create_timer(0.5).timeout
+		can_move = true
+
+
 
 func set_animation():
 	if direction.length() > 0 and move_state == "walking":
@@ -67,11 +77,13 @@ func get_attack_animation_name() -> String:
 		"idle":
 			return "IdleAttack"
 		"walking":
-			return "RunningAttack"
+			return "WalkingAttack"
 		"running":
 			return "RunningAttack"
 		_:
 			return "IdleAttack"
 
-func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
-	pass
+func wait_for_oneshot():
+	while $AnimationTree.get("parameters/SwordOneShot/active"):
+		await get_tree().process_frame
+	
