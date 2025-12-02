@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://rtu83hbikvt"]
+[gd_scene load_steps=119 format=3 uid="uid://rtu83hbikvt"]
 
 [ext_resource type="Texture2D" uid="uid://bvnli4awt3nhk" path="res://Sprites/Characters/Swordsman_lvl2_Walk_with_shadow - Copy.png" id="1_cacbj"]
 
@@ -718,7 +718,9 @@ states/Running/position = Vector2(472, -19)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_cacbj")
 states/Walk/position = Vector2(472, 206)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_hp2f6"), "Idle", "Running", SubResource("AnimationNodeStateMachineTransition_81xo3"), "Running", "Idle", SubResource("AnimationNodeStateMachineTransition_qsb8p"), "Running", "Walk", SubResource("AnimationNodeStateMachineTransition_cacbj"), "Walk", "Running", SubResource("AnimationNodeStateMachineTransition_w14au"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_yucfh"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_jhs2b")]
-graph_offset = Vector2(-379, -122)
+graph_offset = Vector2(-553, 5)
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_cacbj"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wi16j"]
 animation = &"attack_down"
@@ -901,10 +903,14 @@ transitions = ["Start", "WalkingAttack", SubResource("AnimationNodeStateMachineT
 graph_offset = Vector2(-450, -145)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cacbj"]
-nodes/MovetStateMachine/node = SubResource("AnimationNodeStateMachine_cacbj")
-nodes/MovetStateMachine/position = Vector2(-220, 80)
+graph_offset = Vector2(-883.94336, 108.28204)
+nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_cacbj")
+nodes/MoveStateMachine/position = Vector2(-220, 80)
 nodes/SwordStateMachine/node = SubResource("AnimationNodeStateMachine_hp2f6")
 nodes/SwordStateMachine/position = Vector2(-220, 260)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_cacbj")
+nodes/OneShot/position = Vector2(120, 80)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MoveStateMachine", &"OneShot", 1, &"SwordStateMachine"]
 
 [node name="Swordsman" type="CharacterBody2D"]
 
@@ -926,9 +932,12 @@ libraries = {
 root_node = NodePath("../Swordsman")
 tree_root = SubResource("AnimationNodeBlendTree_cacbj")
 anim_player = NodePath("../AnimationPlayer")
-parameters/MovetStateMachine/Idle/blend_position = Vector2(0, 0)
-parameters/MovetStateMachine/Running/blend_position = Vector2(-0.0012853742, 0.006507635)
-parameters/MovetStateMachine/Walk/blend_position = Vector2(0, 0)
+parameters/MoveStateMachine/Idle/blend_position = Vector2(0, 0)
+parameters/MoveStateMachine/Running/blend_position = Vector2(-0.0012853742, 0.006507635)
+parameters/MoveStateMachine/Walk/blend_position = Vector2(0, 0)
 parameters/SwordStateMachine/IdleAttack/blend_position = Vector2(0, 0)
 parameters/SwordStateMachine/RunningAttack/blend_position = Vector2(0, 0)
 parameters/SwordStateMachine/WalkingAttack/blend_position = Vector2(0, 0)
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0

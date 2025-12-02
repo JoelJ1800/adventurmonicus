@@ -23,14 +23,12 @@ var move_state
 func _physics_process(_delta: float) -> void:
 	if can_move:
 		get_input()
-		#set_animation()
-	
+		set_animation()
 	if Input.is_action_pressed("sprint"):
 		velocity = direction * sprint_speed * int(can_move)
 	else:
 		velocity = direction * speed * int(can_move)
 	move_and_slide()
-	print(velocity)
 
 func get_input():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -44,7 +42,7 @@ func get_input():
 
 func set_animation():
 	
-	if direction:
+	if direction.length() > 0:
 		move_state_machine.travel('Walk')
 		var direction_animation: Vector2 = Vector2(round(direction.x), round(direction.y))
 		$AnimationTree.set("parameters/MoveStateMachine/Walk/blend_position", direction_animation)
