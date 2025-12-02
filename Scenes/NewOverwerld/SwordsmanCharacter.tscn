@@ -892,19 +892,19 @@ advance_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hp2f6"]
-states/End/position = Vector2(523, 249)
+states/End/position = Vector2(589, 267)
 states/IdleAttack/node = SubResource("AnimationNodeBlendSpace2D_w14au")
-states/IdleAttack/position = Vector2(523, 83)
+states/IdleAttack/position = Vector2(724, 55)
 states/RunningAttack/node = SubResource("AnimationNodeBlendSpace2D_81xo3")
-states/RunningAttack/position = Vector2(350, 134)
+states/RunningAttack/position = Vector2(194, 196)
 states/Start/position = Vector2(160, -78)
 states/WalkingAttack/node = SubResource("AnimationNodeBlendSpace2D_qsb8p")
-states/WalkingAttack/position = Vector2(350, 42)
+states/WalkingAttack/position = Vector2(341, 27)
 transitions = ["Start", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_q2fsp"), "Start", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_cedbe"), "WalkingAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hcfdb"), "RunningAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_nlvnh"), "Start", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_wi16j"), "IdleAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_k2llm"), "WalkingAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_ijsmg"), "IdleAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hxh0i"), "RunningAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_x41km"), "RunningAttack", "End", SubResource("AnimationNodeStateMachineTransition_ipscb"), "WalkingAttack", "End", SubResource("AnimationNodeStateMachineTransition_yc7pt"), "IdleAttack", "End", SubResource("AnimationNodeStateMachineTransition_1s3u7")]
-graph_offset = Vector2(-356, -79)
+graph_offset = Vector2(-450, -145)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cacbj"]
-graph_offset = Vector2(-950.6222, 5.1349487)
+graph_offset = Vector2(-711.92926, -0.28225708)
 nodes/output/position = Vector2(320, 60)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_cacbj")
 nodes/MoveStateMachine/position = Vector2(-220, 80)
