@@ -35,12 +35,11 @@ func get_input():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if Input.is_action_just_pressed("attack"):
 		print(move_state)
-		#sword_state_machine.travel(state_names[current_tool])
+		sword_state_machine.travel()
 		#$AnimationTree.set("parameters/ToolOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		#can_move = false
 
 func set_animation():
-	
 	if direction.length() > 0 and move_state == "walking":
 		move_state_machine.travel('Walk')
 		var direction_animation: Vector2 = Vector2(round(direction.x), round(direction.y))
@@ -62,6 +61,17 @@ func get_move_state():
 		move_state = "walking"
 	else:
 		move_state = "running"
+
+func get_attack_animation_name() -> String:
+	match move_state:
+		"idle":
+			return "IdleAttack"
+		"walking":
+			return "RunningAttack"
+		"running":
+			return "RunningAttack"
+		_:
+			return "IdleAttack"
 
 func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	pass

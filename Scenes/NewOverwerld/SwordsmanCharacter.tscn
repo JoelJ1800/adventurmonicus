@@ -901,10 +901,10 @@ states/Start/position = Vector2(160, -78)
 states/WalkingAttack/node = SubResource("AnimationNodeBlendSpace2D_qsb8p")
 states/WalkingAttack/position = Vector2(350, 42)
 transitions = ["Start", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_q2fsp"), "Start", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_cedbe"), "WalkingAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hcfdb"), "RunningAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_nlvnh"), "Start", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_wi16j"), "IdleAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_k2llm"), "WalkingAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_ijsmg"), "IdleAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hxh0i"), "RunningAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_x41km"), "RunningAttack", "End", SubResource("AnimationNodeStateMachineTransition_ipscb"), "WalkingAttack", "End", SubResource("AnimationNodeStateMachineTransition_yc7pt"), "IdleAttack", "End", SubResource("AnimationNodeStateMachineTransition_1s3u7")]
-graph_offset = Vector2(-267, -149)
+graph_offset = Vector2(-404, -147)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cacbj"]
-graph_offset = Vector2(-755.9733, 10.592072)
+graph_offset = Vector2(-962.4707, 134.95128)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_cacbj")
 nodes/MoveStateMachine/position = Vector2(-220, 80)
 nodes/SwordStateMachine/node = SubResource("AnimationNodeStateMachine_hp2f6")
@@ -915,6 +915,9 @@ node_connections = [&"output", 0, &"SwordOneShot", &"SwordOneShot", 0, &"MoveSta
 
 [node name="Swordsman" type="CharacterBody2D"]
 script = ExtResource("1_81xo3")
+speed = null
+sprint_speed = null
+tool_offset = null
 
 [node name="Swordsman" type="Sprite2D" parent="."]
 texture = ExtResource("1_cacbj")
