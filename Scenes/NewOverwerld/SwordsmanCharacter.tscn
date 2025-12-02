@@ -901,17 +901,17 @@ states/Start/position = Vector2(160, -78)
 states/WalkingAttack/node = SubResource("AnimationNodeBlendSpace2D_qsb8p")
 states/WalkingAttack/position = Vector2(350, 42)
 transitions = ["Start", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_q2fsp"), "Start", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_cedbe"), "WalkingAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hcfdb"), "RunningAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_nlvnh"), "Start", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_wi16j"), "IdleAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_k2llm"), "WalkingAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_ijsmg"), "IdleAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hxh0i"), "RunningAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_x41km"), "RunningAttack", "End", SubResource("AnimationNodeStateMachineTransition_ipscb"), "WalkingAttack", "End", SubResource("AnimationNodeStateMachineTransition_yc7pt"), "IdleAttack", "End", SubResource("AnimationNodeStateMachineTransition_1s3u7")]
-graph_offset = Vector2(-450, -145)
+graph_offset = Vector2(-267, -149)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cacbj"]
-graph_offset = Vector2(-857.05237, 63.629776)
+graph_offset = Vector2(-755.9733, 10.592072)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_cacbj")
 nodes/MoveStateMachine/position = Vector2(-220, 80)
 nodes/SwordStateMachine/node = SubResource("AnimationNodeStateMachine_hp2f6")
 nodes/SwordStateMachine/position = Vector2(-220, 260)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_cacbj")
-nodes/OneShot/position = Vector2(120, 80)
-node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MoveStateMachine", &"OneShot", 1, &"SwordStateMachine"]
+nodes/SwordOneShot/node = SubResource("AnimationNodeOneShot_cacbj")
+nodes/SwordOneShot/position = Vector2(120, 80)
+node_connections = [&"output", 0, &"SwordOneShot", &"SwordOneShot", 0, &"MoveStateMachine", &"SwordOneShot", 1, &"SwordStateMachine"]
 
 [node name="Swordsman" type="CharacterBody2D"]
 script = ExtResource("1_81xo3")
@@ -940,6 +940,6 @@ parameters/MoveStateMachine/Walk/blend_position = Vector2(0, 0)
 parameters/SwordStateMachine/IdleAttack/blend_position = Vector2(0, 0)
 parameters/SwordStateMachine/RunningAttack/blend_position = Vector2(0, 0)
 parameters/SwordStateMachine/WalkingAttack/blend_position = Vector2(0, 0)
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
+parameters/SwordOneShot/active = false
+parameters/SwordOneShot/internal_active = false
+parameters/SwordOneShot/request = 0
