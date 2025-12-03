@@ -1,18 +1,59 @@
 extends Node
 
-var player : Player
-var camera : Camera2D
+var player: Player
+var camera: Camera2D
 
-func change_scene (scene : PackedScene,player_position : Vector2): # takes in scene to swap to, and global position to place the player on load
+
+func start_game():
+	# Load the initial overworld scene
+	get_tree().change_scene_to_file("res://Scenes/NewOverwerld/overworld_2.tscn")
+	while get_tree().current_scene == null:
+		await get_tree().process_frame
+	var overworld = get_tree().root.get_node("Main/Overworld")
+	# First time starting the game: get player and camera from scene
+	if player == null:
+		player = overworld.get_node("Player")
+		camera = overworld.get_node("Camera2D")
+
+		# Make persistent by moving to root
+		get_tree().root.add_child(player)
+		get_tree().root.add_child(camera)
+
+	# Reparent back into overworld for proper Y-sorting
+	for node in [player, camera]:
+		if node.get_parent() != overworld:
+			node.get_parent().remove_child(node)
+			overworld.add_child(node)
+
+	# Set starting positions
+	player.global_position = Vector2(23, 466)
+	camera.global_position = player.global_position
+
+
+func change_scene(scene: PackedScene, player_position: Vector2):
+	# move persistent nodes to root to avoid being freed
+	for node in [player, camera]:
+		if node != null and node.get_parent() != get_tree().root:
+			node.get_parent().remove_child(node)
+			get_tree().root.add_child(node)
 	get_tree().change_scene_to_packed(scene)
-	await get_tree().process_frame
-	get_tree().root.move_child(player, get_tree().root.get_child_count() - 1)
-	
+	while get_tree().current_scene == null:
+		await get_tree().process_frame
+	# get the new overworld
+	var overworld = get_tree().root.get_node("Main/Overworld")
+	# reparent player and camera into the new overworld
+	for node in [player, camera]:
+		if node != null and node.get_parent() != overworld:
+			node.get_parent().remove_child(node)
+			overworld.add_child(node)
 	player.global_position = player_position
 	camera.global_position = player_position
+	overworld.move_child(player, overworld.get_child_count() - 1)
+
 
 func play_game():
-	get_tree().change_scene_to_file("res://Scenes/NewOverwerld/overworld_2.tscn")
+	start_game()
+
 
 func game_over():
 	player.queue_free()

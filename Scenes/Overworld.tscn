@@ -30,6 +30,9 @@ target = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("3_7g7yc")]
 move_speed = 60.0
 
+[node name="Swordsman" parent="Player" index="0"]
+frame = 115
+
 [node name="DungeonEntrance" type="Node2D" parent="."]
 position = Vector2(352, -201)
 script = ExtResource("5_vd8s3")
