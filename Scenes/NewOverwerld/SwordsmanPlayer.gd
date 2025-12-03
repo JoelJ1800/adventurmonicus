@@ -37,7 +37,8 @@ func get_input():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	if Input.is_action_just_pressed("attack") and not $AnimationTree.get("parameters/SwordOneShot/active"):
-		can_move = false
+		if move_state != "running" and move_state != "walking":
+			can_move = false
 		var attack_anim = get_attack_animation_name()
 		sword_state_machine.travel(attack_anim)
 		var direction_animation: Vector2 = Vector2(round(last_direction.x), round(last_direction.y))
