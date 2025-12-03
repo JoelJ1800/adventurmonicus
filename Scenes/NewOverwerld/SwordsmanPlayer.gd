@@ -17,9 +17,6 @@ const RUN_SPEED_THRESHOLD = 160.0
 
 var move_state 
 
-
-
-
 func _physics_process(_delta: float) -> void:
 	if can_move:
 		get_input()
@@ -47,8 +44,6 @@ func get_input():
 		print(attack_anim + move_state)
 		await get_tree().create_timer(0.5).timeout
 		can_move = true
-
-
 
 func set_animation():
 	if direction.length() > 0 and move_state == "walking":
@@ -87,4 +82,3 @@ func get_attack_animation_name() -> String:
 func wait_for_oneshot():
 	while $AnimationTree.get("parameters/SwordOneShot/active"):
 		await get_tree().process_frame
-	
