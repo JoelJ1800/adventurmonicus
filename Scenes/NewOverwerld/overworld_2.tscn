@@ -6614,8 +6614,8 @@ region_enabled = true
 region_rect = Rect2(22, 97, 9, 42)
 
 [node name="Sprite2D2" type="Sprite2D" parent="PurchaseBridge/Interactable"]
-position = Vector2(0.4, -21)
-scale = Vector2(0.675, 0.675)
+position = Vector2(0.2, -20)
+scale = Vector2(0.37291536, 0.50416607)
 texture = ExtResource("15_fy1he")
 region_enabled = true
 region_rect = Rect2(2, 98, 12, 12)
