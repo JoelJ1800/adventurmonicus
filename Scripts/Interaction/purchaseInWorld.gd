@@ -5,13 +5,15 @@ signal purchased
 @export var cost:int
 @export var BuyableNode: NodePath
 @export var Buyable: String
+var sale_sound : AudioStream = preload("res://Audio/Shop/Shop_Sale.ogg")
 
 func _ready() -> void:
 	$Interactable.Interact.connect(_on_interact)
+	if GameManager.brdge_built == true:
+		$Interactable.can_interact = false
 
 func _on_interact(player: Player):
 	var player_gold = int(player.gold)
-	print(player_gold)
 	if player_gold < cost:
 		$Interactable.can_interact = true
 		return
@@ -21,7 +23,9 @@ func _on_interact(player: Player):
 		return
 	
 	purchased.emit()
-	print ("purchase made")
+
+	player.take_gold(cost)
+	AudioManager.play(sale_sound)
 	$Interactable.can_interact = false
 	
 	

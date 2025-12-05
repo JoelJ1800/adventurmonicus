@@ -6596,6 +6596,9 @@ shape = SubResource("CapsuleShape2D_5lmgu")
 [node name="PurchaseBridge" type="Node2D" parent="."]
 position = Vector2(798, 693)
 script = ExtResource("14_fy1he")
+cost = 10
+BuyableNode = NodePath("../Bridge")
+Buyable = "Bridge"
 
 [node name="Interactable" type="Area2D" parent="PurchaseBridge"]
 script = ExtResource("13_60swj")

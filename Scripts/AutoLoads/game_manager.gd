@@ -2,6 +2,7 @@ extends Node
 
 var player: Player
 var camera: Camera2D
+var brdge_built:bool = false
 
 
 func start_game():
