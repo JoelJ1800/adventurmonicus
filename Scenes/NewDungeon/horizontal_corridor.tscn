@@ -1,7 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://du86m6g5oox6b"]
+[gd_scene load_steps=20 format=4 uid="uid://du86m6g5oox6b"]
 
+[ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_3rmkw"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="2_cvfo2"]
+[ext_resource type="Script" uid="uid://bqmuii7vltw2y" path="res://Scenes/NewDungeon/entrance_east.gd" id="2_h6lt7"]
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="3_h6lt7"]
+[ext_resource type="Script" uid="uid://dkdi2rb8htbc" path="res://Scenes/NewDungeon/entrance_west.gd" id="4_3rmkw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jib64"]
 atlas = ExtResource("2_cvfo2")
@@ -118,6 +121,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0j8k"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_3rmkw")
 
 [node name="Overworld" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -145,6 +149,7 @@ polygon = PackedVector2Array(-1, 448, 45, 448, 45, 484, 759, 484, 759, 424, 800,
 [node name="EntranceEast" type="Node2D" parent="."]
 position = Vector2(800, 0)
 rotation = -4.712389
+script = ExtResource("2_h6lt7")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceEast"]
 
@@ -180,6 +185,7 @@ shape = SubResource("CircleShape2D_k0npd")
 [node name="EntranceWest" type="Node2D" parent="."]
 position = Vector2(6.1035156e-05, 800.00006)
 rotation = -1.5707964
+script = ExtResource("4_3rmkw")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceWest"]
 

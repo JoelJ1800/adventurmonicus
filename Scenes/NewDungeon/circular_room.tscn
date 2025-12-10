@@ -1,7 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://ons0s6jgy71n"]
+[gd_scene load_steps=19 format=4 uid="uid://ons0s6jgy71n"]
 
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="1_iysou"]
+[ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_jkscv"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="2_1rj1y"]
+[ext_resource type="Script" uid="uid://bnh3pg1o0hyoa" path="res://Scenes/NewDungeon/entrance_north.gd" id="2_o8wq0"]
+[ext_resource type="Script" uid="uid://cm0e2k3tpv5yo" path="res://Scenes/NewDungeon/entrance_south.gd" id="4_jkscv"]
+[ext_resource type="Script" uid="uid://bqmuii7vltw2y" path="res://Scenes/NewDungeon/entrance_east.gd" id="5_dnqiw"]
+[ext_resource type="Script" uid="uid://dkdi2rb8htbc" path="res://Scenes/NewDungeon/entrance_west.gd" id="6_55f84"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jib64"]
 atlas = ExtResource("2_1rj1y")
@@ -77,6 +82,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jib64"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_jkscv")
 
 [node name="Overworld" type="Node2D" parent="."]
 
@@ -121,6 +127,7 @@ rotation = 4.712389
 polygon = PackedVector2Array(320, 0, 320, 16, 272, 16, 272, 32, 224, 32, 224, 48, 192, 48, 192, 64, 176, 64, 176, 80, 160, 80, 160, 96, 128, 96, 128, 112, 112, 112, 112, 128, 96, 128, 96, 160, 80, 160, 80, 176, 64, 176, 64, 192, 48, 192, 48, 224, 32, 224, 32, 272, 16, 272, 16, 320, 0, 320, 0, 0)
 
 [node name="EntranceNorth" type="Node2D" parent="."]
+script = ExtResource("2_o8wq0")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceNorth"]
 
@@ -156,6 +163,7 @@ shape = SubResource("CircleShape2D_jib64")
 [node name="EntranceSouth" type="Node2D" parent="."]
 position = Vector2(800, 800)
 rotation = -3.1415927
+script = ExtResource("4_jkscv")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceSouth"]
 
@@ -191,6 +199,7 @@ shape = SubResource("CircleShape2D_jib64")
 [node name="EntranceEast" type="Node2D" parent="."]
 position = Vector2(800, 0)
 rotation = -4.712389
+script = ExtResource("5_dnqiw")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceEast"]
 
@@ -226,6 +235,7 @@ shape = SubResource("CircleShape2D_jib64")
 [node name="EntranceWest" type="Node2D" parent="."]
 position = Vector2(0, 800)
 rotation = -7.853982
+script = ExtResource("6_55f84")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceWest"]
 

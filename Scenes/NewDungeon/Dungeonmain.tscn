@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct3bffmjub86g"]
+
+[ext_resource type="Script" uid="uid://cjolawp6by5hv" path="res://Scenes/NewDungeon/room_generation.gd" id="1_w7qp7"]
+
+[node name="Main" type="Node2D"]
+
+[node name="RoomGeneration" type="Node" parent="."]
+script = ExtResource("1_w7qp7")
