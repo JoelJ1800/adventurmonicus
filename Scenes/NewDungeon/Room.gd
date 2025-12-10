@@ -40,8 +40,14 @@ func _on_defeat_enemy(enemy):
 
 
 func open_doors():
-	pass
+	entrance_north.open_door()
+	entrance_south.open_door()
+	entrance_east.open_door()
+	entrance_west.open_door()
 
 
 func close_doors():
-	pass
+	entrance_north.close_door()
+	entrance_south.close_door()
+	entrance_east.close_door()
+	entrance_west.close_door()
