@@ -9,6 +9,7 @@ extends Node2D
 @onready var exit_trigger: Area2D = $PlayerExit
 @onready var barrier = $DoorGate/Barrier
 var neighbour: Room
+var player: CharacterBody2D = GameManager.player
 
 
 func _ready() -> void: 
@@ -54,5 +55,9 @@ func close_door():
 func _on_body_entered_exit_trigger(body) -> void:
 	
 	if body.is_in_group("Player"):
-		print("collide")
 		neighbour.player_enter(_get_neighbour_entry_direction(), body)
+		player.can_move = false
+		player.set_animation()
+		await get_tree().create_timer(0.4).timeout
+		player.can_move = true
+		

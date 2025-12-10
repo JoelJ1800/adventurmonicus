@@ -29,7 +29,6 @@ func _on_take_damage(_hit_force: Vector2):
 
 func set_camera_limit(scene_path):
 	scene_path = str(scene_path)
-	print(scene_path)
 	if "Overworld" in scene_path :
 		limit_enabled = true
 		limit_left = 0

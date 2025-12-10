@@ -14,7 +14,7 @@ var first_room_x: int = 5
 var first_room_y: int = 5
 var first_room: Room
 
-@export var player: CharacterBody2D
+var player: CharacterBody2D = GameManager.player
 var room_scene: PackedScene = preload("res://Scenes/NewDungeon/circular_room.tscn") #temporarily hard coded room
 
 

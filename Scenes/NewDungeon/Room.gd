@@ -39,9 +39,6 @@ func set_neighbour(neighbour_direction : Direction, neighbour_room : Room):
 
 # called when the player enters the room
 func player_enter(entry_direction: Direction, player: CharacterBody2D, first_room: bool = false):
-	if player == null:
-		return
-	
 	if entry_direction == Direction.NORTH:
 		player.global_position = entrance_north.player_spawn.global_position
 	elif entry_direction == Direction.SOUTH:
