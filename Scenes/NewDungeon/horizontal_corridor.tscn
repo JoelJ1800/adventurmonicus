@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://du86m6g5oox6b"]
+[gd_scene load_steps=19 format=4 uid="uid://du86m6g5oox6b"]
 
 [ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_3rmkw"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="2_cvfo2"]
+[ext_resource type="Script" uid="uid://v5f26qpmjuam" path="res://Scenes/NewDungeon/RoomEntrance.gd" id="3_3rmkw"]
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="3_h6lt7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jib64"]
@@ -147,6 +148,8 @@ polygon = PackedVector2Array(-1, 448, 45, 448, 45, 484, 759, 484, 759, 424, 800,
 [node name="EntranceEast" type="Node2D" parent="."]
 position = Vector2(800, 0)
 rotation = -4.712389
+script = ExtResource("3_3rmkw")
+direction = 2
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceEast"]
 
@@ -186,6 +189,8 @@ shape = SubResource("CircleShape2D_k0npd")
 [node name="EntranceWest" type="Node2D" parent="."]
 position = Vector2(6.1035156e-05, 800.00006)
 rotation = -1.5707964
+script = ExtResource("3_3rmkw")
+direction = 3
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceWest"]
 

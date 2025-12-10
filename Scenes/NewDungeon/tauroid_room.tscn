@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=4 uid="uid://rjecxcfabnox"]
+[gd_scene load_steps=26 format=4 uid="uid://rjecxcfabnox"]
 
 [ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_t5j2f"]
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="1_xadar"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="2_yj8x3"]
 [ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="3_yj8x3"]
+[ext_resource type="Script" uid="uid://v5f26qpmjuam" path="res://Scenes/NewDungeon/RoomEntrance.gd" id="4_t1q3g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jib64"]
 atlas = ExtResource("2_yj8x3")
@@ -265,6 +266,7 @@ polygon = PackedVector2Array(435, 514, 451, 514, 451, 498, 483, 498, 483, 482, 4
 polygon = PackedVector2Array(114, 434, 285, 434, 285, 466, 302, 466, 302, 481, 318, 481, 318, 498, 350, 498, 350, 514, 366, 514, 365, 672, 339, 672, 339, 655, 292, 655, 292, 639, 259, 639, 259, 623, 243, 623, 242, 609, 212, 609, 212, 594, 194, 594, 194, 579, 177, 579, 178, 542, 163, 542, 162, 523, 147, 523, 147, 497, 130, 495, 131, 481, 114, 480)
 
 [node name="EntranceNorth" type="Node2D" parent="."]
+script = ExtResource("4_t1q3g")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceNorth"]
 
@@ -304,6 +306,8 @@ shape = SubResource("CircleShape2D_fu5fr")
 [node name="EntranceSouth" type="Node2D" parent="."]
 position = Vector2(800, 800)
 rotation = 3.1415925
+script = ExtResource("4_t1q3g")
+direction = 1
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceSouth"]
 
@@ -343,6 +347,8 @@ shape = SubResource("CircleShape2D_58l23")
 [node name="EntranceEast" type="Node2D" parent="."]
 position = Vector2(800, 0)
 rotation = 1.5707964
+script = ExtResource("4_t1q3g")
+direction = 2
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceEast"]
 
@@ -382,6 +388,8 @@ shape = SubResource("CircleShape2D_s610k")
 [node name="EntranceWest" type="Node2D" parent="."]
 position = Vector2(0, 800)
 rotation = -1.5707966
+script = ExtResource("4_t1q3g")
+direction = 3
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceWest"]
 

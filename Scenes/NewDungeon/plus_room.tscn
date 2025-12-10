@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=4 uid="uid://dl3gwrjvpamf1"]
+[gd_scene load_steps=33 format=4 uid="uid://dl3gwrjvpamf1"]
 
 [ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_hmhk3"]
+[ext_resource type="Script" uid="uid://v5f26qpmjuam" path="res://Scenes/NewDungeon/RoomEntrance.gd" id="3_l6hrb"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="16_iklgn"]
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="20_1oec0"]
 
@@ -276,6 +277,8 @@ shape = SubResource("RectangleShape2D_y30ji")
 [node name="EntranceWest" type="Node2D" parent="."]
 position = Vector2(0, 800)
 rotation = -7.853982
+script = ExtResource("3_l6hrb")
+direction = 3
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceWest"]
 
@@ -315,6 +318,8 @@ shape = SubResource("CircleShape2D_s1wd7")
 [node name="EntranceEast" type="Node2D" parent="."]
 position = Vector2(800, 0)
 rotation = -4.712389
+script = ExtResource("3_l6hrb")
+direction = 2
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceEast"]
 
@@ -352,6 +357,7 @@ position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_sop0k")
 
 [node name="EntranceNorth" type="Node2D" parent="."]
+script = ExtResource("3_l6hrb")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceNorth"]
 
@@ -391,6 +397,8 @@ shape = SubResource("CircleShape2D_puhpg")
 [node name="EntranceSouth" type="Node2D" parent="."]
 position = Vector2(800, 800)
 rotation = -3.1415927
+script = ExtResource("3_l6hrb")
+direction = 1
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceSouth"]
 
