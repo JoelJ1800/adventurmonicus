@@ -16,7 +16,7 @@ func _ready() -> void:
 	toggle_barrier(true)
 
 
-func set_neighbor(neighbour_room: Room):
+func set_neighbour(neighbour_room: Room):
 	neighbour = neighbour_room
 	toggle_barrier(false)
 

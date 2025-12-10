@@ -26,8 +26,15 @@ func initialize():
 	pass
 
 
-func set_neighbor(neighbor_direction: Direction, neighbor_room: Room):
-	pass
+func set_neighbour(neighbour_direction : Direction, neighbour_room : Room):
+	if neighbour_direction == Direction.NORTH:
+		entrance_north.set_neighbour(neighbour_room)
+	elif neighbour_direction == Direction.SOUTH:
+		entrance_south.set_neighbour(neighbour_room)
+	elif neighbour_direction == Direction.EAST:
+		entrance_east.set_neighbour(neighbour_room)
+	elif neighbour_direction == Direction.WEST:
+		entrance_west.set_neighbour(neighbour_room)
 
 
 # called when the player enters the room
