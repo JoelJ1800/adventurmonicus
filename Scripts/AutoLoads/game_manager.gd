@@ -4,6 +4,7 @@ var player: Player
 var camera: Camera2D
 var brdge_built:bool = false
 
+signal scene_changed()
 
 func start_game():
 	# Load the initial overworld scene
@@ -29,6 +30,7 @@ func start_game():
 	# Set starting positions
 	player.global_position = Vector2(23, 466)
 	camera.global_position = player.global_position
+	scene_changed.emit("res://Scenes/NewOverwerld/overworld_2.tscn")
 
 
 func change_scene(scene: PackedScene, player_position: Vector2):

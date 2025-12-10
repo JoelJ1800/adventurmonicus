@@ -10,3 +10,4 @@ func _ready() -> void:
 func _on_interact(player: Player):
 	var scene : PackedScene = load(scene_to_load)
 	GameManager.change_scene(scene, player_spawn_pos)
+	GameManager.scene_changed.emit(self)

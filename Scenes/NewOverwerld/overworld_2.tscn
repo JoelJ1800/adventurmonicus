@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bpjwf1gxhurps"]
+[gd_scene load_steps=46 format=4 uid="uid://bpjwf1gxhurps"]
 
 [ext_resource type="Texture2D" uid="uid://bcy8xqb4b1nxp" path="res://Sprites/Forest/ForestTiles/water_detilazation.png" id="1_dc4a8"]
 [ext_resource type="Texture2D" uid="uid://b3jsbaamyvi34" path="res://Sprites/Forest/ForestTiles/Water_coasts.png" id="2_2q57a"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dta3xs4c4gb6a" path="res://Sprites/TileTests/BridgeWaterAnim.png" id="17_thct6"]
 [ext_resource type="Script" uid="uid://0br7tbnotbth" path="res://Scripts/Interaction/bridge.gd" id="17_vlsqs"]
 [ext_resource type="Texture2D" uid="uid://5w2fmaba5ntv" path="res://Sprites/TileTests/Bridges.png" id="18_vlsqs"]
+[ext_resource type="Texture2D" uid="uid://dsyl85pxewwg6" path="res://Scenes/NewDungeon/Statue_fire.png" id="20_hh4yf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_duvue"]
 texture = ExtResource("1_dc4a8")
@@ -6417,6 +6418,58 @@ sources/1 = SubResource("TileSetAtlasSource_invc8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hh4yf"]
 size = Vector2(20, 83)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlsqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_invc8"]
+atlas = ExtResource("20_hh4yf")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uor80"]
+atlas = ExtResource("20_hh4yf")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i27ui"]
+atlas = ExtResource("20_hh4yf")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uimy"]
+atlas = ExtResource("20_hh4yf")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwfrw"]
+atlas = ExtResource("20_hh4yf")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b00fg"]
+atlas = ExtResource("20_hh4yf")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8ubl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_invc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uor80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i27ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uimy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwfrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b00fg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Main" type="Node2D"]
 
 [node name="Overworld" type="Node2D" parent="."]
@@ -6544,6 +6597,7 @@ tile_map_data = PackedByteArray("AAD//wAAAQAEAAMAAAD//wEAAQAEAAMAAAD//wIAAQAEAAM
 tile_set = SubResource("TileSet_sgwer")
 
 [node name="Camera2D" parent="Overworld" node_paths=PackedStringArray("target") instance=ExtResource("10_sgwer")]
+limit_enabled = false
 limit_left = 0
 limit_top = 0
 limit_right = 1720
@@ -6634,3 +6688,22 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/StaticBody2D"]
 shape = SubResource("RectangleShape2D_hh4yf")
+
+[node name="DungeonTeleport" type="Node2D" parent="."]
+position = Vector2(210, 427)
+script = ExtResource("12_84wn7")
+scene_to_load = "uid://ct3bffmjub86g"
+player_spawn_pos = Vector2(9400, 9400)
+
+[node name="Interactable" type="Area2D" parent="DungeonTeleport"]
+script = ExtResource("13_60swj")
+prompt = "Teleport To Dungeon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonTeleport/Interactable"]
+shape = SubResource("CircleShape2D_vlsqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DungeonTeleport"]
+sprite_frames = SubResource("SpriteFrames_r8ubl")
+autoplay = "default"
+frame_progress = 0.6369866
+offset = Vector2(0, -30)
