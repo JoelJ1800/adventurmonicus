@@ -10,10 +10,10 @@ enum Direction {
 
 @export var doors_always_open: bool = false
 
-@onready var entrance_north: RoomEntrance = $Entrance_North
-@onready var entrance_south: RoomEntrance = $Entrance_South
-@onready var entrance_east: RoomEntrance = $Entrance_East
-@onready var entrance_west: RoomEntrance = $Entrance_West
+@onready var entrance_north: RoomEntrance = $Overworld/EntranceNorth
+@onready var entrance_south: RoomEntrance = $Overworld/EntranceSouth
+@onready var entrance_east: RoomEntrance = $Overworld/EntranceEast
+@onready var entrance_west: RoomEntrance = $Overworld/EntranceWest
 
 var enemies_in_room: int
 
