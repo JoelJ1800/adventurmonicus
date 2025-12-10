@@ -13,6 +13,7 @@ var first_room_y : int = 3
 var first_room : Room
 
 @export var player : CharacterBody2D
+var room_scene : PackedScene = preload("res://Scenes/NewDungeon/circular_room.tscn") #temporarily hard coded room
 
 func _ready():
 	pass
