@@ -16,10 +16,18 @@ var first_room : Room
 var room_scene : PackedScene = preload("res://Scenes/NewDungeon/circular_room.tscn") #temporarily hard coded room
 
 func _ready():
-	pass
+	_generate() # on load the scene run the generation function
 
 func _generate():
-	pass
+	room_count = 0
+	map.resize(map_size * map_size)
+	
+	 # start the check room chain at the center of the grid
+	_check_room(first_room_x, first_room_y, Vector2.ZERO, true)
+	
+	# defined map -> spawn in the room scenes
+	_instantiate_rooms()
+	
 
 func _check_room(x : int, y : int, desired_direction : Vector2, is_first_room : bool = false):
 	pass
