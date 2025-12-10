@@ -32,7 +32,22 @@ func set_neighbor(neighbor_direction: Direction, neighbor_room: Room):
 
 # called when the player enters the room
 func player_enter(entry_direction: Direction, player: CharacterBody2D, first_room: bool = false):
-	pass
+	if entry_direction == Direction.NORTH:
+		player.global_position = entrance_north.player_spawn.global_position
+	elif entry_direction == Direction.SOUTH:
+		player.global_position = entrance_south.player_spawn.global_position
+	elif entry_direction == Direction.EAST:
+		player.global_position = entrance_east.player_spawn.global_position
+	elif entry_direction == Direction.WEST:
+		player.global_position = entrance_west.player_spawn.global_position
+
+	if first_room:
+		player.global_position = global_position
+
+	if enemies_in_room > 0 and not doors_always_open:
+		close_doors()
+	else:
+		open_doors()
 
 
 func _on_defeat_enemy(enemy):
