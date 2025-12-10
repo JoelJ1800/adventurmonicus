@@ -30,7 +30,16 @@ func _generate():
 	
 
 func _check_room(x : int, y : int, desired_direction : Vector2, is_first_room : bool = false):
-	pass
+	if room_count >= rooms_to_generate:
+		return # stop generating if there are enough rooms
+	if x < 0 or x > map_size - 1 or y < 0 or y > map_size - 1:
+		return # stop generating if the next space to place is outside the map size
+	if _get_map(x,y):
+		return # stop generating if attempting to spawn on an existing room
+	room_count += 1
+
+func _get_map (x:int, y:int) -> bool: # helper function to check if there is a room on the checked slot
+	return map[x+y*map_size]
 
 func _instantiate_rooms ():
 	pass
