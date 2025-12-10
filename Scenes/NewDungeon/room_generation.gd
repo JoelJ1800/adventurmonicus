@@ -41,5 +41,8 @@ func _check_room(x : int, y : int, desired_direction : Vector2, is_first_room : 
 func _get_map (x:int, y:int) -> bool: # helper function to check if there is a room on the checked slot
 	return map[x+y*map_size]
 
+func _set_map (x: int, y:int, value:bool): # sets the map array with boolean value if room is present
+	map[x+y*map_size] = value
+
 func _instantiate_rooms ():
 	pass
