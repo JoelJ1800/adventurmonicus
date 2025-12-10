@@ -13,10 +13,13 @@ var neighbour: Room
 
 func _ready() -> void:
 	exit_trigger.body_entered.connect(_on_body_entered_exit_trigger)
+	toggle_barrier(true)
+
 
 
 func set_neighbor(neighbour_room : Room):
 	neighbour = neighbour_room
+	toggle_barrier(false)
 	
 
 func _get_neighbour_entry_direction() -> Room.Direction: # determine what entrance the player has come from to spawn at the entry listed
@@ -32,7 +35,7 @@ func _get_neighbour_entry_direction() -> Room.Direction: # determine what entran
 
 func toggle_barrier(toggle: bool):
 	barrier.visible = toggle
-	door.visible = !toggle
+	door_anim.visible = !toggle
 	
 	
 
