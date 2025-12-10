@@ -66,7 +66,6 @@ func get_input():
 		var direction_animation: Vector2 = Vector2(round(last_direction.x), round(last_direction.y))
 		$AnimationTree.set("parameters/SwordStateMachine/" + attack_anim + "/blend_position", direction_animation)
 		$AnimationTree.set("parameters/SwordOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-		print(attack_anim + move_state)
 		await get_tree().create_timer(0.5).timeout
 		can_move = true
 
