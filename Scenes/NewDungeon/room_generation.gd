@@ -6,10 +6,10 @@ extends Node
 var room_count: int = 0
 var map: Array[bool]
 var rooms: Array[Room]
-var room_pos_offset: float = 160
+var room_pos_offset: float = 1800
 
-var first_room_x: int = 3
-var first_room_y: int = 3
+var first_room_x: int = 5
+var first_room_y: int = 5
 var first_room: Room
 
 @export var player: CharacterBody2D
@@ -75,4 +75,13 @@ func _set_map(x: int, y: int, value: bool): # sets the map array with boolean va
 
 
 func _instantiate_rooms():
-	pass
+	for x in range(map_size):
+		for y in range(map_size):
+			if _get_map(x,y) == false:
+				continue
+			
+			var room : Room = room_scene.instantiate()
+			get_tree().root.add_child.call_deferred(room)
+			rooms.append(room)
+			
+			room.global_position = Vector2(x,y) * room_pos_offset

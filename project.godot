@@ -86,3 +86,4 @@ sprint={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.09411765, 0.08627451, 0.09803922, 1)
