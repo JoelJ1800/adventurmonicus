@@ -49,7 +49,7 @@ func player_enter(entry_direction: Direction, player: CharacterBody2D, first_roo
 		player.global_position = entrance_west.player_spawn.global_position
 
 	if first_room:
-		player.global_position = global_position
+		player.global_position = global_position + Vector2(400,400)
 
 	if enemies_in_room > 0 and not doors_always_open:
 		close_doors()

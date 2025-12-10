@@ -13,4 +13,5 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("2_eiycp")]
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_mnxgt")]
+zoom = Vector2(2, 2)
 target = NodePath("../Player")

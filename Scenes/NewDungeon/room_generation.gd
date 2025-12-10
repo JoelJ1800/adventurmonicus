@@ -20,11 +20,11 @@ func _ready():
 	_generate() # on load the scene run the generation function
 	
 		# generate preview
-	for x in range(map_size):
-		var line:String
-		for y in range(map_size):
-			line += "#" if _get_map(x,y) else "O"
-		print(line)
+	#for x in range(map_size):
+		#var line:String
+		#for y in range(map_size):
+			#line += "#" if _get_map(x,y) else "O"
+		#print(line)
 
 
 func _generate():
@@ -92,3 +92,28 @@ func _instantiate_rooms():
 				first_room = room
 			
 			room.initialize()
+	for room in rooms:
+		var map_pos = _get_map_index(room)
+		var x = map_pos.x
+		var y = map_pos.y
+		
+		if y > 0 and _get_map(x, y - 1):
+			room.set_neighbour.call_deferred(Room.Direction.NORTH, get_room_from_map(x, y - 1))
+		if y < map_size - 1 and _get_map(x, y + 1):
+			room.set_neighbour.call_deferred(Room.Direction.SOUTH, get_room_from_map(x, y + 1))
+		if x < map_size - 1 and _get_map(x + 1, y):
+			room.set_neighbour.call_deferred(Room.Direction.EAST, get_room_from_map(x + 1, y))
+		if x > 0 and _get_map(x - 1, y):
+			room.set_neighbour.call_deferred(Room.Direction.WEST, get_room_from_map(x - 1, y))
+	first_room.player_enter.call_deferred(Room.Direction.NORTH, player, true)
+
+
+func get_room_from_map(x: int, y: int) -> Room:
+	for room in rooms:
+		var pos = _get_map_index(room)
+		if pos.x != x and pos.y != y:
+			continue
+		
+		return room
+	return null
+	
