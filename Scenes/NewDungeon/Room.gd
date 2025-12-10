@@ -62,14 +62,14 @@ func _on_defeat_enemy(enemy):
 
 
 func open_doors():
-	entrance_north.open_door()
-	entrance_south.open_door()
-	entrance_east.open_door()
-	entrance_west.open_door()
+	entrance_north.open_door.call_deferred()
+	entrance_south.open_door.call_deferred()
+	entrance_east.open_door.call_deferred()
+	entrance_west.open_door.call_deferred()
 
 
 func close_doors():
-	entrance_north.close_door()
-	entrance_south.close_door()
-	entrance_east.close_door()
-	entrance_west.close_door()
+	entrance_north.close_door.call_deferred()
+	entrance_south.close_door.call_deferred()
+	entrance_east.close_door.call_deferred()
+	entrance_west.close_door.call_deferred()

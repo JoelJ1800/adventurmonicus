@@ -101,6 +101,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_574pj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1wd7"]
+radius = 17.720005
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_puhpg"]
 animations = [{
@@ -142,6 +143,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pknmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sop0k"]
+radius = 16.124516
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1oec0"]
 animations = [{
@@ -183,6 +185,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lhded"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_puhpg"]
+radius = 19.104973
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pknmx"]
 animations = [{
@@ -224,6 +227,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_j2kr5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ektja"]
+radius = 16.124523
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_hmhk3")
@@ -274,163 +278,167 @@ shape = SubResource("RectangleShape2D_2ncg0")
 position = Vector2(562, 720.5)
 shape = SubResource("RectangleShape2D_y30ji")
 
-[node name="EntranceWest" type="Node2D" parent="."]
+[node name="EntranceWest" type="Node2D" parent="Overworld"]
 position = Vector2(0, 800)
-rotation = -7.853982
+rotation = -1.5707966
 script = ExtResource("3_l6hrb")
 direction = 3
 
-[node name="DoorGate" type="StaticBody2D" parent="EntranceWest"]
+[node name="DoorGate" type="StaticBody2D" parent="Overworld/EntranceWest"]
 
-[node name="DoorGate" type="AnimatedSprite2D" parent="EntranceWest/DoorGate"]
+[node name="DoorGate" type="AnimatedSprite2D" parent="Overworld/EntranceWest/DoorGate"]
 position = Vector2(400, 24.000008)
 sprite_frames = SubResource("SpriteFrames_lhded")
 animation = &"DoorClose"
 
-[node name="DoorWalls" type="TileMapLayer" parent="EntranceWest/DoorGate"]
+[node name="DoorWalls" type="TileMapLayer" parent="Overworld/EntranceWest/DoorGate"]
 tile_map_data = PackedByteArray("AAAXAAEAEQACAAQAAAAaAAEAEQACAAQAAAAaAAIAEQACAAUAAAAbAAIAEQACAAUAAAAcAAIAEQACAAUAAAAdAAIAEQACAAUAAAAWAAIAEQACAAUAAAAVAAIAEQACAAUAAAAUAAIAEQACAAUAAAATAAIAEQAGAAEAAGAXAAIAEQACAAUAAAAeAAIAEQAJAAIAAFAbAAEAEQACAAQAAAAcAAEAEQACAAQAAAAdAAEAEQACAAQAAAAWAAEAEQACAAQAAAAVAAEAEQACAAQAAAAUAAEAEQACAAQAAAATAAEAEQAGAAEAAGATAAAAEQAFAAEAAAAUAAAAEQACAAMAAAAVAAAAEQACAAMAAAAWAAAAEQACAAMAAAAXAAAAEQACAAMAAAAaAAAAEQACAAMAAAAbAAAAEQACAAMAAAAcAAAAEQACAAMAAAAdAAAAEQACAAMAAAAeAAAAEQAFAAEAAFAeAAEAEQAGAAEAAFAfAAIAEQAFAAIAAFAgAAIAEQAFAAEAAFAfAAEAEQACAAIAAAAgAAEAEQACAAIAAAASAAEAEQACAAIAAAATAAMAEQAGAAEAAGA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="col_Door_Closed" type="CollisionPolygon2D" parent="EntranceWest/DoorGate"]
+[node name="col_Door_Closed" type="CollisionPolygon2D" parent="Overworld/EntranceWest/DoorGate"]
 visible = false
 polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 
-[node name="col_Door_Open" type="CollisionPolygon2D" parent="EntranceWest/DoorGate"]
+[node name="col_Door_Open" type="CollisionPolygon2D" parent="Overworld/EntranceWest/DoorGate"]
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
 
-[node name="Barrier" type="TileMapLayer" parent="EntranceWest/DoorGate"]
+[node name="Barrier" type="TileMapLayer" parent="Overworld/EntranceWest/DoorGate"]
 tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="PlayerSpawn" type="Area2D" parent="EntranceWest"]
+[node name="PlayerSpawn" type="Area2D" parent="Overworld/EntranceWest"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceWest/PlayerSpawn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceWest/PlayerSpawn"]
 position = Vector2(400, 66)
 shape = SubResource("CircleShape2D_574pj")
 
-[node name="PlayerExit" type="Area2D" parent="EntranceWest"]
+[node name="PlayerExit" type="Area2D" parent="Overworld/EntranceWest"]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceWest/PlayerExit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceWest/PlayerExit"]
 position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_s1wd7")
 
-[node name="EntranceEast" type="Node2D" parent="."]
+[node name="EntranceEast" type="Node2D" parent="Overworld"]
 position = Vector2(800, 0)
-rotation = -4.712389
+rotation = 1.5707964
 script = ExtResource("3_l6hrb")
 direction = 2
 
-[node name="DoorGate" type="StaticBody2D" parent="EntranceEast"]
+[node name="DoorGate" type="StaticBody2D" parent="Overworld/EntranceEast"]
 
-[node name="DoorGate" type="AnimatedSprite2D" parent="EntranceEast/DoorGate"]
+[node name="DoorGate" type="AnimatedSprite2D" parent="Overworld/EntranceEast/DoorGate"]
 position = Vector2(400, 24.000008)
 sprite_frames = SubResource("SpriteFrames_puhpg")
 animation = &"DoorClose"
 
-[node name="DoorWalls" type="TileMapLayer" parent="EntranceEast/DoorGate"]
+[node name="DoorWalls" type="TileMapLayer" parent="Overworld/EntranceEast/DoorGate"]
 tile_map_data = PackedByteArray("AAAXAAEAEQACAAQAAAAaAAEAEQACAAQAAAAaAAIAEQACAAUAAAAbAAIAEQACAAUAAAAcAAIAEQACAAUAAAAdAAIAEQACAAUAAAAWAAIAEQACAAUAAAAVAAIAEQACAAUAAAAUAAIAEQACAAUAAAATAAIAEQAMAAIAAAAXAAIAEQACAAUAAAAeAAIAEQAHAAIAAAAbAAEAEQACAAQAAAAcAAEAEQACAAQAAAAdAAEAEQACAAQAAAAWAAEAEQACAAQAAAAVAAEAEQACAAQAAAAUAAEAEQACAAQAAAATAAEAEQAMAAEAAAATAAAAEQAJAAEAAAAUAAAAEQACAAMAAAAVAAAAEQACAAMAAAAWAAAAEQACAAMAAAAXAAAAEQACAAMAAAAaAAAAEQACAAMAAAAbAAAAEQACAAMAAAAcAAAAEQACAAMAAAAdAAAAEQACAAMAAAAeAAAAEQAHAAEAAAAeAAEAEQAHAAIAAAASAAIAEQACAAMAAAARAAIAEQAFAAEAAAARAAEAEQACAAIAAAASAAEAEQACAAIAAAA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="col_Door_Closed" type="CollisionPolygon2D" parent="EntranceEast/DoorGate"]
+[node name="col_Door_Closed" type="CollisionPolygon2D" parent="Overworld/EntranceEast/DoorGate"]
 visible = false
 polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 
-[node name="col_Door_Open" type="CollisionPolygon2D" parent="EntranceEast/DoorGate"]
+[node name="col_Door_Open" type="CollisionPolygon2D" parent="Overworld/EntranceEast/DoorGate"]
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
 
-[node name="Barrier" type="TileMapLayer" parent="EntranceEast/DoorGate"]
+[node name="Barrier" type="TileMapLayer" parent="Overworld/EntranceEast/DoorGate"]
 tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="PlayerSpawn" type="Area2D" parent="EntranceEast"]
+[node name="PlayerSpawn" type="Area2D" parent="Overworld/EntranceEast"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceEast/PlayerSpawn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceEast/PlayerSpawn"]
 position = Vector2(400, 66)
 shape = SubResource("CircleShape2D_pknmx")
 
-[node name="PlayerExit" type="Area2D" parent="EntranceEast"]
+[node name="PlayerExit" type="Area2D" parent="Overworld/EntranceEast"]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceEast/PlayerExit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceEast/PlayerExit"]
 position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_sop0k")
 
-[node name="EntranceNorth" type="Node2D" parent="."]
+[node name="EntranceNorth" type="Node2D" parent="Overworld"]
 script = ExtResource("3_l6hrb")
 
-[node name="DoorGate" type="StaticBody2D" parent="EntranceNorth"]
+[node name="DoorGate" type="StaticBody2D" parent="Overworld/EntranceNorth"]
 
-[node name="DoorGate" type="AnimatedSprite2D" parent="EntranceNorth/DoorGate"]
+[node name="DoorGate" type="AnimatedSprite2D" parent="Overworld/EntranceNorth/DoorGate"]
 position = Vector2(400, 24)
 sprite_frames = SubResource("SpriteFrames_1oec0")
 animation = &"DoorClose"
 
-[node name="DoorWalls" type="TileMapLayer" parent="EntranceNorth/DoorGate"]
+[node name="DoorWalls" type="TileMapLayer" parent="Overworld/EntranceNorth/DoorGate"]
 tile_map_data = PackedByteArray("AAAXAAEAEQACAAQAAAAaAAEAEQACAAQAAAAaAAIAEQACAAUAAAAbAAIAEQACAAUAAAAcAAIAEQACAAUAAAAdAAIAEQACAAUAAAAWAAIAEQACAAUAAAAVAAIAEQACAAUAAAAUAAIAEQACAAUAAAATAAIAEQAFAAMAAAAXAAIAEQACAAUAAAAeAAIAEQAHAAMAAAAbAAEAEQACAAQAAAAcAAEAEQACAAQAAAAdAAEAEQACAAQAAAAWAAEAEQACAAQAAAAVAAEAEQACAAQAAAAUAAEAEQACAAQAAAATAAEAEQAFAAIAAAATAAAAEQAFAAEAAAAUAAAAEQACAAMAAAAVAAAAEQACAAMAAAAWAAAAEQACAAMAAAAXAAAAEQACAAMAAAAaAAAAEQACAAMAAAAbAAAAEQACAAMAAAAcAAAAEQACAAMAAAAdAAAAEQACAAMAAAAeAAAAEQAHAAEAAAAeAAEAEQAHAAIAAAA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="col_Door_Closed" type="CollisionPolygon2D" parent="EntranceNorth/DoorGate"]
+[node name="col_Door_Closed" type="CollisionPolygon2D" parent="Overworld/EntranceNorth/DoorGate"]
 visible = false
 polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 
-[node name="col_Door_Open" type="CollisionPolygon2D" parent="EntranceNorth/DoorGate"]
+[node name="col_Door_Open" type="CollisionPolygon2D" parent="Overworld/EntranceNorth/DoorGate"]
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
 
-[node name="Barrier" type="TileMapLayer" parent="EntranceNorth/DoorGate"]
+[node name="Barrier" type="TileMapLayer" parent="Overworld/EntranceNorth/DoorGate"]
 tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="PlayerSpawn" type="Area2D" parent="EntranceNorth"]
+[node name="PlayerSpawn" type="Area2D" parent="Overworld/EntranceNorth"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceNorth/PlayerSpawn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceNorth/PlayerSpawn"]
 position = Vector2(400, 66)
 shape = SubResource("CircleShape2D_lhded")
 
-[node name="PlayerExit" type="Area2D" parent="EntranceNorth"]
+[node name="PlayerExit" type="Area2D" parent="Overworld/EntranceNorth"]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceNorth/PlayerExit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceNorth/PlayerExit"]
 position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_puhpg")
 
-[node name="EntranceSouth" type="Node2D" parent="."]
+[node name="EntranceSouth" type="Node2D" parent="Overworld"]
 position = Vector2(800, 800)
-rotation = -3.1415927
+rotation = 3.1415925
 script = ExtResource("3_l6hrb")
 direction = 1
 
-[node name="DoorGate" type="StaticBody2D" parent="EntranceSouth"]
+[node name="DoorGate" type="StaticBody2D" parent="Overworld/EntranceSouth"]
 
-[node name="DoorGate" type="AnimatedSprite2D" parent="EntranceSouth/DoorGate"]
+[node name="DoorGate" type="AnimatedSprite2D" parent="Overworld/EntranceSouth/DoorGate"]
 position = Vector2(400, 24.000008)
 sprite_frames = SubResource("SpriteFrames_pknmx")
 animation = &"DoorClose"
 
-[node name="DoorWalls" type="TileMapLayer" parent="EntranceSouth/DoorGate"]
+[node name="DoorWalls" type="TileMapLayer" parent="Overworld/EntranceSouth/DoorGate"]
 tile_map_data = PackedByteArray("AAAXAAEAEQACAAQAAAAaAAEAEQACAAQAAAAaAAIAEQACAAUAAAAbAAIAEQACAAUAAAAcAAIAEQACAAUAAAAdAAIAEQACAAUAAAAWAAIAEQACAAUAAAAVAAIAEQACAAUAAAAUAAIAEQACAAUAAAATAAIAEQAFAAMAAAAXAAIAEQACAAUAAAAeAAIAEQAHAAMAAAAbAAEAEQACAAQAAAAcAAEAEQACAAQAAAAdAAEAEQACAAQAAAAWAAEAEQACAAQAAAAVAAEAEQACAAQAAAAUAAEAEQACAAQAAAATAAEAEQAFAAIAAAATAAAAEQAFAAEAAAAUAAAAEQACAAMAAAAVAAAAEQACAAMAAAAWAAAAEQACAAMAAAAXAAAAEQACAAMAAAAaAAAAEQACAAMAAAAbAAAAEQACAAMAAAAcAAAAEQACAAMAAAAdAAAAEQACAAMAAAAeAAAAEQAHAAEAAAAeAAEAEQAHAAIAAAA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="col_Door_Closed" type="CollisionPolygon2D" parent="EntranceSouth/DoorGate"]
+[node name="col_Door_Closed" type="CollisionPolygon2D" parent="Overworld/EntranceSouth/DoorGate"]
 visible = false
 polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 
-[node name="col_Door_Open" type="CollisionPolygon2D" parent="EntranceSouth/DoorGate"]
+[node name="col_Door_Open" type="CollisionPolygon2D" parent="Overworld/EntranceSouth/DoorGate"]
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
 
-[node name="Barrier" type="TileMapLayer" parent="EntranceSouth/DoorGate"]
+[node name="Barrier" type="TileMapLayer" parent="Overworld/EntranceSouth/DoorGate"]
 tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
 tile_set = ExtResource("20_1oec0")
 
-[node name="PlayerSpawn" type="Area2D" parent="EntranceSouth"]
+[node name="PlayerSpawn" type="Area2D" parent="Overworld/EntranceSouth"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceSouth/PlayerSpawn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceSouth/PlayerSpawn"]
 position = Vector2(400, 66)
 shape = SubResource("CircleShape2D_j2kr5")
 
-[node name="PlayerExit" type="Area2D" parent="EntranceSouth"]
+[node name="PlayerExit" type="Area2D" parent="Overworld/EntranceSouth"]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceSouth/PlayerExit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceSouth/PlayerExit"]
 position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_ektja")

@@ -5,13 +5,13 @@ extends Node2D
 @onready var door = $DoorGate
 @onready var door_anim = $DoorGate/DoorGate
 @onready var door_closed_collider = $DoorGate/col_Door_Closed
-@onready var player_spawn = $PlayerSpawn
+@onready var player_spawn = $PlayerSpawn/CollisionShape2D
 @onready var exit_trigger: Area2D = $PlayerExit
 @onready var barrier = $DoorGate/Barrier
 var neighbour: Room
 
 
-func _ready() -> void:
+func _ready() -> void: 
 	exit_trigger.body_entered.connect(_on_body_entered_exit_trigger)
 	toggle_barrier(true)
 
@@ -51,5 +51,8 @@ func close_door():
 	door_closed_collider.disabled = false # adds collider over the doorway, default collider is on
 
 
-func _on_body_entered_exit_trigger(body: Node2D) -> void:
-	pass
+func _on_body_entered_exit_trigger(body) -> void:
+	
+	if body.is_in_group("Player"):
+		print("collide")
+		neighbour.player_enter(_get_neighbour_entry_direction(), body)

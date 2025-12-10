@@ -3,6 +3,8 @@ extends Node
 
 @export var map_size: int = 10
 @export var rooms_to_generate: int = 10
+@export var first_room_scene : PackedScene
+@export var room_scenes : Array[PackedScene]
 var room_count: int = 0
 var map: Array[bool]
 var rooms: Array[Room]
@@ -84,7 +86,13 @@ func _instantiate_rooms():
 			
 			var room : Room = room_scene.instantiate()
 			var is_first_room : bool = first_room_x == x and first_room_y == y
-			get_tree().root.add_child.call_deferred(room)
+			
+			if is_first_room:
+				room = first_room_scene.instantiate()
+			else:
+				room = room_scenes[randi_range(0, len(room_scenes) - 1)].instantiate()
+				
+			get_tree().root.get_node("/root/Main").add_child.call_deferred(room)
 			rooms.append(room)
 			
 			room.global_position = Vector2(x,y) * room_pos_offset
@@ -111,9 +119,8 @@ func _instantiate_rooms():
 func get_room_from_map(x: int, y: int) -> Room:
 	for room in rooms:
 		var pos = _get_map_index(room)
-		if pos.x != x and pos.y != y:
+		if pos.x != x or pos.y != y:
 			continue
-		
 		return room
 	return null
 	
