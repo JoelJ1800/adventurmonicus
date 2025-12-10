@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct3bffmjub86g"]
+[gd_scene load_steps=4 format=3 uid="uid://ct3bffmjub86g"]
 
 [ext_resource type="Script" uid="uid://cjolawp6by5hv" path="res://Scenes/NewDungeon/room_generation.gd" id="1_w7qp7"]
+[ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="2_eiycp"]
+[ext_resource type="PackedScene" uid="uid://bcq8bnwty4qxy" path="res://Scenes/Characters/camera_2d.tscn" id="3_mnxgt"]
 
 [node name="Main" type="Node2D"]
 
-[node name="RoomGeneration" type="Node" parent="."]
+[node name="RoomGeneration" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("1_w7qp7")
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_eiycp")]
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_mnxgt")]
+target = NodePath("../Player")

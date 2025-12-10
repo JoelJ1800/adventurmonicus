@@ -13,3 +13,15 @@ var first_room_y : int = 3
 var first_room : Room
 
 @export var player : CharacterBody2D
+
+func _ready():
+	pass
+
+func _generate():
+	pass
+
+func _check_room(x : int, y : int, desired_direction : Vector2, is_first_room : bool = false):
+	pass
+
+func _instantiate_rooms ():
+	pass

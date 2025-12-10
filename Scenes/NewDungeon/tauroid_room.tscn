@@ -304,7 +304,7 @@ shape = SubResource("CircleShape2D_fu5fr")
 
 [node name="EntranceSouth" type="Node2D" parent="."]
 position = Vector2(800, 800)
-rotation = -3.1415927
+rotation = 3.1415925
 script = ExtResource("4_t5j2f")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceSouth"]
@@ -340,7 +340,7 @@ shape = SubResource("CircleShape2D_58l23")
 
 [node name="EntranceEast" type="Node2D" parent="."]
 position = Vector2(800, 0)
-rotation = -4.712389
+rotation = 1.5707964
 script = ExtResource("5_58l23")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceEast"]
@@ -376,7 +376,7 @@ shape = SubResource("CircleShape2D_s610k")
 
 [node name="EntranceWest" type="Node2D" parent="."]
 position = Vector2(0, 800)
-rotation = -7.853982
+rotation = -1.5707966
 script = ExtResource("6_4ok1i")
 
 [node name="DoorGate" type="StaticBody2D" parent="EntranceWest"]
