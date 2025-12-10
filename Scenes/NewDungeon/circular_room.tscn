@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://ons0s6jgy71n"]
+[gd_scene load_steps=17 format=4 uid="uid://ons0s6jgy71n"]
 
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="1_iysou"]
 [ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_jkscv"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="2_1rj1y"]
 [ext_resource type="Script" uid="uid://v5f26qpmjuam" path="res://Scenes/NewDungeon/RoomEntrance.gd" id="3_63gk2"]
+[ext_resource type="PackedScene" uid="uid://bxp33ege8epxk" path="res://Scenes/Characters/player.tscn" id="5_tb1tj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jib64"]
 atlas = ExtResource("2_1rj1y")
@@ -131,9 +132,7 @@ script = ExtResource("3_63gk2")
 [node name="DoorGate" type="AnimatedSprite2D" parent="Overworld/EntranceNorth/DoorGate"]
 position = Vector2(400, 24)
 sprite_frames = SubResource("SpriteFrames_t0pjq")
-animation = &"DoorClose"
-frame = 3
-frame_progress = 1.0
+animation = &"DoorOpen"
 
 [node name="DoorWalls" type="TileMapLayer" parent="Overworld/EntranceNorth/DoorGate"]
 tile_map_data = PackedByteArray("AAAXAAEAEQACAAQAAAAaAAEAEQACAAQAAAAaAAIAEQACAAUAAAAbAAIAEQACAAUAAAAcAAIAEQACAAUAAAAdAAIAEQACAAUAAAAWAAIAEQACAAUAAAAVAAIAEQACAAUAAAAUAAIAEQACAAUAAAATAAIAEQABAAUAAAAXAAIAEQACAAUAAAAeAAIAEQADAAUAAAAbAAEAEQACAAQAAAAcAAEAEQACAAQAAAAdAAEAEQACAAQAAAAWAAEAEQACAAQAAAAVAAEAEQACAAQAAAAUAAEAEQACAAQAAAATAAEAEQABAAQAAAATAAAAEQABAAMAAAAUAAAAEQACAAMAAAAVAAAAEQACAAMAAAAWAAAAEQACAAMAAAAXAAAAEQACAAMAAAAaAAAAEQACAAMAAAAbAAAAEQACAAMAAAAcAAAAEQACAAMAAAAdAAAAEQACAAMAAAAeAAAAEQADAAMAAAAeAAEAEQADAAQAAAA=")
@@ -263,3 +262,8 @@ shape = SubResource("CircleShape2D_1rj1y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceWest/PlayerExit"]
 position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_jib64")
+
+[node name="Player" parent="Overworld" instance=ExtResource("5_tb1tj")]
+position = Vector2(406, 112)
+
+[connection signal="body_entered" from="Overworld/EntranceNorth/PlayerExit" to="Overworld/EntranceNorth" method="_on_player_exit_body_entered"]
