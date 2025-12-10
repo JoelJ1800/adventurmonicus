@@ -44,6 +44,8 @@ func set_camera_limit(scene_path):
 		limit_bottom = 65
 	elif "DungeonTeleport" in scene_path :
 		limit_enabled = false
+	else:
+		pass
 
 
 func _process(delta):
