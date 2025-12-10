@@ -73,6 +73,8 @@ func _get_map(x: int, y: int) -> bool: # helper function to check if there is a 
 func _set_map(x: int, y: int, value: bool): # sets the map array with boolean value if room is present
 	map[x + y * map_size] = value
 
+func _get_map_index(room: Room) -> Vector2i: # find where the room is
+	return Vector2i(room.global_position / room_pos_offset)
 
 func _instantiate_rooms():
 	for x in range(map_size):
