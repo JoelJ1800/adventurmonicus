@@ -296,6 +296,10 @@ polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
 
+[node name="Barrier" type="TileMapLayer" parent="EntranceWest/DoorGate"]
+tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
+tile_set = ExtResource("20_1oec0")
+
 [node name="PlayerSpawn" type="Area2D" parent="EntranceWest"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceWest/PlayerSpawn"]
@@ -331,6 +335,10 @@ polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
 
+[node name="Barrier" type="TileMapLayer" parent="EntranceEast/DoorGate"]
+tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
+tile_set = ExtResource("20_1oec0")
+
 [node name="PlayerSpawn" type="Area2D" parent="EntranceEast"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceEast/PlayerSpawn"]
@@ -363,6 +371,10 @@ polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 [node name="col_Door_Open" type="CollisionPolygon2D" parent="EntranceNorth/DoorGate"]
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
+
+[node name="Barrier" type="TileMapLayer" parent="EntranceNorth/DoorGate"]
+tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
+tile_set = ExtResource("20_1oec0")
 
 [node name="PlayerSpawn" type="Area2D" parent="EntranceNorth"]
 
@@ -398,6 +410,10 @@ polygon = PackedVector2Array(494, 0, 494, 45, 306, 45, 306, 0)
 [node name="col_Door_Open" type="CollisionPolygon2D" parent="EntranceSouth/DoorGate"]
 visible = false
 polygon = PackedVector2Array(306, 0, 306, 45, 387, 45, 389, 17, 400, 13, 411, 17, 412, 45, 493, 45, 493, 0)
+
+[node name="Barrier" type="TileMapLayer" parent="EntranceSouth/DoorGate"]
+tile_map_data = PackedByteArray("AAAYAAIAEQACAAUAAAAZAAIAEQACAAUAAAAYAAEAEQACAAQAAAAZAAEAEQACAAQAAAAYAAAAEQACAAMAAAAZAAAAEQACAAMAAAA=")
+tile_set = ExtResource("20_1oec0")
 
 [node name="PlayerSpawn" type="Area2D" parent="EntranceSouth"]
 
