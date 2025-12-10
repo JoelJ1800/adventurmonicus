@@ -14,8 +14,15 @@ func _ready() -> void:
 	exit_trigger.body_entered.connect(_on_body_entered_exit_trigger)
 
 
-func set_neightbour(neighbour_room: Room):
-	pass
+func _get_neighbor_entry_direction() -> Room.Direction: # determine what entrance the player has come from to spawn at the entry listed
+	if direction == Room.Direction.NORTH:
+		return Room.Direction.SOUTH
+	if direction == Room.Direction.SOUTH:
+		return Room.Direction.NORTH
+	if direction == Room.Direction.EAST:
+		return Room.Direction.WEST
+	else:
+		return Room.Direction.EAST
 
 
 func toggle_barrier(toggle: bool):
