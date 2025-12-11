@@ -12,6 +12,8 @@ enum Direction {
 @export var min_distance_from_player: float = 200.0
 @export var max_enemies: int = 4
 @export var doors_always_open: bool = false
+@export var spawn_radius := 80.0
+@export var enemy_radius := 7.0
 
 @onready var entrance_north: RoomEntrance = $Overworld/EntranceNorth
 @onready var entrance_south: RoomEntrance = $Overworld/EntranceSouth
@@ -89,24 +91,51 @@ func spawn_enemies(current_spawn):
 		return
 
 	var possible_spawns = []
+	var taken_positions: Array = []
 
 	# Filter spawn points too close to the player spawn
 	for spawn in enemy_spawns.get_children():
 		if spawn.global_position.distance_to(current_spawn) >= min_distance_from_player:
 			possible_spawns.append(spawn)
-	print(possible_spawns)
 
 	if possible_spawns.is_empty():
 		return
 
 	possible_spawns.shuffle()
-
 	var num_to_spawn = min(max_enemies, possible_spawns.size())
 
 	for i in num_to_spawn:
-		var spawn_point = possible_spawns[i]
+		var marker = possible_spawns[i]
+		var pos: Vector2
+
+		var tries := 0
+		var found := false
+
+		# Try multiple random positions around this marker
+		while tries < 10 and not found:
+			var maybe_pos = get_random_position_near(marker)
+			if is_position_free(maybe_pos, taken_positions):
+				pos = maybe_pos
+				found = true
+				break
+			tries += 1
+		if not found:
+			continue
+		taken_positions.append(pos)
 		var enemy_scene = enemy_scenes.pick_random()
 		var enemy = enemy_scene.instantiate()
-		enemy.global_position = spawn_point.position
+		enemy.global_position = pos
 		add_child(enemy)
-		print("enemy spawned at " + str(spawn_point) + " " + str(spawn_point.position))
+
+
+func get_random_position_near(marker: Node2D) -> Vector2: # allow for more randomness in enemy placement
+	var angle = randf() * TAU
+	var distance = randf() * spawn_radius
+	return marker.position + Vector2(cos(angle), sin(angle)) * distance
+
+
+func is_position_free(pos: Vector2, taken_positions: Array) -> bool:
+	for p in taken_positions:
+		if p.distance_to(pos) < enemy_radius * 2.0:
+			return false
+	return true
