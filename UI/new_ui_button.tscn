@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2sk6jv0tae25"]
+
+[ext_resource type="StyleBox" uid="uid://bt656jhv3ae4w" path="res://UI/button_normal.tres" id="1_bksac"]
+[ext_resource type="StyleBox" uid="uid://cs8sibowmel8g" path="res://UI/button_pressed.tres" id="2_o6pee"]
+[ext_resource type="StyleBox" uid="uid://x78iyrmhvbdf" path="res://UI/button_hover.tres" id="3_comwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bksac"]
+
+[node name="NewUIButton" type="Button"]
+offset_right = 496.0
+offset_bottom = 142.0
+theme_override_styles/normal = ExtResource("1_bksac")
+theme_override_styles/pressed = ExtResource("2_o6pee")
+theme_override_styles/hover = ExtResource("3_comwj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bksac")
