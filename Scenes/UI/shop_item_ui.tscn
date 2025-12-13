@@ -1,24 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp7od6851etuw"]
+[gd_scene load_steps=9 format=3 uid="uid://cp7od6851etuw"]
 
 [ext_resource type="Script" uid="uid://cprp4sjgjx05m" path="res://Scripts/UI/shopitemUI.gd" id="1_emgyl"]
-[ext_resource type="Texture2D" uid="uid://cvi2growfl5pu" path="res://Sprites/UI/UI_InventorySlot.tres" id="2_lg1lg"]
+[ext_resource type="Theme" uid="uid://drd1dois6agfp" path="res://UI/game.theme" id="2_ewtaa"]
+[ext_resource type="Texture2D" uid="uid://d16qhldk4uhvu" path="res://UI/resources/cw_item_slot.png" id="2_sb7i5"]
 [ext_resource type="Texture2D" uid="uid://nnn5juuro7la" path="res://Sprites/Items/Item_Axe.tres" id="3_6bce6"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/UI_Gold.tres" id="4_emgyl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bce6"]
-bg_color = Color(0.3575, 0.45375, 0.55, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-anti_aliasing_size = 0.282
+[ext_resource type="Texture2D" uid="uid://c7k8ykgl4mw7n" path="res://UI/resources/coin.png" id="4_emgyl"]
+[ext_resource type="FontFile" uid="uid://ly7qvmrvyw1h" path="res://UI/OLDSH___.TTF" id="4_sb7i5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6bce6"]
+font = ExtResource("4_sb7i5")
 font_size = 26
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sb7i5"]
+font = ExtResource("4_sb7i5")
 font_size = 24
 font_color = Color(0.8666667, 0.7529412, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
@@ -116,19 +112,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6bce6")
+theme = ExtResource("2_ewtaa")
 
 [node name="ItemBG" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -32.0
-offset_right = 68.0
-offset_bottom = 32.0
+offset_top = -65.0
+offset_right = 70.0
+offset_bottom = 65.0
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_lg1lg")
+texture = ExtResource("2_sb7i5")
+expand_mode = 5
 stretch_mode = 5
 
 [node name="ItemIcon" type="TextureRect" parent="ItemBG"]
@@ -138,10 +135,10 @@ anchor_left = 0.16100001
 anchor_top = 0.125
 anchor_right = 0.83400005
 anchor_bottom = 0.873
-offset_left = 0.5689993
-offset_top = 0.9274998
-offset_right = -0.21400452
-offset_bottom = 0.6216583
+offset_left = 0.72999954
+offset_top = 21.75
+offset_right = -0.05300522
+offset_bottom = -20.490005
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -153,10 +150,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 69.0
-offset_top = 2.0
-offset_right = -40.0
-offset_bottom = 7.0
+offset_left = 81.0
+offset_top = -1.0
+offset_right = -28.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Item Name
@@ -168,9 +165,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 98.0
+offset_left = 118.0
 offset_top = 32.0
-offset_right = -221.0
+offset_right = -201.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -183,11 +180,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.177
 anchor_bottom = 1.0
-offset_left = 65.0
-offset_top = 36.0
-offset_right = 31.279999
-offset_bottom = -7.0
+offset_left = 82.0
+offset_top = -44.0
+offset_right = 44.28
+offset_bottom = 74.25
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_emgyl")
+expand_mode = 5
 stretch_mode = 5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=149 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -925,15 +925,19 @@ states/WalkingAttack/position = Vector2(350, 42)
 transitions = ["Start", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_q2fsp"), "Start", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_cedbe"), "WalkingAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hcfdb"), "RunningAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_nlvnh"), "Start", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_wi16j"), "IdleAttack", "WalkingAttack", SubResource("AnimationNodeStateMachineTransition_k2llm"), "WalkingAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_ijsmg"), "IdleAttack", "RunningAttack", SubResource("AnimationNodeStateMachineTransition_hxh0i"), "RunningAttack", "IdleAttack", SubResource("AnimationNodeStateMachineTransition_x41km"), "IdleAttack", "End", SubResource("AnimationNodeStateMachineTransition_ipscb"), "WalkingAttack", "End", SubResource("AnimationNodeStateMachineTransition_yc7pt"), "RunningAttack", "End", SubResource("AnimationNodeStateMachineTransition_1s3u7")]
 graph_offset = Vector2(-442, -60)
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hy8lp"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_leagw"]
-graph_offset = Vector2(-785.30255, 14.678635)
+graph_offset = Vector2(-530, 117)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_cacbj")
 nodes/MoveStateMachine/position = Vector2(-220, 80)
 nodes/SwordStateMachine/node = SubResource("AnimationNodeStateMachine_hp2f6")
-nodes/SwordStateMachine/position = Vector2(-220, 260)
+nodes/SwordStateMachine/position = Vector2(-340, 280)
 nodes/SwordOneShot/node = SubResource("AnimationNodeOneShot_cacbj")
 nodes/SwordOneShot/position = Vector2(80, 180)
-node_connections = [&"output", 0, &"SwordOneShot", &"SwordOneShot", 0, &"MoveStateMachine", &"SwordOneShot", 1, &"SwordStateMachine"]
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_hy8lp")
+nodes/TimeScale/position = Vector2(-100, 280)
+node_connections = [&"output", 0, &"SwordOneShot", &"SwordOneShot", 0, &"MoveStateMachine", &"SwordOneShot", 1, &"TimeScale", &"TimeScale", 0, &"SwordStateMachine"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xccyk"]
 
@@ -962,25 +966,11 @@ shadow_offset = Vector2(-1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cueqf"]
 bg_color = Color(0, 0, 0, 0.5058824)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxpk4"]
-bg_color = Color(0.33711824, 0.22367227, 0.19339958, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15c3i"]
-bg_color = Color(0.1787492, 0.11014979, 0.09185516, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt1oc"]
-bg_color = Color(0.11302585, 0.062489115, 0.04845263, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hy8lp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yt1oc"]
-font_size = 24
+font = ExtResource("16_yt1oc")
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1n2f"]
 font = ExtResource("16_yt1oc")
@@ -1014,7 +1004,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 112
+frame = 118
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
@@ -1038,6 +1028,7 @@ parameters/SwordStateMachine/WalkingAttack/blend_position = Vector2(0, 0)
 parameters/SwordOneShot/active = false
 parameters/SwordOneShot/internal_active = false
 parameters/SwordOneShot/request = 0
+parameters/TimeScale/scale = 2.0
 
 [node name="PlayerWeapons" type="Node2D" parent="."]
 position = Vector2(0, -4)
@@ -1181,6 +1172,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("18_hy8lp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cueqf")
 script = ExtResource("14_yt1oc")
 
@@ -1197,7 +1189,6 @@ offset_right = -0.8000488
 offset_bottom = 0.39990234
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dxpk4")
 
 [node name="BG" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
 layout_mode = 1
@@ -1210,7 +1201,7 @@ offset_right = -12.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_15c3i")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hy8lp")
 
 [node name="ShopPanel" type="Panel" parent="HUD/ShopScreen/ShopPanel"]
 layout_mode = 1
@@ -1222,16 +1213,15 @@ anchor_bottom = 0.961
 offset_left = -5.1600037
 offset_top = 45.8
 offset_right = -4.9680786
-offset_bottom = -5.800049
+offset_bottom = 1.1999512
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yt1oc")
 
 [node name="ShopItems" type="VBoxContainer" parent="HUD/ShopScreen/ShopPanel/ShopPanel"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 396.0
-offset_bottom = 679.0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 400.0
+offset_bottom = 684.0
 theme_override_constants/separation = 5
 
 [node name="ShopItemUI" parent="HUD/ShopScreen/ShopPanel/ShopPanel/ShopItems" instance=ExtResource("14_15c3i")]
@@ -1273,14 +1263,13 @@ offset_top = 45.8
 offset_right = 11.671967
 offset_bottom = -5.800049
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yt1oc")
 
 [node name="PlayerItems" type="VBoxContainer" parent="HUD/ShopScreen/ShopPanel/PlayerPanel"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 398.0
-offset_bottom = 679.0
+offset_left = 6.0
+offset_top = 11.0
+offset_right = 399.0
+offset_bottom = 681.0
 theme_override_constants/separation = 5
 
 [node name="ShopItemUI" parent="HUD/ShopScreen/ShopPanel/PlayerPanel/PlayerItems" instance=ExtResource("14_15c3i")]
@@ -1356,6 +1345,17 @@ offset_top = 9.44
 offset_right = 41.4
 offset_bottom = 49.44
 mouse_filter = 2
+
+[node name="GoldIcon2" type="TextureRect" parent="HUD/Gold"]
+modulate = Color(0.16206557, 0.1620656, 0.16206557, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 70.0
+offset_bottom = 43.0
+texture = ExtResource("15_15c3i")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="GoldIcon" type="TextureRect" parent="HUD/Gold"]
 layout_mode = 0
