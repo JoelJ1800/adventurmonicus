@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=152 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -15,8 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://ryo8ejfhg2w4" path="res://Sprites/Characters/Character_Wizard.tres" id="13_01b8d"]
 [ext_resource type="PackedScene" uid="uid://cp7od6851etuw" path="res://Scenes/UI/shop_item_ui.tscn" id="14_15c3i"]
 [ext_resource type="Script" uid="uid://d2f7blxor54pp" path="res://Scripts/UI/shop_ui.gd" id="14_yt1oc"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/UI_Gold.tres" id="15_h1n2f"]
+[ext_resource type="Texture2D" uid="uid://c7k8ykgl4mw7n" path="res://UI/resources/coin.png" id="15_15c3i"]
 [ext_resource type="Script" uid="uid://dd3dvn4uvk633" path="res://Scripts/UI/gold_ui.gd" id="16_dxpk4"]
+[ext_resource type="FontFile" uid="uid://ly7qvmrvyw1h" path="res://UI/OLDSH___.TTF" id="16_yt1oc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yt1oc"]
 radius = 7.0
@@ -984,8 +985,9 @@ bg_color = Color(0.11302585, 0.062489115, 0.04845263, 1)
 font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1n2f"]
+font = ExtResource("16_yt1oc")
 font_size = 42
-font_color = Color(0.86531115, 0.754652, 2.695322e-06, 1)
+font_color = Color(0.69803923, 0.49803922, 0.16862746, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-1, 1)
@@ -1026,7 +1028,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 109
+frame = 111
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
@@ -1371,22 +1373,23 @@ mouse_filter = 2
 [node name="GoldIcon" type="TextureRect" parent="HUD/Gold"]
 layout_mode = 0
 offset_left = 1.0
-offset_right = 79.0
-offset_bottom = 70.0
-texture = ExtResource("15_h1n2f")
+offset_right = 71.0
+offset_bottom = 42.0
+texture = ExtResource("15_15c3i")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="GoldText" type="Label" parent="HUD/Gold"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.975
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.975
-offset_left = 39.0
-offset_top = -33.0
-offset_right = 223.0
-offset_bottom = 25.0
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -32.0
+offset_right = 205.0
+offset_bottom = 26.0
 text = "500"
 label_settings = SubResource("LabelSettings_h1n2f")
 script = ExtResource("16_dxpk4")
