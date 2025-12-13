@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cu5o5xbasd1xp"]
 
 [ext_resource type="Script" uid="uid://dgbmsyeomv3jx" path="res://Scripts/UI/InventorySlotUI.gd" id="1_77amr"]
-[ext_resource type="Texture2D" uid="uid://cvi2growfl5pu" path="res://Sprites/UI/UI_InventorySlot.tres" id="2_5gi18"]
-[ext_resource type="Texture2D" uid="uid://33xi1ttfelyt" path="res://Sprites/UI/UI_InventoryBackground.tres" id="3_owxyj"]
+[ext_resource type="Texture2D" uid="uid://d16qhldk4uhvu" path="res://UI/resources/cw_item_slot.png" id="2_77amr"]
+[ext_resource type="Texture2D" uid="uid://dlqvr0k5t2g8s" path="res://UI/resources/cw_item_border_purple.png" id="3_0mb3u"]
 [ext_resource type="Texture2D" uid="uid://bxg4rbiy32ydv" path="res://Sprites/Items/Item_Arrow.tres" id="4_l2h8a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1n2f"]
@@ -102,7 +102,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5gi18")
+texture = ExtResource("2_77amr")
 expand_mode = 3
 stretch_mode = 5
 
@@ -113,7 +113,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_owxyj")
+texture = ExtResource("3_0mb3u")
 expand_mode = 3
 stretch_mode = 5
 

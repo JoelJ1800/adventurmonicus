@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=150 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -937,9 +937,6 @@ node_connections = [&"output", 0, &"SwordOneShot", &"SwordOneShot", 0, &"MoveSta
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xccyk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25bbb"]
-bg_color = Color(0.29, 0.053166665, 0, 0.50980395)
-
 [sub_resource type="LabelSettings" id="LabelSettings_01b8d"]
 font = ExtResource("16_yt1oc")
 font_size = 20
@@ -1017,7 +1014,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 108
+frame = 112
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
@@ -1079,7 +1076,7 @@ offset_top = -244.0
 offset_right = 246.0
 offset_bottom = -28.0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_25bbb")
+theme = ExtResource("18_hy8lp")
 script = ExtResource("12_01b8d")
 slots = [NodePath("Slots/InventorySlot"), NodePath("Slots/InventorySlot2"), NodePath("Slots/InventorySlot3"), NodePath("Slots/InventorySlot4"), NodePath("Slots/InventorySlot5"), NodePath("Slots/InventorySlot6"), NodePath("Slots/InventorySlot7"), NodePath("Slots/InventorySlot8"), NodePath("Slots/InventorySlot9")]
 
