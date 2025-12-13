@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=151 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://c7k8ykgl4mw7n" path="res://UI/resources/coin.png" id="15_15c3i"]
 [ext_resource type="Script" uid="uid://dd3dvn4uvk633" path="res://Scripts/UI/gold_ui.gd" id="16_dxpk4"]
 [ext_resource type="FontFile" uid="uid://ly7qvmrvyw1h" path="res://UI/OLDSH___.TTF" id="16_yt1oc"]
+[ext_resource type="Theme" uid="uid://drd1dois6agfp" path="res://UI/game.theme" id="18_hy8lp"]
+[ext_resource type="StyleBox" uid="uid://bmmq71yvmhmbs" path="res://UI/styleboxes/InsideContainer.tres" id="19_uxymp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yt1oc"]
 radius = 7.0
@@ -938,10 +940,8 @@ node_connections = [&"output", 0, &"SwordOneShot", &"SwordOneShot", 0, &"MoveSta
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25bbb"]
 bg_color = Color(0.29, 0.053166665, 0, 0.50980395)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01b8d"]
-bg_color = Color(0.29, 0.16921501, 0.14209999, 0.49803922)
-
 [sub_resource type="LabelSettings" id="LabelSettings_01b8d"]
+font = ExtResource("16_yt1oc")
 font_size = 20
 font_color = Color(0.99021035, 0.91500354, 0.6776955, 1)
 shadow_color = Color(0, 0, 0, 1)
@@ -949,13 +949,14 @@ shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xccyk"]
 line_spacing = 2.0
-font_size = 14
+font = ExtResource("16_yt1oc")
 font_color = Color(0.99763733, 0.9738192, 0.9013821, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cueqf"]
-font_size = 26
+font = ExtResource("16_yt1oc")
+font_size = 34
 font_color = Color(1, 0.9816667, 0.78, 1)
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
@@ -992,21 +993,8 @@ shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xccyk"]
-bg_color = Color(0.5607315, 0.3966813, 0.2338498, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1n2f"]
-bg_color = Color(0.36499542, 0.25041237, 0.1359272, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
 [sub_resource type="LabelSettings" id="LabelSettings_dxpk4"]
+font = ExtResource("16_yt1oc")
 font_size = 34
 font_color = Color(0.85, 0.8464584, 0.63750005, 1)
 shadow_size = 3
@@ -1014,6 +1002,7 @@ shadow_color = Color(0, 0, 0, 0.5882353)
 shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_15c3i"]
+font = ExtResource("16_yt1oc")
 font_size = 26
 font_color = Color(0.94612104, 0.9461486, 0.8590335, 1)
 
@@ -1028,7 +1017,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 111
+frame = 108
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
@@ -1142,14 +1131,16 @@ offset_top = 735.0
 offset_right = 232.0
 offset_bottom = 824.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_01b8d")
+theme = ExtResource("18_hy8lp")
 
 [node name="ItemName" type="Label" parent="HUD/ItemInfoPanel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 4.0
-offset_bottom = 59.0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = 55.0
 grow_horizontal = 2
 text = "Item Name
 "
@@ -1162,7 +1153,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = -64.0
+offset_top = -70.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Item description text displays the description of the item"
@@ -1170,16 +1161,15 @@ label_settings = SubResource("LabelSettings_xccyk")
 autowrap_mode = 2
 
 [node name="InteractPrompt" type="Label" parent="HUD"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = -128.0
-offset_right = 184.0
-offset_bottom = -92.0
+offset_left = -182.0
+offset_top = -117.0
+offset_right = 186.0
+offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "[E] - Pickup Item Name"
@@ -1411,48 +1401,49 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -531.0
-offset_top = -326.0
-offset_right = 531.0
+offset_top = -308.0
+offset_right = 543.0
 offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_xccyk")
+theme = ExtResource("18_hy8lp")
 
 [node name="BG" type="Panel" parent="HUD/DialogueScreen/DialoguePanel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -520.0
-offset_top = -121.0
-offset_right = 520.0
-offset_bottom = 121.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h1n2f")
+theme = ExtResource("18_hy8lp")
+theme_override_styles/panel = ExtResource("19_uxymp")
 
 [node name="NPCIcon" type="TextureRect" parent="HUD/DialogueScreen/DialoguePanel"]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 1.0
-offset_right = 232.0
-offset_bottom = -1.0
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.26500002
+anchor_right = 0.21700001
+anchor_bottom = 0.93900007
+offset_left = 0.51199913
+offset_top = 0.039993286
+offset_right = -0.45401
+offset_bottom = 0.10398865
 grow_vertical = 2
 texture = ExtResource("13_01b8d")
 stretch_mode = 5
 
 [node name="NPCName" type="Label" parent="HUD/DialogueScreen/DialoguePanel"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 256.0
-offset_top = 24.0
-offset_right = -23.0
-offset_bottom = 77.0
+anchors_preset = -1
+anchor_left = 0.021000002
+anchor_top = 0.095000006
+anchor_right = 0.98300004
+anchor_bottom = 0.24700001
+offset_left = 231.44598
+offset_top = -8.36998
+offset_right = -7.19812
+offset_bottom = 4.502022
 grow_horizontal = 2
 text = "NPC Name"
 label_settings = SubResource("LabelSettings_dxpk4")
