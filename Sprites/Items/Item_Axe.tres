@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://nnn5juuro7la"]
 
-[ext_resource type="Texture2D" uid="uid://deirw5phoa2t2" path="res://Sprites/Tilemap_1.png" id="1_5g8iu"]
+[ext_resource type="Texture2D" uid="uid://dacmoxpe5nmbw" path="res://Sprites/Weapon_icons.png" id="1_5g8iu"]
 
 [resource]
 atlas = ExtResource("1_5g8iu")
-region = Rect2(187, 153, 11, 16)
+region = Rect2(65, 262, 30, 25)
