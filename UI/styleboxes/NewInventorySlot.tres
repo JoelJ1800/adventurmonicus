@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bvypw54edrh7y"]
+
+[ext_resource type="Texture2D" uid="uid://d16qhldk4uhvu" path="res://UI/resources/cw_item_slot.png" id="1_24cd2"]
+
+[resource]
+texture = ExtResource("1_24cd2")
+modulate_color = Color(0.40832946, 0.40832946, 0.40832946, 1)

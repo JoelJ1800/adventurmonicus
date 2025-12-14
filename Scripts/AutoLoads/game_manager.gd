@@ -4,6 +4,35 @@ var player: Player
 var camera: Camera2D
 var brdge_built:bool = false
 
+var STATS := {
+	"DMG": {
+		"icon": "res://UI/resources/dmg_icon.png",
+		"max_value": null,
+		"tooltip": "Damage"
+	},
+	"DEF": {
+		"icon": "res://UI/resources/deff_icon.png",
+		"max_value": null,
+		"tooltip": "Defense"
+	},
+	"SPEED": {
+		"icon": "res://UI/resources/speed_icon.png",
+		"max_value": 100,
+		"tooltip": "Speed"
+	},
+	"SP.DMG": {
+		"icon": "res://UI/resources/sp_dmg.png",
+		"max_value": null,
+		"tooltip": "Special Damage"
+	},
+	"SP.DEF": {
+		"icon": "res://UI/resources/sp_deff_icon.png",
+		"max_value": 100,
+		"tooltip": "Special Defense"
+	}
+}
+
+
 signal scene_changed()
 
 func start_game():
@@ -32,7 +61,6 @@ func start_game():
 	camera.global_position = player.global_position
 	scene_changed.emit("res://Scenes/NewOverwerld/overworld_2.tscn")
 
-
 func change_scene(scene: PackedScene, player_position: Vector2):
 	# move persistent nodes to root to avoid being freed
 	for node in [player, camera]:
@@ -53,10 +81,8 @@ func change_scene(scene: PackedScene, player_position: Vector2):
 	camera.global_position = player_position
 	overworld.move_child(player, overworld.get_child_count() - 1)
 
-
 func play_game():
 	start_game()
-
 
 func game_over():
 	player.queue_free()

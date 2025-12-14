@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=150 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -20,6 +20,7 @@
 [ext_resource type="FontFile" uid="uid://ly7qvmrvyw1h" path="res://UI/OLDSH___.TTF" id="16_yt1oc"]
 [ext_resource type="Theme" uid="uid://drd1dois6agfp" path="res://UI/game.theme" id="18_hy8lp"]
 [ext_resource type="StyleBox" uid="uid://bmmq71yvmhmbs" path="res://UI/styleboxes/InsideContainer.tres" id="19_uxymp"]
+[ext_resource type="PackedScene" uid="uid://cdoogc86ulihp" path="res://UI/NewInventory.tscn" id="21_uxymp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yt1oc"]
 radius = 7.0
@@ -1004,7 +1005,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 118
+frame = 114
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
@@ -1059,6 +1060,7 @@ ExtResource("11_xccyk"): 5
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Inventory" type="Panel" parent="HUD" node_paths=PackedStringArray("slots")]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1333,6 +1335,8 @@ offset_top = 0.3999977
 offset_right = -0.16003418
 text = "Buy"
 label_settings = SubResource("LabelSettings_yt1oc")
+
+[node name="NewUI" parent="HUD" instance=ExtResource("21_uxymp")]
 
 [node name="Gold" type="Control" parent="HUD"]
 layout_mode = 3
