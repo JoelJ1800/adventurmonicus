@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=4 uid="uid://du86m6g5oox6b"]
+[gd_scene load_steps=20 format=4 uid="uid://du86m6g5oox6b"]
 
 [ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_3rmkw"]
+[ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="2_3rmkw"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="2_cvfo2"]
 [ext_resource type="Script" uid="uid://v5f26qpmjuam" path="res://Scenes/NewDungeon/RoomEntrance.gd" id="3_3rmkw"]
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="3_h6lt7"]
@@ -123,6 +124,7 @@ radius = 18.027815
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3rmkw")
+enemy_scenes = Array[PackedScene]([ExtResource("2_3rmkw")])
 
 [node name="Overworld" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -228,3 +230,29 @@ shape = SubResource("CircleShape2D_eqjt8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceWest/PlayerExit"]
 position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_w0j8k")
+
+[node name="EnemySpawns" type="Node2D" parent="."]
+
+[node name="Spawn16" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(433, 355)
+
+[node name="Spawn17" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(384, 355)
+
+[node name="Spawn18" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(331, 355)
+
+[node name="Spawn19" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(331, 416)
+
+[node name="Spawn20" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(384, 416)
+
+[node name="Spawn21" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(433, 416)
+
+[node name="Spawn26" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(477, 416)
+
+[node name="Spawn27" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(477, 355)

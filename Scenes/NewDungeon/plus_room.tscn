@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=4 uid="uid://dl3gwrjvpamf1"]
+[gd_scene load_steps=34 format=4 uid="uid://dl3gwrjvpamf1"]
 
 [ext_resource type="Script" uid="uid://dqno6met0ih13" path="res://Scenes/NewDungeon/Room.gd" id="1_hmhk3"]
+[ext_resource type="PackedScene" uid="uid://duds1cy6h7t3p" path="res://Scenes/Characters/Enemies/cyclops.tscn" id="2_nybma"]
 [ext_resource type="Script" uid="uid://v5f26qpmjuam" path="res://Scenes/NewDungeon/RoomEntrance.gd" id="3_l6hrb"]
 [ext_resource type="Texture2D" uid="uid://canjlvktlv2pc" path="res://Scenes/NewDungeon/doors.png" id="16_iklgn"]
 [ext_resource type="TileSet" uid="uid://d2ukdubwwkpwq" path="res://Scenes/NewDungeon/DungeonRooms.tres" id="20_1oec0"]
@@ -231,6 +232,7 @@ radius = 16.124523
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_hmhk3")
+enemy_scenes = Array[PackedScene]([ExtResource("2_nybma")])
 
 [node name="Overworld" type="Node2D" parent="."]
 
@@ -442,3 +444,89 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/EntranceSouth/PlayerExit"]
 position = Vector2(400, 15)
 shape = SubResource("CircleShape2D_ektja")
+
+[node name="EnemySpawns" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(266, 179)
+
+[node name="Spawn2" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(237, 225)
+
+[node name="Spawn3" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(192, 260)
+
+[node name="Spawn4" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(214, 522)
+
+[node name="Spawn5" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(208, 584)
+
+[node name="Spawn6" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(267, 585)
+
+[node name="Spawn7" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(538, 605)
+
+[node name="Spawn8" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(594, 601)
+
+[node name="Spawn9" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(603, 546)
+
+[node name="Spawn10" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(577, 249)
+
+[node name="Spawn11" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(596, 200)
+
+[node name="Spawn12" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(538, 196)
+
+[node name="Spawn13" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(331, 290)
+
+[node name="Spawn14" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(381, 290)
+
+[node name="Spawn15" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(433, 290)
+
+[node name="Spawn16" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(433, 355)
+
+[node name="Spawn17" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(384, 355)
+
+[node name="Spawn18" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(331, 355)
+
+[node name="Spawn19" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(331, 416)
+
+[node name="Spawn20" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(384, 416)
+
+[node name="Spawn21" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(433, 416)
+
+[node name="Spawn22" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(433, 479)
+
+[node name="Spawn23" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(384, 479)
+
+[node name="Spawn24" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(331, 479)
+
+[node name="Spawn25" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(477, 479)
+
+[node name="Spawn26" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(477, 416)
+
+[node name="Spawn27" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(477, 355)
+
+[node name="Spawn28" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(477, 290)

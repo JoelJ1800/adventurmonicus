@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct3bffmjub86g"]
+[gd_scene load_steps=6 format=3 uid="uid://ct3bffmjub86g"]
 
 [ext_resource type="Script" uid="uid://cjolawp6by5hv" path="res://Scenes/NewDungeon/room_generation.gd" id="1_w7qp7"]
 [ext_resource type="PackedScene" uid="uid://cotqcj7rxvgpq" path="res://Scenes/NewDungeon/Starter Room.tscn" id="2_eiycp"]
 [ext_resource type="PackedScene" uid="uid://ons0s6jgy71n" path="res://Scenes/NewDungeon/circular_room.tscn" id="2_qd01h"]
+[ext_resource type="PackedScene" uid="uid://dl3gwrjvpamf1" path="res://Scenes/NewDungeon/plus_room.tscn" id="4_pjbt8"]
+[ext_resource type="PackedScene" uid="uid://rjecxcfabnox" path="res://Scenes/NewDungeon/tauroid_room.tscn" id="5_qd01h"]
 
 [node name="Main" type="Node2D"]
 
 [node name="RoomGeneration" type="Node" parent="."]
 script = ExtResource("1_w7qp7")
 first_room_scene = ExtResource("2_eiycp")
-room_scenes = Array[PackedScene]([ExtResource("2_qd01h")])
+room_scenes = Array[PackedScene]([ExtResource("2_qd01h"), ExtResource("4_pjbt8"), ExtResource("5_qd01h")])
 
 [node name="Overworld" type="Node2D" parent="."]
