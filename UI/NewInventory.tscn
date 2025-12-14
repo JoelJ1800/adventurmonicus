@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdoogc86ulihp"]
+
+[ext_resource type="Theme" uid="uid://drd1dois6agfp" path="res://UI/game.theme" id="1_dx7re"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i75i"]
+bg_color = Color(0.13, 0.106599994, 0.0949, 0.4)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_j8ohj"]
+color = Color(0, 0, 0, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dx7re")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5i75i")
+
+[node name="InventoryScreen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 115.55542
+offset_top = 65.0
+offset_right = -115.55542
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="InventoryScreen/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="InventoryScreen/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxLine_j8ohj")
+
+[node name="Panel2" type="Panel" parent="InventoryScreen/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
