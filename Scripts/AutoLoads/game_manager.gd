@@ -31,7 +31,56 @@ var STATS := {
 		"tooltip": "Special Defense"
 	}
 }
-
+var SLOTS = {
+	"HELMET":{
+		"icon": "res://UI/resources/cw_item_example_helmet.png",
+		"tooltip": "Helmet"
+	},
+	"CHEST":{
+		"icon": "res://UI/resources/cw_item_example_chest.png",
+		"tooltip": "Chestpiece"
+	},
+	"BELT":{
+		"icon": "res://UI/resources/cw_item_example_belt.png",
+		"tooltip": "Belt"
+	},
+	"BOOTS":{
+		"icon": "res://UI/resources/cw_item_example_boots.png",
+		"tooltip": "Boots"
+		},
+	"BRACER":{
+		"icon": "res://UI/resources/cw_item_example_bracer.png",
+		"tooltip": "Bracers"
+	},
+	"GLOVES":{
+		"icon": "res://UI/resources/cw_item_example_gloves.png",
+		"tooltip": "Gloves"
+	},
+	"MAINHAND":{
+		"icon": "res://UI/resources/cw_item_example_mainhand.png",
+		"tooltip": "Main Weapon"
+	},
+	"OFFHAND":{
+		"icon": "res://UI/resources/cw_item_example_offhand.png",
+		"tooltip": "Offhand"
+	},
+	"MAGIC1":{
+		"icon": "res://UI/resources/cw_item_example_rune.png",
+		"tooltip": "Rune"
+	},
+	"MAGIC2":{
+		"icon":"res://UI/resources/cw_item_example_rune2.png",
+		"tooltip": "Rune"
+	},
+	"RING1":{
+		"icon": "res://UI/resources/cw_item_example_finger.png",
+		"tooltip": "Ring"
+	},
+	"RING2":{
+		"icon": "res://UI/resources/cw_item_example_finger.png",
+		"tooltip": "Ring"
+	}
+}
 
 signal scene_changed()
 
