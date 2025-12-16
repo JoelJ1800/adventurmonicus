@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://bxp33ege8epxk"]
+[gd_scene load_steps=146 format=3 uid="uid://bxp33ege8epxk"]
 
 [ext_resource type="Script" uid="uid://bpjlq2oryy6t3" path="res://Scripts/Character/Player.gd" id="1_gdgf0"]
 [ext_resource type="AudioStream" uid="uid://ll11kwmepn3j" path="res://Audio/Hit_0.ogg" id="2_xo8ps"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://knt5gawodd5f" path="res://Scenes/UI/health_bar.tscn" id="8_h1n2f"]
 [ext_resource type="Script" uid="uid://bl48yv51r0ep" path="res://Scripts/Dialogue/dialogueController.gd" id="8_xccyk"]
 [ext_resource type="Resource" uid="uid://cw3wh68625y84" path="res://Items/Consumables/HealthPotion.tres" id="11_xccyk"]
-[ext_resource type="Script" uid="uid://cxjhhwrll1uo5" path="res://Scripts/UI/InventoryUI.gd" id="12_01b8d"]
-[ext_resource type="PackedScene" uid="uid://cu5o5xbasd1xp" path="res://Scenes/UI/inventory_slot.tscn" id="12_cueqf"]
 [ext_resource type="Texture2D" uid="uid://ryo8ejfhg2w4" path="res://Sprites/Characters/Character_Wizard.tres" id="13_01b8d"]
 [ext_resource type="PackedScene" uid="uid://cp7od6851etuw" path="res://Scenes/UI/shop_item_ui.tscn" id="14_15c3i"]
 [ext_resource type="Script" uid="uid://d2f7blxor54pp" path="res://Scripts/UI/shop_ui.gd" id="14_yt1oc"]
@@ -980,20 +978,6 @@ font = ExtResource("16_yt1oc")
 font_size = 26
 font_color = Color(0.94612104, 0.9461486, 0.8590335, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_uxymp"]
-font = ExtResource("16_yt1oc")
-font_size = 20
-font_color = Color(0.99021035, 0.91500354, 0.6776955, 1)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(-1, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_fepmq"]
-line_spacing = 2.0
-font = ExtResource("16_yt1oc")
-font_color = Color(0.99763733, 0.9738192, 0.9013821, 1)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(-1, 1)
-
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_gdgf0")
@@ -1005,7 +989,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 114
+frame = 117
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
@@ -1053,66 +1037,17 @@ script = ExtResource("8_xccyk")
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("7_utp2y")
+size = 35
 start_items = Dictionary[ExtResource("8_25bbb"), int]({
 ExtResource("11_xccyk"): 5
 })
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Inventory" type="Panel" parent="HUD" node_paths=PackedStringArray("slots")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -244.0
-offset_right = 246.0
-offset_bottom = -28.0
-grow_vertical = 0
-theme = ExtResource("18_hy8lp")
-script = ExtResource("12_01b8d")
-slots = [NodePath("Slots/InventorySlot"), NodePath("Slots/InventorySlot2"), NodePath("Slots/InventorySlot3"), NodePath("Slots/InventorySlot4"), NodePath("Slots/InventorySlot5"), NodePath("Slots/InventorySlot6"), NodePath("Slots/InventorySlot7"), NodePath("Slots/InventorySlot8"), NodePath("Slots/InventorySlot9")]
+[node name="NewUI" parent="HUD" instance=ExtResource("21_uxymp")]
 
-[node name="Slots" type="GridContainer" parent="HUD/Inventory"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 6
-columns = 3
-
-[node name="InventorySlot" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot2" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot3" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot4" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot5" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot6" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot7" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot8" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
-
-[node name="InventorySlot9" parent="HUD/Inventory/Slots" instance=ExtResource("12_cueqf")]
-layout_mode = 2
+[node name="Inventory" parent="HUD/NewUI/InventoryScreen/MarginContainer/HBoxContainer/InventoryPanel" index="0" node_paths=PackedStringArray("slots")]
+slots = [NodePath("ScrollContainer/Slots/InventorySlot"), NodePath("ScrollContainer/Slots/InventorySlot2"), NodePath("ScrollContainer/Slots/InventorySlot3"), NodePath("ScrollContainer/Slots/InventorySlot4"), NodePath("ScrollContainer/Slots/InventorySlot5"), NodePath("ScrollContainer/Slots/InventorySlot6"), NodePath("ScrollContainer/Slots/InventorySlot7"), NodePath("ScrollContainer/Slots/InventorySlot8"), NodePath("ScrollContainer/Slots/InventorySlot9"), NodePath("ScrollContainer/Slots/InventorySlot10"), NodePath("ScrollContainer/Slots/InventorySlot11"), NodePath("ScrollContainer/Slots/InventorySlot12"), NodePath("ScrollContainer/Slots/InventorySlot13"), NodePath("ScrollContainer/Slots/InventorySlot14"), NodePath("ScrollContainer/Slots/InventorySlot15"), NodePath("ScrollContainer/Slots/InventorySlot16"), NodePath("ScrollContainer/Slots/InventorySlot17"), NodePath("ScrollContainer/Slots/InventorySlot18"), NodePath("ScrollContainer/Slots/InventorySlot19"), NodePath("ScrollContainer/Slots/InventorySlot20"), NodePath("ScrollContainer/Slots/InventorySlot21"), NodePath("ScrollContainer/Slots/InventorySlot22"), NodePath("ScrollContainer/Slots/InventorySlot23"), NodePath("ScrollContainer/Slots/InventorySlot24"), NodePath("ScrollContainer/Slots/InventorySlot25"), NodePath("ScrollContainer/Slots/InventorySlot26"), NodePath("ScrollContainer/Slots/InventorySlot27"), NodePath("ScrollContainer/Slots/InventorySlot28"), NodePath("ScrollContainer/Slots/InventorySlot29"), NodePath("ScrollContainer/Slots/InventorySlot30"), NodePath("ScrollContainer/Slots/InventorySlot31"), NodePath("ScrollContainer/Slots/InventorySlot32"), NodePath("ScrollContainer/Slots/InventorySlot33"), NodePath("ScrollContainer/Slots/InventorySlot34"), NodePath("ScrollContainer/Slots/InventorySlot35")]
 
 [node name="InteractPrompt" type="Label" parent="HUD"]
 anchors_preset = 8
@@ -1300,9 +1235,6 @@ offset_right = -0.16003418
 text = "Buy"
 label_settings = SubResource("LabelSettings_yt1oc")
 
-[node name="NewUI" parent="HUD" instance=ExtResource("21_uxymp")]
-visible = false
-
 [node name="Gold" type="Control" parent="HUD"]
 layout_mode = 3
 anchor_left = 0.0050000004
@@ -1427,45 +1359,6 @@ text = "This is where the NPC text will display when they are talking to the Pla
 label_settings = SubResource("LabelSettings_15c3i")
 autowrap_mode = 2
 
-[node name="ItemInfoPanel" type="Panel" parent="HUD"]
-offset_left = 993.0
-offset_top = 301.0
-offset_right = 1267.0
-offset_bottom = 405.0
-mouse_filter = 2
-theme = ExtResource("18_hy8lp")
-
-[node name="ItemName" type="Label" parent="HUD/ItemInfoPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.066
-anchor_top = 0.14400001
-anchor_right = 0.934
-anchor_bottom = 0.712
-offset_left = -0.083999634
-offset_top = 0.023999214
-offset_right = 0.083999634
-offset_bottom = -0.04800415
-grow_horizontal = 2
-text = "Item Name
-"
-label_settings = SubResource("LabelSettings_uxymp")
-
-[node name="ItemDescriptionText" type="Label" parent="HUD/ItemInfoPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.069000006
-anchor_top = 0.365
-anchor_right = 0.94900006
-anchor_bottom = 0.86500007
-offset_left = 0.093997955
-offset_top = 0.040000916
-offset_right = -0.026031494
-offset_bottom = 0.039993286
-grow_horizontal = 2
-grow_vertical = 0
-text = "Item description text displays the description of the item"
-label_settings = SubResource("LabelSettings_fepmq")
-autowrap_mode = 2
-
 [connection signal="timeout" from="InteractionController/CheckTimer" to="InteractionController" method="_check"]
+
+[editable path="HUD/NewUI"]
