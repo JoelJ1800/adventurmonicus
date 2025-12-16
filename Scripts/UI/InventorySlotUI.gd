@@ -37,7 +37,6 @@ func set_item_slot (item_slot:Inventory.ItemSlot,player:Player):
 func _on_pressed():
 	super._on_pressed()
 
-	# If dragging, ignore click logic
 	if is_dragging():
 		return
 
@@ -58,15 +57,23 @@ func _get_drag_data(_at_position: Vector2):
 	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	set_drag_preview(preview)
 
-	return self
+	return {
+		"source": self,
+		"item": item_slot.item
+	}
+
 
 func _can_drop_data(_at_position: Vector2, data) -> bool:
-	if data == self:
+	if not data is Dictionary:
 		return false
-	return data is InventorySlotUI
+	if not data.has("source"):
+		return false
+
+	return data.source is InventorySlotUI and data.source != self
+
 
 func _drop_data(_at_position: Vector2, data):
-	var source_slot_ui := data as InventorySlotUI
+	var source_slot_ui := data.source as InventorySlotUI
 	if not source_slot_ui:
 		return
 
@@ -76,8 +83,8 @@ func _drop_data(_at_position: Vector2, data):
 	if not source_slot or not target_slot:
 		return
 
-	# Swap the inventory data (MODEL, not UI)
 	player.inventory.swap_slots(source_slot, target_slot)
+
 
 
 func is_dragging() -> bool:

@@ -4,6 +4,8 @@ extends PanelContainer
 @onready var background: TextureRect = $Button
 @onready var slotIcon: TextureRect = $Button/SlotIcon
 var hover_sound:AudioStream = preload("res://Audio/UI/Button_Hover.ogg")
+var player : Player
+
 
 @export_enum (
 	"HELMET",
@@ -66,16 +68,31 @@ func _get_drag_data(_at_position: Vector2):
 	set_drag_preview(preview)
 	return equipped_item
 
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if data is not ItemData:
+func _can_drop_data(_at_position: Vector2, data) -> bool:
+	if not data is Dictionary:
 		return false
-	return data.equip_slot == slot_name
+	if not data.has("item"):
+		return false
+
+	var item = data.item
+	return item.equip_slot == slot_name
+	
+	
+
 
 func _drop_data(_at_position: Vector2, data):
-	if not _can_drop_data(_at_position, data):
+	var item = data.item
+	var source_ui = data.source as InventorySlotUI
+
+	if not item or not source_ui:
 		return
 
-	equip_item(data)
+	player.equipment.equip_from_inventory(
+		item,
+		source_ui.item_slot,
+		slot_name
+	)
+
 
 func equip_item(item: ItemData):
 	equipped_item = item

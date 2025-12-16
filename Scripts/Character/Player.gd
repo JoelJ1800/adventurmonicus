@@ -10,6 +10,8 @@ signal UpdatedGold(gold:int)
 var interaction_controller : InteractionController
 @onready var shop_ui : ShopUI = $HUD/ShopScreen
 
+@onready var inventory_ui : Panel = $HUD/NewUI
+
 var direction: Vector2
 var last_direction: Vector2
 @export var speed: int = 50
@@ -23,6 +25,8 @@ var move_state
 
 var gold : int = 0
 
+var can_attack = true
+
 func _ready() -> void:
 	if GameManager.player and GameManager.player != self:
 		queue_free()
@@ -33,6 +37,8 @@ func _ready() -> void:
 	
 	UpdatedGold.emit(gold)
 	
+	inventory_ui.visible = false
+	
 	GameManager.player = self
 	reparent.call_deferred(get_tree().root)
 
@@ -41,6 +47,7 @@ func _process(_delta: float) -> void:
 	
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	look_direction = global_position.direction_to(mouse_pos)
+	open_inventory()
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
@@ -58,7 +65,7 @@ func _physics_process(_delta: float) -> void:
 func get_input():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	if Input.is_action_just_pressed("attack") and not $AnimationTree.get("parameters/SwordOneShot/active"):
+	if Input.is_action_just_pressed("attack") and not $AnimationTree.get("parameters/SwordOneShot/active") and can_attack:
 		if move_state != "running" and move_state != "walking":
 			can_move = false
 		var attack_anim = get_attack_animation_name()
@@ -68,6 +75,14 @@ func get_input():
 		$AnimationTree.set("parameters/SwordOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		await get_tree().create_timer(0.5).timeout
 		can_move = true
+
+func open_inventory():
+	if Input.is_action_just_pressed("inventory"):
+		inventory_ui.visible = !inventory_ui.visible
+		can_move = !inventory_ui.visible
+		can_attack = !can_attack
+
+		
 
 func set_animation():
 	if direction.length() > 0 and move_state == "walking":
