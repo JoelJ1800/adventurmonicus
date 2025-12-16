@@ -85,3 +85,15 @@ func has_item(item: ItemData) -> bool:
 		if slot.item == item:
 			return true
 	return false
+
+func swap_slots(a: ItemSlot, b: ItemSlot) -> void:
+	var temp_item = a.item
+	var temp_quantity = a.quantity
+
+	a.item = b.item
+	a.quantity = b.quantity
+
+	b.item = temp_item
+	b.quantity = temp_quantity
+
+	UpdatedInventory.emit()

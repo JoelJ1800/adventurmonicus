@@ -1005,7 +1005,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 114
+frame = 110
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
@@ -1060,7 +1060,6 @@ ExtResource("11_xccyk"): 5
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Inventory" type="Panel" parent="HUD" node_paths=PackedStringArray("slots")]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1117,9 +1116,9 @@ layout_mode = 2
 
 [node name="ItemInfoPanel" type="Panel" parent="HUD"]
 offset_left = 33.0
-offset_top = 735.0
+offset_top = 730.0
 offset_right = 232.0
-offset_bottom = 824.0
+offset_bottom = 819.0
 mouse_filter = 2
 theme = ExtResource("18_hy8lp")
 
@@ -1337,6 +1336,7 @@ text = "Buy"
 label_settings = SubResource("LabelSettings_yt1oc")
 
 [node name="NewUI" parent="HUD" instance=ExtResource("21_uxymp")]
+visible = false
 
 [node name="Gold" type="Control" parent="HUD"]
 layout_mode = 3

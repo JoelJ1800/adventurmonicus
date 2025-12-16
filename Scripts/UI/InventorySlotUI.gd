@@ -36,10 +36,49 @@ func set_item_slot (item_slot:Inventory.ItemSlot,player:Player):
 
 func _on_pressed():
 	super._on_pressed()
-	
-	# return if no item
+
+	# If dragging, ignore click logic
+	if is_dragging():
+		return
+
 	if not item_slot or not item_slot.item:
 		return
-	
-	# Click on the item and then trigger whatever it does
+
 	item_slot.item._select_in_inventory(player, item_slot)
+
+
+func _get_drag_data(_at_position: Vector2):
+	if not item_slot or not item_slot.item:
+		return null
+
+	var preview := TextureRect.new()
+	preview.texture = item_slot.item.icon
+	preview.custom_minimum_size = Vector2(48, 48)
+	preview.expand = true
+	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	set_drag_preview(preview)
+
+	return self
+
+func _can_drop_data(_at_position: Vector2, data) -> bool:
+	if data == self:
+		return false
+	return data is InventorySlotUI
+
+func _drop_data(_at_position: Vector2, data):
+	var source_slot_ui := data as InventorySlotUI
+	if not source_slot_ui:
+		return
+
+	var source_slot := source_slot_ui.item_slot
+	var target_slot := item_slot
+
+	if not source_slot or not target_slot:
+		return
+
+	# Swap the inventory data (MODEL, not UI)
+	player.inventory.swap_slots(source_slot, target_slot)
+
+
+func is_dragging() -> bool:
+	return get_viewport().gui_is_dragging()

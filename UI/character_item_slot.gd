@@ -23,7 +23,8 @@ var slot_name = "HELMET":
 	set(value):
 		slot_name = value
 		update_stat_ui()
-	
+
+var equipped_item: ItemData = null
 
 
 func _ready() -> void:
@@ -48,9 +49,34 @@ func hover_on() -> void:
 	self.scale = Vector2(1.05,1.05)
 	background.modulate = Color(0.73,0.73,0.73,1)
 	AudioManager.play(hover_sound)
-	
 
 
 func hover_off() -> void:
 	self.scale = Vector2(1,1)
 	background.modulate = Color.WHITE
+
+func _get_drag_data(_at_position: Vector2):
+	if equipped_item == null:
+		return null
+
+	var preview := TextureRect.new()
+	preview.texture = equipped_item.icon
+	preview.custom_minimum_size = Vector2(48, 48)
+
+	set_drag_preview(preview)
+	return equipped_item
+
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	if data is not ItemData:
+		return false
+	return data.equip_slot == slot_name
+
+func _drop_data(_at_position: Vector2, data):
+	if not _can_drop_data(_at_position, data):
+		return
+
+	equip_item(data)
+
+func equip_item(item: ItemData):
+	equipped_item = item
+	slotIcon.texture = item.icon

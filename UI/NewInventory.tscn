@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdoogc86ulihp"]
+[gd_scene load_steps=19 format=3 uid="uid://cdoogc86ulihp"]
 
 [ext_resource type="Shader" uid="uid://banqsvs6b6164" path="res://UI/blur.gdshader" id="1_0mlsu"]
 [ext_resource type="Theme" uid="uid://drd1dois6agfp" path="res://UI/game.theme" id="1_dx7re"]
 [ext_resource type="Texture2D" uid="uid://0daq5jk4q5oi" path="res://UI/resources/c_full_header.png" id="2_5i75i"]
 [ext_resource type="Texture2D" uid="uid://bipoufo0i6i1d" path="res://UI/resources/character_example.png" id="3_hisjq"]
 [ext_resource type="PackedScene" uid="uid://c64pjakt5evyj" path="res://UI/character_item_slot.tscn" id="5_m5ugy"]
+[ext_resource type="FontFile" uid="uid://ly7qvmrvyw1h" path="res://UI/OLDSH___.TTF" id="10_rl314"]
 [ext_resource type="PackedScene" uid="uid://dsrswfhq5i5hc" path="res://UI/stat_item.tscn" id="14_4px1b"]
 [ext_resource type="Texture2D" uid="uid://fa8yudmgaj6g" path="res://UI/resources/mis_level_frame.png" id="15_4gp6n"]
 [ext_resource type="PackedScene" uid="uid://cu5o5xbasd1xp" path="res://Scenes/UI/inventory_slot.tscn" id="17_q5u07"]
@@ -43,6 +44,20 @@ font_size = 41
 font_color = Color(0.6862745, 0.5882353, 0.4392157, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.8039216)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e4wvc"]
+font = ExtResource("10_rl314")
+font_size = 20
+font_color = Color(0.99021035, 0.91500354, 0.6776955, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjog6"]
+line_spacing = 2.0
+font = ExtResource("10_rl314")
+font_color = Color(0.99763733, 0.9738192, 0.9013821, 1)
+shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-1, 1)
 
 [node name="Control" type="CanvasLayer"]
@@ -389,8 +404,8 @@ anchor_right = 0.975
 anchor_bottom = 0.97300005
 offset_left = -0.048000336
 offset_top = 0.114990234
-offset_right = 0.3499756
-offset_bottom = 0.32696533
+offset_right = 0.35003662
+offset_bottom = 0.32684326
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -504,3 +519,39 @@ layout_mode = 2
 
 [node name="InventorySlot35" parent="InventoryScreen/MarginContainer/HBoxContainer/InventoryPanel/ScrollContainer/GridContainer" instance=ExtResource("17_q5u07")]
 layout_mode = 2
+
+[node name="ItemInfoPanel" type="Panel" parent="InventoryScreen/MarginContainer/HBoxContainer/InventoryPanel"]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 301.0
+offset_right = 1192.0
+offset_bottom = 390.0
+mouse_filter = 2
+theme = ExtResource("1_dx7re")
+
+[node name="ItemName" type="Label" parent="InventoryScreen/MarginContainer/HBoxContainer/InventoryPanel/ItemInfoPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "Item Name
+"
+label_settings = SubResource("LabelSettings_e4wvc")
+
+[node name="ItemDescriptionText" type="Label" parent="InventoryScreen/MarginContainer/HBoxContainer/InventoryPanel/ItemInfoPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Item description text displays the description of the item"
+label_settings = SubResource("LabelSettings_kjog6")
+autowrap_mode = 2
