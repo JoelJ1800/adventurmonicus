@@ -64,11 +64,11 @@ var SLOTS = {
 		"icon": "res://UI/resources/cw_item_example_offhand.png",
 		"tooltip": "Offhand"
 	},
-	"MAGIC1":{
-		"icon": "res://UI/resources/cw_item_example_rune.png",
-		"tooltip": "Rune"
+	"AMMO":{
+		"icon": "res://UI/resources/arrowIcon.png",
+		"tooltip": "Ammo"
 	},
-	"MAGIC2":{
+	"MAGIC":{
 		"icon":"res://UI/resources/cw_item_example_rune2.png",
 		"tooltip": "Rune"
 	},

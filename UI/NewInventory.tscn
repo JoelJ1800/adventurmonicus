@@ -240,7 +240,7 @@ offset_right = 0.06298828
 offset_bottom = 0.42797852
 slot_name = "RING2"
 
-[node name="ItemSlotMagic1" parent="InventoryScreen/MarginContainer/HBoxContainer/CharacterPanel" instance=ExtResource("5_m5ugy")]
+[node name="ItemSlotAmmo" parent="InventoryScreen/MarginContainer/HBoxContainer/CharacterPanel" instance=ExtResource("5_m5ugy")]
 layout_mode = 1
 anchor_left = 0.605
 anchor_top = 0.14400001
@@ -250,7 +250,7 @@ offset_left = 0.13497925
 offset_top = 0.2559967
 offset_right = -0.18902588
 offset_bottom = 0.4229889
-slot_name = "MAGIC1"
+slot_name = "AMMO"
 
 [node name="ItemSlotMagic2" parent="InventoryScreen/MarginContainer/HBoxContainer/CharacterPanel" instance=ExtResource("5_m5ugy")]
 layout_mode = 1
@@ -262,7 +262,7 @@ offset_left = 0.009994507
 offset_top = 0.2559967
 offset_right = -0.31402588
 offset_bottom = 0.4229889
-slot_name = "MAGIC2"
+slot_name = "MAGIC"
 
 [node name="Seperator" type="Panel" parent="InventoryScreen/MarginContainer/HBoxContainer/CharacterPanel"]
 modulate = Color(1, 1, 1, 0.50980395)

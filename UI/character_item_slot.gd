@@ -14,8 +14,8 @@ var hover_sound:AudioStream = preload("res://Audio/UI/Button_Hover.ogg")
 	"GLOVES",
 	"MAINHAND",
 	"OFFHAND",
-	"MAGIC1",
-	"MAGIC2",
+	"AMMO",
+	"MAGIC",
 	"RING1",
 	"RING2"
 )
@@ -42,6 +42,7 @@ func update_stat_ui():
 	
 	self.tooltip_text = slot_data.tooltip
 	slotIcon.texture = load(slot_data.icon)
+	print(slot_data.icon)
 
 func hover_on() -> void:
 	self.scale = Vector2(1.05,1.05)
