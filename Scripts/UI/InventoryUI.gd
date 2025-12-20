@@ -3,7 +3,7 @@ extends Panel
 
 @export var slots : Array[InventorySlotUI]
 @onready var inventory : Inventory = $"../../../../../../../Inventory"
-@onready var player : Player = $"../../../../../../.."
+@onready var player = get_tree().get_first_node_in_group("Player")
 @onready var info_panel : Panel = $"../ItemInfoPanel"
 @onready var info_panel_name : Label = $"../ItemInfoPanel/ItemName"
 @onready var info_panel_description : Label = $"../ItemInfoPanel/ItemDescriptionText"

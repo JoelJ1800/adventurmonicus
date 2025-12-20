@@ -23,7 +23,7 @@ const RUN_SPEED_THRESHOLD = 160.0
 
 var move_state 
 
-var gold : int = 0
+var gold : int = 100
 
 var can_attack = true
 

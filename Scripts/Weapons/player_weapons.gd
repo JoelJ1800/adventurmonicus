@@ -36,3 +36,16 @@ func _on_updated_inventory_slot (slot : Inventory.ItemSlot):
 	if slot == shield_inventory_slot and not slot.item:
 		unequip_shield()
 		weapon_inventory_slot = null
+
+func equip_item_from_inventory(
+	item: ItemData,
+	inventory_slot: Inventory.ItemSlot,
+	slot_name: String
+):
+	match slot_name:
+		"MAINHAND":
+			weapon_inventory_slot = inventory_slot
+			equip_weapon(item)
+		"OFFHAND":
+			shield_inventory_slot = inventory_slot
+			equip_shield(item)
