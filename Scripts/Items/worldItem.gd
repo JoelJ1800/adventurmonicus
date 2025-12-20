@@ -18,25 +18,23 @@ func _ready():
 		queue_free()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# item bobbing
 	var time: float = Time.get_unix_time_from_system()
 	var offset: float = sin(time * bob_speed) * bob_amount
 	sprite.position.y = offset
 
 
-func set_item(item: ItemData):
-	self.item = item
+func set_item(item_signal: ItemData):
+	self.item = item_signal
 	$Sprite2D.texture = item.icon
 
 
 func _on_body_entered(body):
 	if not body.is_in_group("Player"):
 		return
-
 	var picked_up = body.inventory.add_item(item)
 	if not picked_up:
 		return
-
 	AudioManager.play(pickup_sound)
 	queue_free()

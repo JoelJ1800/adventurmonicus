@@ -137,5 +137,5 @@ func is_position_free(pos: Vector2, taken_positions: Array) -> bool:
 	return true
 
 
-func _on_defeat_enemy(enemy):
+func _on_defeat_enemy(_enemy):
 	pass
