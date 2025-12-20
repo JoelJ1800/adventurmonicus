@@ -1,88 +1,88 @@
 extends Node
 
+signal scene_changed()
+
 var player: Player
 var camera: Camera2D
-var brdge_built:bool = false
-
+var brdge_built: bool = false
 var STATS := {
 	"DMG": {
 		"icon": "res://UI/resources/dmg_icon.png",
 		"max_value": null,
-		"tooltip": "Damage"
+		"tooltip": "Damage",
 	},
 	"DEF": {
 		"icon": "res://UI/resources/deff_icon.png",
 		"max_value": null,
-		"tooltip": "Defense"
+		"tooltip": "Defense",
 	},
 	"SPEED": {
 		"icon": "res://UI/resources/speed_icon.png",
 		"max_value": 100,
-		"tooltip": "Speed"
+		"tooltip": "Speed",
 	},
 	"SP.DMG": {
 		"icon": "res://UI/resources/sp_dmg.png",
 		"max_value": null,
-		"tooltip": "Special Damage"
+		"tooltip": "Special Damage",
 	},
 	"SP.DEF": {
 		"icon": "res://UI/resources/sp_deff_icon.png",
 		"max_value": 100,
-		"tooltip": "Special Defense"
-	}
+		"tooltip": "Special Defense",
+	},
 }
 var SLOTS = {
-	"HELMET":{
+	"HELMET": {
 		"icon": "res://UI/resources/cw_item_example_helmet.png",
-		"tooltip": "Helmet"
+		"tooltip": "Helmet",
 	},
-	"CHEST":{
+	"CHEST": {
 		"icon": "res://UI/resources/cw_item_example_chest.png",
-		"tooltip": "Chestpiece"
+		"tooltip": "Chestpiece",
 	},
-	"BELT":{
+	"BELT": {
 		"icon": "res://UI/resources/cw_item_example_belt.png",
-		"tooltip": "Belt"
+		"tooltip": "Belt",
 	},
-	"BOOTS":{
+	"BOOTS": {
 		"icon": "res://UI/resources/cw_item_example_boots.png",
-		"tooltip": "Boots"
-		},
-	"BRACER":{
+		"tooltip": "Boots",
+	},
+	"BRACER": {
 		"icon": "res://UI/resources/cw_item_example_bracer.png",
-		"tooltip": "Bracers"
+		"tooltip": "Bracers",
 	},
-	"GLOVES":{
+	"GLOVES": {
 		"icon": "res://UI/resources/cw_item_example_gloves.png",
-		"tooltip": "Gloves"
+		"tooltip": "Gloves",
 	},
-	"MAINHAND":{
+	"MAINHAND": {
 		"icon": "res://UI/resources/cw_item_example_mainhand.png",
-		"tooltip": "Main Weapon"
+		"tooltip": "Main Weapon",
 	},
-	"OFFHAND":{
+	"OFFHAND": {
 		"icon": "res://UI/resources/cw_item_example_offhand.png",
-		"tooltip": "Offhand"
+		"tooltip": "Offhand",
 	},
-	"AMMO":{
+	"AMMO": {
 		"icon": "res://UI/resources/arrowIcon.png",
-		"tooltip": "Ammo"
+		"tooltip": "Ammo",
 	},
-	"MAGIC":{
-		"icon":"res://UI/resources/cw_item_example_rune2.png",
-		"tooltip": "Rune"
+	"MAGIC": {
+		"icon": "res://UI/resources/cw_item_example_rune2.png",
+		"tooltip": "Rune",
 	},
-	"RING1":{
+	"RING1": {
 		"icon": "res://UI/resources/cw_item_example_finger.png",
-		"tooltip": "Ring"
+		"tooltip": "Ring",
 	},
-	"RING2":{
+	"RING2": {
 		"icon": "res://UI/resources/cw_item_example_finger.png",
-		"tooltip": "Ring"
-	}
+		"tooltip": "Ring",
+	},
 }
 
-signal scene_changed()
 
 func start_game():
 	# Load the initial overworld scene
@@ -110,6 +110,7 @@ func start_game():
 	camera.global_position = player.global_position
 	scene_changed.emit("res://Scenes/NewOverwerld/overworld_2.tscn")
 
+
 func change_scene(scene: PackedScene, player_position: Vector2):
 	# move persistent nodes to root to avoid being freed
 	for node in [player, camera]:
@@ -130,8 +131,10 @@ func change_scene(scene: PackedScene, player_position: Vector2):
 	camera.global_position = player_position
 	overworld.move_child(player, overworld.get_child_count() - 1)
 
+
 func play_game():
 	start_game()
+
 
 func game_over():
 	player.queue_free()

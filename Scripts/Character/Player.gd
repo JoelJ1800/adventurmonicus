@@ -1,53 +1,52 @@
 class_name Player
 extends Character
 
-signal UpdatedGold(gold:int)
-@onready var move_state_machine:  AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/MoveStateMachine/playback")
-@onready var sword_state_machine:  AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/SwordStateMachine/playback")
+signal UpdatedGold(gold: int)
 
-@onready var inventory:Inventory = $Inventory
-@onready var dialogue_controller : DialogueController = $DialogueController
-var interaction_controller : InteractionController
-@onready var shop_ui : ShopUI = $HUD/ShopScreen
-
-@onready var inventory_ui : Panel = $HUD/NewUI
-
-var direction: Vector2
-var last_direction: Vector2
-@export var speed: int = 50
-@export var sprint_speed: int = 100
-@export var tool_offset:= 20
-var building:= false
 const WALK_SPEED_THRESHOLD = 80.0
 const RUN_SPEED_THRESHOLD = 160.0
 
-var move_state 
+@export var speed: int = 50
+@export var sprint_speed: int = 100
+@export var tool_offset := 20
 
-var gold : int = 100
-
+var interaction_controller: InteractionController
+var direction: Vector2
+var last_direction: Vector2
+var building := false
+var move_state
+var gold: int = 100
 var can_attack = true
+
+@onready var move_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/MoveStateMachine/playback")
+@onready var sword_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/SwordStateMachine/playback")
+@onready var inventory: Inventory = $Inventory
+@onready var dialogue_controller: DialogueController = $DialogueController
+@onready var shop_ui: ShopUI = $HUD/ShopScreen
+@onready var inventory_ui: Panel = $HUD/NewUI
+
 
 func _ready() -> void:
 	if GameManager.player and GameManager.player != self:
 		queue_free()
 		return
-	
+
 	var gold_ui = $HUD/Gold/GoldText
 	UpdatedGold.connect(gold_ui._on_updated_gold)
-	
+
 	UpdatedGold.emit(gold)
-	
+
 	inventory_ui.visible = false
-	
+
 	GameManager.player = self
 	reparent.call_deferred(get_tree().root)
 
 
 func _process(_delta: float) -> void:
-	
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	look_direction = global_position.direction_to(mouse_pos)
 	open_inventory()
+
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
@@ -62,9 +61,10 @@ func _physics_process(_delta: float) -> void:
 	get_move_state()
 	move_and_slide()
 
+
 func get_input():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
+
 	if Input.is_action_just_pressed("attack") and not $AnimationTree.get("parameters/SwordOneShot/active") and can_attack:
 		if move_state != "running" and move_state != "walking":
 			can_move = false
@@ -76,13 +76,13 @@ func get_input():
 		await get_tree().create_timer(0.5).timeout
 		can_move = true
 
+
 func open_inventory():
 	if Input.is_action_just_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
 		can_move = !inventory_ui.visible
 		can_attack = !can_attack
 
-		
 
 func set_animation():
 	if direction.length() > 0 and move_state == "walking":
@@ -98,6 +98,7 @@ func set_animation():
 	else:
 		move_state_machine.travel('Idle')
 
+
 func get_move_state():
 	var current_speed := velocity.length()
 	if current_speed < 5:
@@ -106,6 +107,7 @@ func get_move_state():
 		move_state = "walking"
 	else:
 		move_state = "running"
+
 
 func get_attack_animation_name() -> String:
 	match move_state:
@@ -118,14 +120,13 @@ func get_attack_animation_name() -> String:
 		_:
 			return "IdleAttack"
 
+
 func wait_for_oneshot():
 	while $AnimationTree.get("parameters/SwordOneShot/active"):
 		await get_tree().process_frame
-		
-func _die():
-	GameManager.game_over()
 
-func toggle_usability (toggle:bool):
+
+func toggle_usability(toggle: bool):
 	can_move = toggle
 	weapons.can_use = toggle
 	if not interaction_controller:
@@ -135,10 +136,16 @@ func toggle_usability (toggle:bool):
 	else:
 		interaction_controller.disable()
 
-func give_gold (amount : int):
+
+func give_gold(amount: int):
 	gold += amount
 	UpdatedGold.emit(gold)
 
-func take_gold (amount : int):
+
+func take_gold(amount: int):
 	gold -= amount
 	UpdatedGold.emit(gold)
+
+
+func _die():
+	GameManager.game_over()

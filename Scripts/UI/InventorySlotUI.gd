@@ -1,17 +1,17 @@
 class_name InventorySlotUI
 extends GameButton
 
+var item_slot: Inventory.ItemSlot
+var player: Player
+
 @onready var item_icon: TextureRect = $ItemIcon
 @onready var quantity_text: Label = $QuantityText
 @onready var equipped: TextureRect = $Equipped
 
-var item_slot: Inventory.ItemSlot
-var player: Player
 
-
-func set_item_slot(item_slot: Inventory.ItemSlot, player: Player):
-	self.item_slot = item_slot
-	self.player = player
+func set_item_slot(item_slot_signal: Inventory.ItemSlot, player_signal: Player):
+	self.item_slot = item_slot_signal
+	self.player = player_signal
 	var is_equipped: bool = false
 	if player.weapons.weapon_inventory_slot == item_slot:
 		is_equipped = true
@@ -43,6 +43,10 @@ func set_item_slot(item_slot: Inventory.ItemSlot, player: Player):
 	#return
 	#
 	#item_slot.item._select_in_inventory(player, item_slot)
+
+
+func is_dragging() -> bool:
+	return get_viewport().gui_is_dragging()
 
 
 func _get_drag_data(_at_position: Vector2):
@@ -78,6 +82,3 @@ func _drop_data(_at_position: Vector2, data):
 	if not source_slot or not target_slot:
 		return
 	player.inventory.swap_slots(source_slot, target_slot)
-
-func is_dragging() -> bool:
-	return get_viewport().gui_is_dragging()

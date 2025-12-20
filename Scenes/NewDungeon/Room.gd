@@ -15,13 +15,13 @@ enum Direction {
 @export var spawn_radius := 80.0
 @export var enemy_radius := 7.0
 
+var enemies_in_room: int
+
 @onready var entrance_north: RoomEntrance = $Overworld/EntranceNorth
 @onready var entrance_south: RoomEntrance = $Overworld/EntranceSouth
 @onready var entrance_east: RoomEntrance = $Overworld/EntranceEast
 @onready var entrance_west: RoomEntrance = $Overworld/EntranceWest
 @onready var enemy_spawns = $EnemySpawns
-
-var enemies_in_room: int
 
 
 func _ready():
@@ -63,10 +63,6 @@ func player_enter(entry_direction: Direction, player: CharacterBody2D, first_roo
 		open_doors()
 
 	spawn_enemies.call_deferred(player.global_position)
-
-
-func _on_defeat_enemy(enemy):
-	pass
 
 
 func open_doors():
@@ -139,3 +135,7 @@ func is_position_free(pos: Vector2, taken_positions: Array) -> bool:
 		if p.distance_to(pos) < enemy_radius * 2.0:
 			return false
 	return true
+
+
+func _on_defeat_enemy(enemy):
+	pass

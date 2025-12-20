@@ -1,12 +1,8 @@
 class_name CharacterItemSlot
 extends PanelContainer
 
-@onready var background: TextureRect = $Button
-@onready var slotIcon: TextureRect = $Button/SlotIcon
-@onready var player = get_tree().get_first_node_in_group("Player")
 var hover_sound: AudioStream = preload("res://Audio/UI/Button_Hover.ogg")
 var equipped_inventory_slot: Inventory.ItemSlot = null
-
 @export_enum(
 	"HELMET",
 	"CHEST",
@@ -25,8 +21,11 @@ var slot_name = "HELMET":
 	set(value):
 		slot_name = value
 		update_stat_ui()
-
 var equipped_item: ItemData = null
+
+@onready var background: TextureRect = $Button
+@onready var slotIcon: TextureRect = $Button/SlotIcon
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 
 func _ready() -> void:
@@ -58,6 +57,19 @@ func hover_on() -> void:
 func hover_off() -> void:
 	self.scale = Vector2(1, 1)
 	background.modulate = Color.WHITE
+
+
+func equip_item(item: ItemData):
+	equipped_item = item
+	slotIcon.texture = item.icon
+
+
+func set_equipped_slot(slot: Inventory.ItemSlot):
+	equipped_inventory_slot = slot
+	if slot == null or slot.item == null:
+		slotIcon.texture = load(GameManager.SLOTS[slot_name].icon)
+		return
+	slotIcon.texture = slot.item.icon
 
 
 func _get_drag_data(_at_position: Vector2):
@@ -92,16 +104,3 @@ func _drop_data(_pos, data):
 	)
 	# Update this slot visually
 	set_equipped_slot(source_ui.item_slot)
-
-
-func equip_item(item: ItemData):
-	equipped_item = item
-	slotIcon.texture = item.icon
-
-
-func set_equipped_slot(slot: Inventory.ItemSlot):
-	equipped_inventory_slot = slot
-	if slot == null or slot.item == null:
-		slotIcon.texture = load(GameManager.SLOTS[slot_name].icon)
-		return
-	slotIcon.texture = slot.item.icon

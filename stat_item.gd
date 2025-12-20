@@ -1,23 +1,25 @@
 class_name StatPanelItem
 extends Panel
 
-@onready var icon_texture: TextureRect = $StatIcon
-@onready var name_label: RichTextLabel = $StatText
-
 @export_enum(
 	"DMG",
 	"DEF",
 	"SPEED",
 	"SP.DMG",
-	"SP.DEF"
+	"SP.DEF",
 )
 var stat_name: String = "DMG":
 	set(value):
 		stat_name = value
 		update_stat_ui()
 
+@onready var icon_texture: TextureRect = $StatIcon
+@onready var name_label: RichTextLabel = $StatText
+
+
 func _ready():
 	call_deferred("update_stat_ui")
+
 
 func update_stat_ui():
 	if not GameManager.STATS.has(stat_name):
@@ -36,6 +38,7 @@ func update_stat_ui():
 
 	# Auto-fit text
 	_set_fitting_text(stat_name + " :     ")
+
 
 # ------------------------------
 # Auto-resize helper

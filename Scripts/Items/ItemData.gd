@@ -6,8 +6,9 @@ extends Resource
 @export var max_stack_size: int = 1
 @export var icon: Texture
 @export var equip_scene: PackedScene
+@export var base_price: int
 
-@export_enum (
+@export_enum(
 	"HELMET",
 	"CHEST",
 	"BELT",
@@ -20,13 +21,12 @@ extends Resource
 	"MAGIC2",
 	"RING1",
 	"RING2",
-	"NULL"
+	"NULL",
 )
-var equip_slot:= "HELMET":
+var equip_slot := "HELMET":
 	set(value):
 		equip_slot = value
 
-@export var base_price: int
 
-func _select_in_inventory (player:Player, item_slot: Inventory.ItemSlot):
+func _select_in_inventory(_player: Player, _item_slot: Inventory.ItemSlot):
 	pass

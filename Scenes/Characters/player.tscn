@@ -990,7 +990,7 @@ damaged_sound = ExtResource("2_xo8ps")
 texture = ExtResource("3_15c3i")
 hframes = 24
 vframes = 16
-frame = 111
+frame = 113
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yt1oc")
